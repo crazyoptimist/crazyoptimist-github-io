@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Crazy Optimist</title>
+    <link>https://www.crazyoptimist.net/</link>
+    <description>Recent content on Crazy Optimist</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="https://www.crazyoptimist.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>https://www.crazyoptimist.net/about/</link>
+      <pubDate>Sat, 19 Sep 2020 20:42:31 -0500</pubDate>
+      
+      <guid>https://www.crazyoptimist.net/about/</guid>
+      <description>I am a Software Engineer Languages: Javascript/Typescript(Node.js | Deno), Python, Ruby, Go, Elixir, Rust, Shell Script, SQL, Java, PHP
+Frameworks: Express/Koa, Hapi, Loopback, Flask, Django, Rails, Gin Gonic, Phoenix, Rocket, Actix, Spring Boot, Laravel Vue, React
+Tools: Vim, Git, Docker, Jira, Trello, Slack, Jenkins, CircleCI/Travis CI/GitLab CI, Kubernetes, Terraform, Ansible, Swarm, Puppet, Swagger, Figma
+Platforms: AWS, GCP, Azure, Linux (CentOS/Ubuntu/Arch/Kali)
+Databases: MongoDB, PostgreSQL, MySQL, SQLite
+Focuses on: Paradigms, Design Patterns, Project Management, Building Extraordinary Team Cultures, Lifelong Learning</description>
+    </item>
+    
+  </channel>
+</rss>
