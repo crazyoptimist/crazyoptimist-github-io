@@ -4,7 +4,7 @@ date: 2019-11-03T21:11:08-05:00
 categories: ["server"]
 ---
 {{< figure src="/images/2019/webmin-login.png" caption="Webmin Login Screen" >}}
-First off, access to the server via ssh with root. <br />
+First off, access to the server via ssh with root.\
 Install dependencies with this command:
 ```bash
 yum -y install wget perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect perl-Data-Dumper unzip
@@ -33,7 +33,7 @@ Install Webmin:
 ```bash
 rpm -Uvh webmin-current.rpm
 ```
-If you installed firewall on the server, you should allow Webmin in the firewall. Otherwise, you are all set! <br />
-Open your browser and hit your server hostname `http://your-hostname:10000` <br />
-Assumed that you already know how to configure systemd service enable & start, as well as your firewall. <br />
+If you installed firewall on the server, you should allow Webmin in the firewall. Otherwise, you are all set!\
+Open your browser and hit your server hostname `http://your-hostname:10000`\
+Assumed that you already know how to configure systemd service enable & start, as well as your firewall.\
 Feel free to ask if you got any troubles. Thanks for reading! 😀
