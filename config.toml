@@ -1,4 +1,4 @@
-baseurl = "https://www.crazyoptimist.net"
+baseurl = "https://crazyoptimist.net"
 title = "Crazy Optimist"
 theme = "hugo-coder"
 languagecode = "en"
