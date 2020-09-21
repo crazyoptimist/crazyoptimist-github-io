@@ -1,4 +1,5 @@
-baseurl = "https://crazyoptimist.net"
+#baseurl = "https://crazyoptimist.net"
+relativeURLs = true
 title = "Crazy Optimist"
 theme = "hugo-coder"
 languagecode = "en"
