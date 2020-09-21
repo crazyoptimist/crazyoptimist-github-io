@@ -50,7 +50,7 @@ pygmentscodefencesguesssyntax = true
     url = "https://github.com/CrazyOptimist/"
 [[params.social]]
     name = "Gitlab"
-    icon = "fab fa-gitlab"
+    icon = "fab fa-gitlab fa-2x"
     weight = 2
     url = "https://gitlab.com/dockerlead/"
 [[params.social]]
