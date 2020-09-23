@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   firebase-deploy: azdevs/firebase-deploy@1.0.0
-  hugo: circleci/hugo@0.1.0
+  hugo: circleci/hugo@1.0.0
 
 jobs:
   build:
