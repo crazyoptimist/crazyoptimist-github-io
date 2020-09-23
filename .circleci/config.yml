@@ -6,12 +6,16 @@ orbs:
 jobs:
   build:
     executor:
-      name: hugo/cibuilds
+      name: hugo/build
     steps:
       - checkout
+      - run:
+          command:
+              pwd && echo "heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeey"
       - hugo/install:
           version: 0.75.1
-      - hugo/hugo-build
+      - hugo/hugo-build:
+          extra-flags: '--gc --minify'
       - persist_to_workspace:
           root: ~/project
           paths:
@@ -31,7 +35,6 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      - build
       - deploy:
           requires:
             - build
