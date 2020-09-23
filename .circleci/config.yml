@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cibuild/hugo
+      - image: cibuilds/hugo
     steps:
       - checkout
       - run:
