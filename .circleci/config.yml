@@ -1,0 +1,37 @@
+version: 2.1
+orbs:
+  firebase-deploy: azdevs/firebase-deploy@1.0.0
+  hugo: circleci/hugo@0.1.0
+
+jobs:
+  build:
+    executor:
+      name: hugo/cibuilds
+    steps:
+      - checkout
+      - hugo/install:
+          version: 0.75.1
+      - hugo/hugo-build
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - public
+            - resources
+
+  deploy:
+    docker:
+      - image: 'circleci/node:lts'
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - firebase-deploy/deploy:
+          token: '$FIREBASE_TOKEN'
+          alias: 'crazyoptimist-net'
+workflows:
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
