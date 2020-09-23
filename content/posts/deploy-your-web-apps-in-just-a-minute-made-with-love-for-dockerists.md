@@ -52,9 +52,7 @@ rm *.sh *.key
 
 echo -e "\e[32mPlease reboot your machine .. \e[0m"
 ```
-You can also get the latest version of this script from my gist anytime.  
-{{< gist crazyoptimist 4654624f10da68f62b183c82fa717176 >}}
-
+You can also get the latest version of this script from [my gist](https://gist.github.com/CrazyOptimist/4654624f10da68f62b183c82fa717176#file-bionic-focal-web-setup-sh) anytime.  
 Happy containerizing gents! 😎
 
 {{< youtube b0k21VqL2PQ >}}

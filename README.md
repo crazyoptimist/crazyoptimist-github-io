@@ -8,4 +8,4 @@ Thanks to the author and all the contributors of [hugo-coder](https://github.com
 sh build.sh
 ```
 Configure your nginx to serve static files in the **public** directory which is the build artifacts.  
-That's it.
+That's it.😎
