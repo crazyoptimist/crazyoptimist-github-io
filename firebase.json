@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "site": "crazyoptimist-net",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*"
+    ]
+  }
+}

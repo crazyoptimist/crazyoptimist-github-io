@@ -1,2 +1,5 @@
 # Build Artifacts
 /public
+# Firebase Deploy Stuff
+.firebase/
+.firebaserc
