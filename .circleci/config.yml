@@ -5,8 +5,8 @@ orbs:
 
 jobs:
   build:
-    executor:
-      name: hugo/build
+    docker:
+      - image: cibuild/hugo
     steps:
       - checkout
       - run:
@@ -35,6 +35,7 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
+      - build
       - deploy:
           requires:
             - build
