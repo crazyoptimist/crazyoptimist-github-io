@@ -1,5 +1,5 @@
 ---
-title: "How to Install the Latest Version of Nginx on Ubuntu Bionic"
+title: "How to Install The Latest Version of Nginx on Ubuntu Bionic"
 date: 2020-04-07T00:52:18-05:00
 categories: ["devops"]
 ---
