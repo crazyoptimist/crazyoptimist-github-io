@@ -1,5 +1,9 @@
 # Build Artifacts
 /public
+/public/
+/resources/_gen/
+hugo_stats.json
 # Firebase Deploy Stuff
 .firebase/
 .firebaserc
+

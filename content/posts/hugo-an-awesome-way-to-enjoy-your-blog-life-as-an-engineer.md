@@ -9,7 +9,7 @@ Just wanted to share the full path how I got it done, which was not a piece of c
 There are tons of good materials explaining how to blog with hugo, install hugo themes, etc. I'm just going to mention about the road blockers I met during this migration.  
 ***
 When you run the `hugo server` command on your local machine, it seems working flawlessly, but the first thing you may stuck when you try to deploy it to the cloud is `baseURL` in the hugo config file.  
-Here is my config file, part of it exactly:
+Here is my config file, a part of it exactly:
 ```toml
 relativeURLs = true
 title = "Crazy Optimist"
@@ -36,7 +36,7 @@ Here is my firebase.json file:
   "hosting": {
     //site name in firebase
     "site": "crazyoptimist-net",
-    //web root path, it's ./public in hugo, you know
+    //build artifacts dir, ./public in hugo, you know, it will be the web root on the fly
     "public": "public",
     "ignore": [
       //do not bundle these files to upload
@@ -49,6 +49,7 @@ Here is my firebase.json file:
 
 Here is the list of firebase cli commands used:
 ```bash
+# normal login
 firebase login
 # just a normal deploy scenario for firebase
 firebase deploy --only hosting:crazyoptimist-net
