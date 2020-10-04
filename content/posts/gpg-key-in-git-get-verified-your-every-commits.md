@@ -3,6 +3,7 @@ title: "GPG Key in Git - Get Verified Your Every Commits"
 date: 2020-10-04T14:40:59-05:00
 categories: ["devops"]
 ---
+This article is based on the contents of the [Github's documentation](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/managing-commit-signature-verification).  
 You will get your own verified badge on every git commits once you configure your GPG key with your VCS.  
 First things first, check your gpg version using this command:  
 ```bash
@@ -23,13 +24,14 @@ gpg --list-secret-keys --keyid-format LONG
 ```
 You should see results looking like this:
 ```bash
-/Users/hubot/.gnupg/secring.gpg
-------------------------------------
-sec   4096R/AA4FC34371563EAD 2020-10-10 [expires: 2021-10-10]
-uid                          Hubot 
-ssb   4096R/CCB717FD4BA8AA47 2020-10-10
+/home/crazyoptimist/.gnupg/pubring.kbx
+-------------------------------
+sec   rsa4096/C82530CF298B7FD4 2020-10-04 [SC]
+      BD47472FAE42F276ACAD1E44C82530CF298B7FD4
+uid                 [ultimate] CrazyOptimist (Crazy Optimist) <crazyoptimist@mail.com>
+ssb   rsa4096/86DE9F8D3D5B068D 2020-10-04 [E]
 ```
-In the above example, **AA4FC34371563EAD** is your GPG key **ID**.  
+In the above example, **C82530CF298B7FD4** is your GPG key **ID**.  
 Use this command to retrieve your GPG key:  
 ```bash
 gpg --armor --export YOUR_GPG_KEY_ID
@@ -47,5 +49,5 @@ Finally, add this line to your `.bashrc` or to any other of your auto-loaded dot
 ```bash
 export GPG_TTY=$(tty)
 ```
-Boom! You did it!  
+Hooray! You did it!
 Happy coding gents! 😎
