@@ -9,7 +9,7 @@ First things first, check your gpg version using this command:
 ```bash
 gpg --version
 ```
-Allow me assume that you are on version 2.1.17 or greater.  
+Allow me to assume that you are on version 2.1.17 or greater.  
 Use this command to generate a GPG key:
 ```bash
 gpg --full-generate-key
@@ -44,6 +44,11 @@ Now, use this commands to tell your git to sign every commits with GPG key to ge
 ```bash
 git config --global user.signingkey YOUR_GPG_KEY_ID
 git config --global commit.gpgsign true
+```
+The second line will force you to sign every commits on your machine.  
+If you do not like it for some reason, skip the line and use -S tag instead, whenever you commit with signature.  
+```bash
+git commit -S -m "YOUR_COMMIT_MESSAGE"
 ```
 Finally, add this line to your `.bashrc` or to any other of your auto-loaded dot files like `.bash_profile`, `.profile`.  
 ```bash
