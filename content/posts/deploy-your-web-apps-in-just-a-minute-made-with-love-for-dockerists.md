@@ -11,7 +11,6 @@ Note: This is just for Ubuntu Bionic/Focal. Buzz me anytime in case you want to 
 <br />
 ```bash
 #!/bin/bash
-set -e  # will stop running the script in case of any error
 # upgrades the system
 sudo apt-get update && sudo apt-get upgrade -y
 
