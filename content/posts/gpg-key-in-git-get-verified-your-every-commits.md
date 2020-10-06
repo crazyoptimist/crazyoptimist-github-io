@@ -2,6 +2,7 @@
 title: "GPG Key in Git - Get Verified Your Every Commits"
 date: 2020-10-04T14:40:59-05:00
 categories: ["devops"]
+featured_image: "/images/2020/gpg-signed-commit.jpg"
 ---
 This article is based on the contents of the [Github's documentation](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/managing-commit-signature-verification).  
 You will get your own verified badge on every git commits once you configure your GPG key with your VCS.  
