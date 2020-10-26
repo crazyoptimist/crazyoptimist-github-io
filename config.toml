@@ -1,5 +1,5 @@
-baseurl = "https://crazyoptimist.net"
-#relativeurls = true
+#baseurl = "https://crazyoptimist.net"
+relativeurls = true
 title = "Crazy Optimist"
 author = "Crazy Optimist"
 copyright = "Copyright @ 2019-2020, Crazy Optimist; all rights reserved."

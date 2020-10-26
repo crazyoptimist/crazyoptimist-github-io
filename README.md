@@ -4,4 +4,4 @@
 
 ### Thanks
 Thanks to the creators of [HUGO](https://gohugo.io/) and the awesome [Golang](https://golang.org/) Language!  
-Thanks to the author and all the contributors of [hugo-coder](https://github.com/luizdepra/hugo-coder) theme!
+Thanks to the author and all the contributors of [hugo-clarity](https://github.com/chipzoller/hugo-clarity) theme!
