@@ -2,7 +2,8 @@
 title: "How to Make a Swap Space Using a Swap File in Linux"
 date: 2020-10-06T21:43:07-05:00
 categories: ["linux","devops"]
-featured_image: "/images/2020/swap-space.jpg"
+featureImage: "/images/2020/swap-space.jpg"
+featured: true
 ---
 This article is based on the content of [aws knowledgebase](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-memory-swap-file/).  
 You might have been stuck in memory leak when building some kinda javascript-heavy frontend apps like Vue or React on a cloud server itself.  Just for serving built artifacts, we do not need large instances, but still the building process is always hungry for more memory you know.  

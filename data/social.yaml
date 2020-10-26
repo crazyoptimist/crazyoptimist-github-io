@@ -1,0 +1,5 @@
+- item: "github"
+  url: "https://github.com/CrazyOptimist"
+- item: "rss"
+  url: "index.xml"
+  internal:  true

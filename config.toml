@@ -1,85 +1,68 @@
-#baseurl = "https://crazyoptimist.net"
-relativeurls = true
+baseurl = "https://crazyoptimist.net"
+#relativeurls = true
 title = "Crazy Optimist"
-theme = "hugo-coder"
-languagecode = "en"
-defaultcontentlanguage = "en"
+author = "Crazy Optimist"
+copyright = "Copyright @ 2019-2020, Crazy Optimist; all rights reserved."
 
+# canonifyurls = true
 paginate = 20
-canonifyurls = true
-
-pygmentsstyle = "b2"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
+theme = "hugo-clarity"
 
 disqusShortname = "crazy-optimist"
+
+DefaultContentLanguage = "en"
 
 [taxonomies]
   category = "categories"
   tag = "tags"
+  series = "series"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = true # change to false to disable inclusion of rawHTML and math functions
+      xhtml = false
+    [markup.goldmark.extensions]
+      typographer = false
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = "--"
+    lineNoStart = 1
+    lineNos = true # always set to true # else line numbers won't show at all! even when you toggle them on in the UI
+    lineNumbersInTable = false # toggling this on (i.e to true) or deleting this line will break the code blocks functionality. Will
+    noClasses = false
+    # style = "monokai"
+    tabWidth = 2
 
 [params]
     author = "Crazy Optimist"
-    info = "Crazy Optimist and Software Engineer"
+    introDescription = "Crazy Optimist, Software Engineer"
     description = "A crazy simple stupid thing separates the doers from the dreamers."
-    keywords = "crazyoptimist,optimist,optimistic,optimism,crazy"
-    avatarurl = "images/avatar.svg"
-
-    favicon_32 = "/favicon-32x32.png"
-    favicon_16 = "/favicon-16x16.png"
-    touchicon = "/apple-touch-icon.png"
-
-    footercontent = ""
-
-    hidecredits = true
-    hidecopyright = false
-
-    rtl = false
-    math = false
-    custom_css = []
-    custom_js = []
-    
-    colorscheme = "auto"
-    enableTwemoji = true
-
-# Social links
-[[params.social]]
-    name = "Github"
-    icon = "fab fa-github fa-2x"
-    weight = 1
-    url = "https://github.com/CrazyOptimist/"
-[[params.social]]
-    name = "Gitlab"
-    icon = "fab fa-gitlab fa-2x"
-    weight = 2
-    url = "https://gitlab.com/dockerlead/"
-[[params.social]]
-    name = "Email"
-    icon = "fas fa-envelope-open-text fa-2x"
-    weight = 3
-    url = "mailto:hey@crazyoptimist.net"
-[[params.social]]
-    name = "DEV"
-    icon = "fab fa-dev fa-2x"
-    weight = 4
-    url = "https://dev.to/crazyoptimist"
-[[params.social]]
-    name = "Medium"
-    icon = "fab fa-medium fa-2x"
-    weight = 5
-    url = "https://medium.com/@crazyoptimist"
-#[[params.social]]
-#    name = "RSS"
-#    icon = "fas fa-rss fa-2x"
-#    weight = 6
-#    url = "/index.xml"
+    ga_analytics = ""
+    numberOfTagsShown = 14
+    fallBackOgImage = ""
+    codeMaxLines = 7
+    codeLineNumbers = false
+    mainSections = ["posts", "about"]
+    centerLogo = false
+    logo = "logos/logo.png"
+    figurePositionShow = false
+    figurePositionLabel = "Figure"
+    mobileNavigation = "left"
+    enforceLightMode = true
+    languageMenuName = "Lang"
+    titleSeparator = "|"
+    numberOfRecentPosts = 7
+    numberOfFeaturedPosts = 7
 
 # Menu links
-[[menu.main]]
-    name = "Blog"
-    weight = 1
-    url  = "/posts"
-[[menu.main]]
-    name = "About"
-    weight = 2
-    url = "/about"
+#[[menu.main]]
+#    name = "Blog"
+#    weight = 1
+#    url  = "/posts"
+#[[menu.main]]
+#    name = "About"
+#    weight = 2
+#    url = "/about"
