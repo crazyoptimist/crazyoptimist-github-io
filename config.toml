@@ -43,7 +43,7 @@ DefaultContentLanguage = "en"
     ga_analytics = ""
     numberOfTagsShown = 14
     fallBackOgImage = ""
-    codeMaxLines = 7
+    codeMaxLines = 100
     codeLineNumbers = false
     mainSections = ["posts", "about"]
     centerLogo = false
@@ -57,12 +57,12 @@ DefaultContentLanguage = "en"
     numberOfRecentPosts = 7
     numberOfFeaturedPosts = 7
 
-# Menu links
-#[[menu.main]]
-#    name = "Blog"
-#    weight = 1
-#    url  = "/posts"
-#[[menu.main]]
-#    name = "About"
-#    weight = 2
-#    url = "/about"
+#Menu links
+[[menus.main]]
+    name = "Blog"
+    weight = 1
+    url  = "/posts"
+[[menus.main]]
+    name = "About"
+    weight = 2
+    url = "/about"
