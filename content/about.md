@@ -6,8 +6,8 @@ date: 2020-09-19T20:42:31-05:00
 ### Languages:
 Javascript/Typescript(Node.js | Deno), Python, Ruby, Go, Elixir, Rust, Shell Script, Java, PHP, SQL
 ### Frameworks:
-Express/Koa, Hapi, Loopback, Flask, Django, Rails, Gin Gonic, Phoenix, Rocket, Actix, Spring Boot, Laravel  
-Vue, React  
+Express.js/Koa.js, Hapi.js, Loopback.js, Sails.js, Flask, DjangoRestFramework, Rails, Gin Gonic, Phoenix, Rocket, Actix, Spring Boot, Laravel  
+Vue, React, Svelte  
 ### Tools:
 Vim, Git, Docker, Jira, Trello, Slack, Jenkins, CircleCI/TravisCI/GitlabCI, Kubernetes, Terraform, Ansible, Swarm, Puppet, Swagger, Figma  
 ### Platforms:

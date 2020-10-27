@@ -1,5 +1,8 @@
 - item: "github"
   url: "https://github.com/CrazyOptimist"
+- item: "mail" 
+  url: "mailto:hey@crazyoptimist.net,dockerlead@gmail.com"
+  internal: true
 - item: "rss"
   url: "index.xml"
   internal:  true
