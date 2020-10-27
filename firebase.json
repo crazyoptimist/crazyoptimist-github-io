@@ -6,6 +6,5 @@
       "firebase.json",
       "**/.*"
     ],
-    "trailingSlash": true
   }
 }
