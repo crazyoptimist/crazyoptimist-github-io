@@ -5,6 +5,7 @@
     "ignore": [
       "firebase.json",
       "**/.*"
-    ]
+    ],
+    "trailingSlash": true
   }
 }
