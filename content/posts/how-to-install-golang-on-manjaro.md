@@ -3,8 +3,8 @@ title: "How to Install Golang on Manjaro"
 date: 2020-05-22T01:59:46-05:00
 categories: ["golang"]
 ---
-Manjaro is an attractive distro based off Arch.  
-Let's get golang development environment on your Manjaro machine!  
+Manjaro is an attractive distro built on top of Arch.  
+Let's get golang development environment ready on your Manjaro machine!  
 You can just update the whole system packages and then simply install golang stable version provided by the Arch repository, not sure what it's called really.  
 ```bash
 pacman -Syu
