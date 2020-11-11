@@ -54,8 +54,8 @@ DefaultContentLanguage = "en"
     enforceLightMode = true
     languageMenuName = "Lang"
     titleSeparator = "|"
-    numberOfRecentPosts = 7
-    numberOfFeaturedPosts = 7
+    numberOfRecentPosts = 2
+    numberOfFeaturedPosts = 10
 
 #Menu links
 [[menus.main]]

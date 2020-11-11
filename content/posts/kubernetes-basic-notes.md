@@ -30,7 +30,9 @@ kubectl delete deployment [name]
 ```
 
 #### Status of different K8s components
+```bash
 kubectl get `nodes | pods | services | replicaset | deployments`
+```
 
 #### Debugging pods
 ```bash
