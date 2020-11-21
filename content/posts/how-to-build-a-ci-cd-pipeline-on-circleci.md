@@ -31,5 +31,4 @@ Put your git credential(oh, god, it's dangerous!) like this:
 ```
 Note that more elegant methods exist for this (SSH and non-SSH) regarding security concerns.  
 Thanks for reading anyhow!  
-Feel free to [ask me](mailto:crazyoptimist@mail.com) in you need further help.  
 Happy coding!

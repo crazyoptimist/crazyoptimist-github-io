@@ -44,5 +44,5 @@ And set the payload type to `application/json`.
 Note that this is specific to **Github** plugin, which is automatically installed as a recommended one.  
 ******
 Now you have everything needed for setting up a CD pipeline using Jenkins basically.  
-Feel free to ask any help in case you got stuck. hey@crazyoptimist.net 😎  
+Feel free to ask any help in case you got stuck. 😎  
 Thanks for reading!
