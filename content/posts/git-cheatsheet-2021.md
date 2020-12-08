@@ -3,6 +3,14 @@ title: "Git Cheatsheet - 2021"
 date: 2020-12-04T13:20:27-05:00
 categories: ["devops","cicd"]
 ---
+***
+[Creating Snapshots](/posts/git-cheatsheet-2021/#creating-snapshots)  
+[Browsing History](/posts/git-cheatsheet-2021/#browsing-history)  
+[Branching & Merging](/posts/git-cheatsheet-2021/#branching--merging)  
+[Collaboration](/posts/git-cheatsheet-2021/#collaboration)  
+[Rewriting History](/posts/git-cheatsheet-2021/#rewriting-history)  
+[Housekeeping(Personal Favorites)](/posts/git-cheatsheet-2021/#housekeepingpersonal-favorites)  
+***
 ### Creating Snapshots
 #### Initializing a repository
 ```bash
@@ -10,9 +18,7 @@ git init
 ```
 #### Staging files
 ```bash
-git add file1.js # Stages a single file
 git add file1.js file2.js # Stages multiple files
-git add *.js # Stages with a pattern
 git add . # Stages the current directory and all its content
 ```
 #### Viewing the status
@@ -242,6 +248,30 @@ git commit --amend
 ```bash
 git rebase -i HEAD~5
 ```
+### Housekeeping(Personal Favorites)
+#### Auto-CRLF
+```bash
+git config --global core.autocrlf input # unix
+git config --global core.autocrlf true  # windows
+```
+#### Purge un-committed changes
+```bash
+git reset --hard
+```
+#### Purge all un-existing remote branches on local
+```bash
+git remote prune origin
+git remote prune origin --dry-run # This is for pre-checking
+```
+#### Remote a local branch
+```bash
+git branch -D {branch name}
+```
+#### Remove a directory from remote repository after adding them to .gitignore
+```bash
+git rm -r --cached node_modules
+git commit -m 'Remove the now ignored directory node_modules'
+git push origin main
+```
 ***
-Credit goes to [Mosh Hamedani](https://programmingwithmosh.com)
 Happy gitting! :)
