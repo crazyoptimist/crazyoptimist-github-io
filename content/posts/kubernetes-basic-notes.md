@@ -31,7 +31,7 @@ kubectl delete deployment [name]
 
 #### Status of different K8s components
 ```bash
-kubectl get `nodes | pods | services | replicaset | deployments`
+kubectl get `nodes | pods | services | replicasets | deployments`
 ```
 
 #### Debugging pods
@@ -46,9 +46,9 @@ kubectl apply -f some-deployment.yaml
 kubectl apply -f some-service.yaml
 kubectl apply -f some-secret.yaml
 kubectl describe service some-service
-kubectl get pod -o wide
-kubectl get deployment -o yaml
-kubectl get secret
+kubectl get pods -o wide
+kubectl get deployments -o yaml
+kubectl get secrets
 kubectl delete -f some-deployment.yaml
 kubectl delete -f some-service.yaml
 kubectl delete -f some-secret.yaml
