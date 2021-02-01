@@ -55,5 +55,11 @@ Finally, add this line to your `.bashrc` or to any other of your auto-loaded dot
 ```bash
 export GPG_TTY=$(tty)
 ```
+If you want to remove your GPG key from your machine, you can do it like so:
+```bash
+gpg --delete-secret-keys "User Name"      # User Name of the specific key to be deleted.
+gpg --delete-keys "User Name"
+gpg --list-keys                           # You should see the key has been disappeared.
+```
 Hooray! You did it!
 Happy coding gents! 😎
