@@ -9,7 +9,7 @@ TL;DR
 
 ## Prerequisites
 
-This tutorial assumes that the VPN server and VPN client are both running on CentOS operating system.
+This tutorial assumes that the VPN server and VPN client are both going to be running on CentOS 7/8 operating system.
 
 ## Step 1: Install WireGuard on CentOS Server and Desktop
 
@@ -314,5 +314,5 @@ sudo systemctl start wg-quick@wg-client0.service
 ```
 
 That's it.  
-Happy networking!  
+Happy networking! 😎  
 *Same content posted in many places on the internet!*
