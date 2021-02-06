@@ -1,7 +1,7 @@
 ---
 title: "How to Install Webmin on Centos7"
 date: 2019-11-03T21:11:08-05:00
-categories: ["server"]
+categories: ["network"]
 ---
 {{< figure src="/images/2019/webmin-login.png" caption="Webmin Login Screen" >}}
 First off, access to the server via ssh with root.\

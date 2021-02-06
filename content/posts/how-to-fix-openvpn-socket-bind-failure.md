@@ -1,11 +1,12 @@
 ---
 title: "How to Fix OpenVPN Socket Bind Failure"
 date: 2019-12-06T21:09:42-05:00
-categories: ["server"]
+categories: ["network"]
 ---
 I recently came up with this error on one of my OpenVPN servers.
+
 >"OpenVPN - Socket bind failed on local address [AF_INET] IP:#portnum: Cannot assign requested address"  
->
+
 Let me share how I did fix it.  
 First off, check this openvpn’s default init script : openvpn@.service  
 ```bash

@@ -1,7 +1,7 @@
 ---
 title: "How to Handle \"Content-Type\" in a Post Request Header"
 date: 2020-03-13T00:29:46-05:00
-categories: ["api","nodejs"]
+categories: ["javascript"]
 ---
 | Value | Description |
 | :--:  | :---------: |

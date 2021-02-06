@@ -1,7 +1,7 @@
 ---
 title: "How to Install OpenVPN Server on Any Distro of Linux"
 date: 2019-11-17T19:02:15-05:00
-categories: ["server"]
+categories: ["network"]
 ---
 Thanks to [Stan](https://github.com/angristan)'s great work, it became so delightful to run your own secure and stable private VPN server. It's never been so easy. 👍\
 Download the installation script like this:

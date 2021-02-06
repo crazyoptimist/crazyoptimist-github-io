@@ -1,7 +1,7 @@
 ---
 title: "Setup Wireguard VPN Server on Ubuntu"
 date: 2021-02-04T13:49:08-05:00
-categories: ["server"]
+categories: ["network"]
 ---
 This tutorial is going to show you how to set up your own WireGuard VPN server on Ubuntu.  
 WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.  

@@ -1,7 +1,7 @@
 ---
 title: "How to Enable Login With Password on Linux"
 date: 2020-02-18T23:20:11-05:00
-categories: ["server"]
+categories: ["network"]
 ---
 Let’s update the Password Authentication parameter in the ssh service config file:
 ```bash

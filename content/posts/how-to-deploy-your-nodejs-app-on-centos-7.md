@@ -25,5 +25,5 @@ Remember your app name or id so that you can use it to restart or stop the servi
 ```bash
 pm2 restart
 ```
-Simply hitting pm2 command will show you pm2 help. \
+Simply hitting pm2 command will show you pm2 help.  
 Happy coding! 🙂

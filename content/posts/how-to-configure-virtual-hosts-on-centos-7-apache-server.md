@@ -1,7 +1,7 @@
 ---
 title: "How to Configure Virtual Hosts on Centos 7 Apache Server"
 date: 2019-12-20T21:25:40-05:00
-categories: ["server"]
+categories: ["network"]
 ---
 Prerequisites for a vhost setup:
 ```bash

@@ -1,7 +1,7 @@
 ---
 title: "How to Auto-Login to a Linux Server Using Public Key"
 date: 2019-11-19T20:57:16-05:00
-categories: ["server"]
+categories: ["network"]
 ---
 This is a *manual* version of `ssh-copy-id` command.  
 Let’s say that we are logging in to server named B from a local machine named A.  

@@ -1,7 +1,7 @@
 ---
 title: "Setup Wireguard VPN Server on CentOS"
 date: 2021-02-04T12:10:35-05:00
-categories: ["server"]
+categories: ["network"]
 ---
 This tutorial is going to show you how to set up your own WireGuard VPN server on CentOS.  
 WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.  
