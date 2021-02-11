@@ -149,48 +149,47 @@ git tag -d v1.0 # Deletes the given tag
 ### Branching & Merging
 #### Managing branches
 ```bash
-git branch bugfix # Creates a new branch called bugfix
-git checkout bugfix # Switches to the bugfix branch
-git switch bugfix # Same as the above
-git switch -C bugfix # Creates and switches
-git branch -d bugfix # Deletes the bugfix branch
+git branch bugfix                   # Creates a new branch called bugfix
+git checkout bugfix                 # Switches to the bugfix branch
+git switch bugfix                   # Same as the above
+git switch -C bugfix                # Creates and switches
+git branch -d bugfix                # Deletes the bugfix branch
 ```
 #### Comparing branches
 ```bash
-git log master..bugfix # Lists the commits in the bugfix branch not in master
-git diff master..bugfix # Shows the summary of changes
+git log master..bugfix              # Lists the commits in the bugfix branch not in master
+git diff master..bugfix             # Shows the summary of changes
 ```
 #### Stashing
 ```bash
-git stash push -m “New tax rules” # Creates a new stash
-# `git stash push` is same as `git stash`
-git stash list # Lists all the stashes
-git stash show stash@{1} # Shows the given stash
-git stash show 1 # shortcut for stash@{1}
-git stash apply 1 # Applies the given stash to the working dir
-git statsh pop 1 # Apply and remove the given stash from stash stack
-git stash drop 1 # Deletes the given stash
-git stash clear # Deletes all the stashes
+git stash push -m "some comments"   # Creates a new stash. Without `push`, does the same.
+git statsh pop 1                    # Apply and remove the given stash from stash stack
+git stash list                      # Lists all the stashes
+git stash show stash@{1}            # Shows the given stash
+git stash show 1                    # shortcut for stash@{1}
+git stash apply 1                   # Applies the given stash to the working dir
+git stash drop 1                    # Deletes the given stash
+git stash clear                     # Deletes all the stashes
 ```
 #### Merging
 ```bash
-git merge bugfix # Merges the bugfix branch into the current branch
-git merge --no-ff bugfix # Creates a merge commit even if FF is possible
-git merge --squash bugfix # Performs a squash merge
-git merge --abort # Aborts the merge
+git merge bugfix                    # Merges the bugfix branch into the current branch
+git merge --no-ff bugfix            # Creates a merge commit even if FF is possible
+git merge --squash bugfix           # Performs a squash merge
+git merge --abort                   # Aborts the merge
 ```
 #### Viewing the merged branches
 ```bash
-git branch --merged # Shows the merged branches
-git branch --no-merged # Shows the unmerged branches
+git branch --merged                 # Shows the merged branches
+git branch --no-merged              # Shows the unmerged branches
 ```
 #### Rebasing
 ```bash
-git rebase master # Changes the base of the current branch
+git rebase master                   # Changes the base of the current branch
 ```
 #### Cherry picking
 ```bash
-git cherry-pick dad47ed # Applies the given commit on the current branch
+git cherry-pick dad47ed             # Applies the given commit on the current branch
 ```
 ### Collaboration
 #### Cloning a repository
@@ -199,30 +198,30 @@ git clone url
 ```
 #### Syncing with remotes
 ```bash
-git fetch origin master # Fetches master from origin
-git fetch origin # Fetches all objects from origin
-git fetch # Shortcut for “git fetch origin”
-git pull # Fetch + merge
-git push origin master # Pushes master to origin
-git push # Shortcut for “git push origin master”
+git fetch origin master             # Fetches master from origin
+git fetch origin                    # Fetches all objects from origin
+git fetch                           # Shortcut for “git fetch origin”
+git pull                            # Fetch + merge
+git push origin master              # Pushes master to origin
+git push                            # Shortcut for "git push origin master"
 ```
 #### Sharing tags
 ```bash
-git push origin v1.0 # Pushes tag v1.0 to origin
+git push origin v1.0                # Pushes tag v1.0 to origin
 git push origin —delete v1.0
 ```
 #### Sharing branches
 ```bash
-git branch -r # Shows remote tracking branches
-git branch -vv # Shows local & remote tracking branches
-git push -u origin bugfix # Pushes bugfix to origin
-git push -d origin bugfix # Removes bugfix from origin
+git branch -r                       # Shows remote tracking branches
+git branch -vv                      # Shows local & remote tracking branches
+git push -u origin bugfix           # Pushes bugfix to origin
+git push -d origin bugfix           # Removes bugfix from origin
 ```
 #### Managing remotes
 ```bash
-git remote # Shows remote repos
-git remote add upstream url # Adds a new remote called upstream
-git remote rm upstream # Remotes upstream
+git remote                          # Shows remote repos
+git remote add upstream url         # Adds a new remote called upstream
+git remote rm upstream              # Remotes upstream
 ```
 ### Rewriting History
 #### Undoing commits
@@ -253,21 +252,21 @@ git rebase -i HEAD~5
 ### Housekeeping(Personal Favorites)
 #### Auto-CRLF
 ```bash
-git config --global core.autocrlf input # unix
-git config --global core.autocrlf true  # windows
+git config --global core.autocrlf input # Nix
+git config --global core.autocrlf true  # Windows
 ```
-#### Purge un-committed changes
+#### Default init branch name
 ```bash
-git reset --hard
+git config --global init.defaultBranch main
 ```
 #### Purge all un-existing remote branches on local
 ```bash
-git remote prune origin
 git remote prune origin --dry-run # This is for pre-checking
+git remote prune origin
 ```
-#### Remote a local branch
+#### Remove local branches
 ```bash
-git branch -D {branch name}
+git branch -D feature/one feature/two bugfix/one
 ```
 #### Remove a directory from remote repository after adding them to .gitignore
 ```bash
