@@ -5,17 +5,20 @@ date: 2020-09-19T20:42:31-05:00
 # I Am a Software Engineer
 
 ### Languages:
-Javascript/Typescript, Python, Ruby, Go, Rust, Shell Script, Java, PHP, SQL, GraphQL  
+Javascript/Typescript, Python, Ruby, Go, Rust  
 
 ### Frameworks:
-Express.js, Sails.js, Nest.js, Flask, DjangoRestFramework, Rails, Gin Gonic, Rocket, Actix, Spring Boot, Laravel  
-Vue, React, Angular  
+Express.js, Nest, Sails.js, Flask, FastAPI, Rails, Gin-Gonic, Actix  
+Angular, React, Vue  
+
+### Methodologies:
+OOP, FP, TDD  
 
 ### Tools:
 Vim, Git, Docker, Podman  
 Jira, Trello, Slack  
-Jenkins, CircleCI/TravisCI/GitlabCI  
-Kubernetes, Terraform, Ansible, Puppet  
+Jenkins, CircleCI/GitlabCI/TravisCI  
+Kubernetes, Terraform, Ansible  
 Swagger  
 Figma  
 
@@ -24,7 +27,7 @@ AWS, GCP, Azure, DigitalOcean
 Linux (CentOS/Ubuntu/Arch/Kali/RHEL/Debian)  
 
 ### Databases:
-MongoDB, PostgreSQL, MySQL, SQLite  
+MongoDB, PostgreSQL, MySQL  
 
 ### Focus:
 Long Run Stability, Software Paradigms, Design Patterns, Project Management, Extraordinary Team Cultures, Lifelong Learning  

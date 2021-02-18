@@ -55,22 +55,17 @@ docker build -t image_name .
 .: means context is the current working directory.  
 -t: sets a name for the image  
 
-To install docker and docker composer on Debian:
-```bash
-apt update -y
-apt install docker.io docker-compose -y
-```
-To access to the docker daemon as a non-root user
+For accessing to the docker daemon as a non-root user
 ```bash
 groupadd docker
 usermod -a -G docker $USER
 ```
-Rule of thumb
 
+Rule of thumb  
 * 1 app = 1 container
 * Process should be running in the foreground
 * Keep data in volumes, not in containers
-* Do not use SSH, use docker exec instead
+* Do not use SSH, use `docker exec` instead
 * Avoid manual configurations inside container
 
 Happy dockerizing, Gents! 🙂
