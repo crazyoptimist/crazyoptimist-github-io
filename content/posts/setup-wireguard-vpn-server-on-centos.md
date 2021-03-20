@@ -313,6 +313,12 @@ Save and close the file. Then start the WireGuard client.
 sudo systemctl start wg-quick@wg-client0.service
 ```
 
+If you want to remove a peer from your server, this will work:
+
+```bash
+sudo wg set wg0 peer CLIENT_PUBLIC_KEY remove
+```
+
 That's it.  
 Happy networking! 😎  
 *Same content posted in many places on the internet!*
