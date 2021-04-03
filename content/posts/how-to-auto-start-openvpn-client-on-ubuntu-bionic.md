@@ -3,24 +3,30 @@ title: "How to Auto Start OpenVPN Client on Ubuntu Bionic"
 date: 2020-01-06T00:28:23-05:00
 categories: ["network"]
 ---
-## Make it as a daemon.
+## Launch OpenVPN client as a daemon.
 
-Assuming you already have your cert-file-name.ovpn file. 🙂  
-OpenVPN client service name would be openvpn@cert-file-name.  
-Put your cert file inside `/etc/openvpn` directory like so:
+Here I assume you already have your own cert file - `filename.ovpn`. 🙂  
+Modify its file extension to `conf` like so:  
 
 ```bash
-mv /path/to/cert-file-name.ovpn /etc/openvpn/
+mv filename.ovpn filename.conf 
 ```
 
-And then enable the service:
+Put your cert file inside `/etc/openvpn` directory like so:  
+
+```bash
+mv /path/to/filename.conf /etc/openvpn/
+```
+
+OpenVPN client service name would be `openvpn@filename`.  
+Well, you might already know what to do to launch the service.  
 
 ```bash
 sudo killall openvpn
-sudo systemctl enable --now openvpn@cert-file-name
+sudo systemctl enable --now openvpn@filename
 ```
 
-Reload the daemons.
+Reload the system daemons.  
 
 ```bash
 sudo systemctl daemon-reload
@@ -28,9 +34,9 @@ sudo systemctl daemon-reload
 
 That's it. 🙂  
 
-## When you have `username` and `password` for your certfile, need to do this.
+## If you have `username` and `password` for the certfile, you need this step
 
-Make a credential file like this:
+Make a credential file like so:  
 
 ```bash
 touch login.conf
@@ -46,7 +52,7 @@ password
 Open your certfile to edit:
 
 ```bash
-vim cert-file-name.ovpn
+sudo vim /etc/openvpn/filename.conf
 ```
 
 Edit or add in this line:
@@ -55,15 +61,15 @@ Edit or add in this line:
 auth-user-pass /path/to/login.conf
 ```
 
-## Use a shell script.
+## If you want to launch it manually each time, I recommend a shell script
 
-Write a shell script like this:
+Write a shell script like so:  
 
 ```bash
 #!/bin/bash
 sudo killall openvpn
-sudo openvpn --daemon --config /path/to/cert-file-name.ovpn
+sudo openvpn --daemon --config /path/to/filename.ovpn
 ```
 
 You can now use the script file whenever you need it, even on startup.  
-Happy networking! 🙂
+Happy networking! 🙂  
