@@ -183,7 +183,7 @@ import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
 
 const YourComponent = props => {
-  const { currentUser, setCurrentUser } = this.props;
+  const { currentUser, setCurrentUser } = props;
 
   //Do something fantastic with the state and the dispatch!
 
