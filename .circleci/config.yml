@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   firebase-deploy: azdevs/firebase-deploy@1.0.0
-  hugo: circleci/hugo@1.0.0
+  hugo: circleci/hugo@1.2.2
 
 jobs:
   build:
@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - hugo/install:
-          version: 0.75.1
+          version: 0.82.1
       - hugo/hugo-build:
           extra-flags: '--gc --minify'
       - persist_to_workspace:
