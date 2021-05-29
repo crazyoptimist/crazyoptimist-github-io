@@ -1,5 +1,5 @@
 ---
-title: "How to Setup a Nginx Reverse Proxy With Let's Encrypt for Microservices"
+title: "How to Configure a Nginx Reverse Proxy With Let's Encrypt"
 date: 2020-03-11T00:02:26-05:00
 categories: ["devops"]
 featured: true

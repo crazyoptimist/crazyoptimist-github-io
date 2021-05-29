@@ -2,7 +2,7 @@
 title: "About"
 date: 2020-09-19T20:42:31-05:00
 ---
-# I Am a Software Engineer
+# I am a Software Engineer
 
 ### Languages:
 Javascript/Typescript, Python, Ruby, Go, Rust  
