@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/crazyoptimist
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://crazyoptimist.net
+  * I am crazyoptimist (https://keybase.io/crazyoptimist) on keybase.
+  * I have a public key ASDP1nUJKuWjBW8rBdD-Kd9wB26AY5uFoUJiXKUBMG4Nrwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120cfd675092ae5a3056f2b05d0fe29df70076e80639b85a142625ca501306e0daf0a",
+      "host": "keybase.io",
+      "kid": "0120cfd675092ae5a3056f2b05d0fe29df70076e80639b85a142625ca501306e0daf0a",
+      "uid": "3fe4e63328186ec9b1a5ec0db293cc19",
+      "username": "crazyoptimist"
+    },
+    "merkle_root": {
+      "ctime": 1625127986,
+      "hash": "c116eb7ca182cbee9915767456d35a094a026f274d6d8496e3200fc6f543e82f2a0f16ff51350e8a86e74ad53c473f5dce3cfa1757fd02f28f52b90035da92de",
+      "hash_meta": "430f5e646d6f1fc99f83ab1671ff8a2bbe53266e80004eb5ba1e06d360b2f1d2",
+      "seqno": 20291035
+    },
+    "service": {
+      "entropy": "A7Ku7ZowKieKkHIM4VmdEfye",
+      "hostname": "crazyoptimist.net",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.7.0"
+  },
+  "ctime": 1625128051,
+  "expire_in": 504576000,
+  "prev": "81869c8297d31a48353f4e3dccb01aab6f7ea7d28ecdee60b7b7ec4681897251",
+  "seqno": 8,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgz9Z1CSrlowVvKwXQ/infcAdugGObhaFCYlylATBuDa8Kp3BheWxvYWTESpcCCMQggYacgpfTGkg1P049zLAaq29+p9KOze5gt7fsRoGJclHEIHnATr9satQLNL4CGC4DprWw+iElMARt9GEtNc4k4VpxAgHCo3NpZ8RAi56arbIgMvEKHu6Yxod7Sq1FxhUNrP/ll+iojaPjYLXS9mtOXyjATc98GeBbXFyHHwmFf1ft1OHq1hXcPGPwCqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIKdkiKy8gQzlZ97iIO1VI56p+XPKGG+ecLMGfWd6jrtFo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/crazyoptimist
+
+==================================================================
