@@ -73,12 +73,13 @@ Finally, add this line to your `.bashrc` or to any other of your auto-loaded dot
 export GPG_TTY=$(tty)
 ```
 
-If you want to remove your GPG key from your machine, you can do it like so:
+If you want to remove your GPG key from your machine:
 
 ```bash
-gpg --delete-secret-keys username@email      # User Name of the specific key to be deleted.
+gpg --delete-secret-keys username@email
 gpg --delete-keys username@email
-gpg --list-keys                           # You should see the key has been disappeared.
+# confirm if it's removed
+gpg --list-keys
 ```
 
 If you want to backup your key pair as files:  
@@ -86,6 +87,13 @@ If you want to backup your key pair as files:
 ```bash
 gpg --output private.pem --armor --export-secret-key username@email
 gpg --output public.pub --armor --export username@email
+```
+
+If you want to import your backuped key pair:
+
+```bash
+gpg --import private.pem
+gpg --import public.pub
 ```
 
 Hooray! You did it!
