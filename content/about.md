@@ -8,7 +8,7 @@ date: 2020-09-19T20:42:31-05:00
 Javascript/Typescript, Python, Ruby, Go, Rust  
 
 ### Frameworks:
-Express.js, Nest, Sails.js, Flask, FastAPI, Rails, Gin-Gonic, Actix  
+Express.js, Nest.js, Sails.js, Flask, FastAPI, Rails, Gin-Gonic, Actix  
 Angular, React, Vue  
 
 ### Methodologies:
@@ -30,6 +30,10 @@ Linux (CentOS/Ubuntu/Arch/Kali/RHEL/Debian)
 MongoDB, PostgreSQL, MySQL  
 
 ### Focus:
-Long Run Stability, Software Paradigms, Design Patterns, Project Management, Extraordinary Team Cultures, Lifelong Learning  
+Long Run Stability, Design Patterns, Extraordinary Team Cultures, Lifelong Learning  
 
-### 😍 Thanks for digging me up!
+### PGP:
+https://keys.openpgp.org/vks/v1/by-fingerprint/6DEBB1113B9AA3D97402E4A403F083E576A838BB  
+https://keyserver.pgp.com/vkd/DownloadKey.event?keyid=0x03F083E576A838BB  
+
+### Thanks for reading!
