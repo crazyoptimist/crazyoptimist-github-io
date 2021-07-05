@@ -249,6 +249,13 @@ git commit --amend
 ```bash
 git rebase -i HEAD~5
 ```
+#### Change ownership of previous commits
+```bash
+# below two do the same job, for last x commits
+git rebase -i HEAD~6 -x "git commit --amend --author 'Author Name <username@domain.com>' --no-edit"
+# or
+git rebase -i COMMIT_SHA -x "git commit --amend --author 'Author Name <username@domain.com>' -CHEAD"
+```
 ### Housekeeping(Personal Favorites)
 #### Auto-CRLF
 ```bash
