@@ -4,16 +4,12 @@ date: 2020-09-19T20:42:31-05:00
 ---
 # I am a Software Engineer
 
-### Short Bio:
-He, His, Him  
-Optimist, Minimalist, Practicalist  
-
 ### Programming Languages:
 JS/TS, Python, Ruby, Go, Rust  
 
 ### Frameworks:
 Express.js, Nest.js, Sails.js, Flask, FastAPI, Rails, Gin-Gonic, Actix  
-Angular, React, Vue  
+React, Angular, Vue  
 
 ### Methodologies:
 OOP, FP, TDD  
@@ -28,13 +24,15 @@ Figma
 
 ### Platforms:
 AWS, GCP, Azure, DigitalOcean  
-Linux (CentOS/Ubuntu/Arch/Kali/RHEL/Debian)  
+Linux(Debian/Fedora/Arch)  
 
 ### Databases:
 MongoDB, PostgreSQL, MySQL  
 
-### Focus:
-Design Patterns, Long Run Stability, Extraordinary Team Cultures, Lifelong Learning  
+### Interests:
+Long run stability, Extraordinary team cultures, Lifelong learning  
+Design patterns, Clean code  
+Distributed systems, Blockchain, Applied cryptography  
 
 ### PGP:
 https://keys.openpgp.org/vks/v1/by-fingerprint/412E13E6D0F0083EF322BF34C9C724D3A774A5AA  
