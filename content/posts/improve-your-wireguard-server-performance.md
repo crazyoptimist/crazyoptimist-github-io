@@ -8,22 +8,27 @@ Read [here](https://superuser.com/questions/1537638/wireguard-tunnel-slow-and-in
 TL;DR  
 Stop the wireguard interface in use:
 ```
-sudo wg-quick down wg0
 sudo systemctl stop wg-quick@wg0
+# or
+sudo wg-quick down wg0
 ```
 Edit the wireguard config file:
 ```
 sudo vim /etc/wireguard/wg0.conf
 ```
-Add these lines to the server section:
+Add `MTU=1400` to the `Interface` section like this:
 ```ini
-MTU = 1412
-PostUp = iptables -A FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+[Interface]
+Address = 10.10.10.1/24
+SaveConfig = true
+ListenPort = 51820
+MTU = 1400
+PrivateKey = xxxxxx
 ```
 And start the stopped service:
 ```
 systemctl start wg-quick@wg0
 ```
-Sometimes network connection via IPv6 is compromising your connection and it degrades the performance, so remove all the IPv6 related rows from the server section(mostly generated ones).  
+Add the same for the client config.  
 Hope this helps.  
 Happy networking!  
