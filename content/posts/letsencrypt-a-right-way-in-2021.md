@@ -1,5 +1,5 @@
 ---
-title: "Let's Encrypt - The Right Way in 2021
+title: "Let's Encrypt - The Right Way in 2021"
 date: 2020-06-11T02:07:02-05:00
 categories: ["devops"]
 ---
