@@ -1,20 +1,24 @@
 ---
-title: "Let's Encrypt - A Right Way in 2020"
+title: "Let's Encrypt - The Right Way in 2021
 date: 2020-06-11T02:07:02-05:00
 categories: ["devops"]
 ---
-Today I'm going to share a neat way to set up your let's encrypt (up-to-date way in 2020).  
-First off, we will have to get the script using this command:  
-```bash
-wget https://dl.eff.org/certbot-auto
+#### Install Certbot
+Install [snapd](https://snapcraft.io/docs/installing-snapd).  
+Remove old version of certbot:
 ```
-Then enable the script to run globally as we expect using this commands:  
-```bash
-chmod +x certbot-auto
-mv certbot-auto certbot
-echo $PATH
-mv certbot /usr/sbin/    # In case of Ubuntu Bionic or Focal
-certbot --version
+sudo apt-get remove certbot
+# or
+sudo dnf remove certbot
+```
+Install certbot:
+```
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+```
+Run it!
+```
+sudo certbot --nginx
 ```
 
 #### Caution!
