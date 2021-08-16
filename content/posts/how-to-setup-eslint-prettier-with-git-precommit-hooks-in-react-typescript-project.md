@@ -93,15 +93,7 @@ module.exports = {
     singleQuote: true,
     semi: true,
     trailingComma: 'all',
-    arrowParens: "always",
-    overrides: [
-        {
-            files: '*.{js,jsx,tsx,ts,scss,json,html}',
-            options: {
-                tabWidth: 4,
-            },
-        },
-    ],
+    arrowParens: 'always',
 };
 ```
 
@@ -139,7 +131,7 @@ Install and configure husky like so:
 ```bash
 npx husky-init
 yarn
-npx husky add .husky/pre-commit "lint-staged"
+npx husky add .husky/pre-commit "yarn lint-staged"
 ```
 
 That's pretty much it.  
