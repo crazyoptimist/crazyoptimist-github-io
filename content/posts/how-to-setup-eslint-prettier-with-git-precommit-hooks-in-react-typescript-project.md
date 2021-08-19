@@ -15,6 +15,7 @@ Install `prettier` using these commands:
 
 ```bash
 yarn add --dev --exact prettier
+# these are for making eslint and prettier to play well together
 yarn add --dev eslint-config-prettier eslint-plugin-prettier 
 ```
 
@@ -43,6 +44,8 @@ module.exports = {
         node: true,
     },
     extends: [
+        'prettier',
+        'prettier/prettier',
         'eslint:recommended',
         'plugin:react/recommended',
         'plugin:react-hooks/recommended',
@@ -91,9 +94,9 @@ module.exports = {
     printWidth: 100,
     tabWidth: 2,
     singleQuote: true,
-    semi: true,
+    semi: false,
     trailingComma: 'all',
-    arrowParens: 'always',
+    arrowParens: 'avoid',
 };
 ```
 
