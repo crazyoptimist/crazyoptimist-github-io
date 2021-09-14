@@ -1,7 +1,7 @@
 ---
 title: "Git Cheatsheet - 2021"
 date: 2020-12-04T13:20:27-05:00
-categories: ["devops","cicd"]
+categories: ["devops"]
 ---
 ***
 [Creating Snapshots](/posts/git-cheatsheet-2021/#creating-snapshots)  

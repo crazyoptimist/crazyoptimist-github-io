@@ -1,7 +1,7 @@
 ---
 title: "Podman Basic Notes"
 date: 2020-11-07T01:36:06-06:00
-categories: ["devops","podman"]
+categories: ["devops"]
 ---
 ### Playing around with Podman
 ```bash

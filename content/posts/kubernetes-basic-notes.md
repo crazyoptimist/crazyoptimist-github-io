@@ -1,7 +1,7 @@
 ---
 title: "Kubernetes Basic Notes"
 date: 2020-11-07T00:49:55-06:00
-categories: ["devops","kubernetes"]
+categories: ["devops"]
 ---
 ### Kubectl Installation
 ```bash

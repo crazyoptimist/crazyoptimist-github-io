@@ -1,7 +1,7 @@
 ---
 title: "Redux Setup in Your React Project - Personal Preference"
 date: 2021-04-22T22:05:46-05:00
-categories: ['React']
+categories: ['javascript']
 featured: true
 ---
 The first thing is to install libraries for redux, as you may guess:
