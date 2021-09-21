@@ -5,10 +5,10 @@ date: 2020-09-19T20:42:31-05:00
 # I am a Software Engineer
 
 ### Programming Languages:
-JS/TS, Python, Ruby, Go, Rust  
+JS/TS, Go, Python, Ruby
 
 ### Frameworks:
-Express.js, Nest.js, Sails.js, Flask, FastAPI, Rails, Gin-Gonic, Actix  
+[Nest.js](https://github.com/nestjs/nest), [Fiber](https://github.com/gofiber/fiber), [Gin](https://github.com/gin-gonic/gin), [FastAPI](https://github.com/tiangolo/fastapi), [Ruby on Rails](https://github.com/rails/rails)  
 React, Angular, Vue  
 
 ### Methodologies:
@@ -16,9 +16,9 @@ OOP, FP, TDD
 
 ### Tools:
 Vim, Git, Docker, Podman  
-Jira, Trello, Slack  
 Jenkins, CircleCI/GitlabCI/TravisCI  
 Kubernetes, Terraform, Ansible  
+Jira, Trello, Slack  
 Swagger  
 Figma  
 
@@ -27,7 +27,7 @@ AWS, GCP, Azure, DigitalOcean
 Linux(Debian/Fedora/Arch)  
 
 ### Databases:
-MongoDB, PostgreSQL, MySQL  
+PostgreSQL, MySQL, MongoDB  
 
 ### Interests:
 Long run stability, Extraordinary team cultures, Lifelong learning  
