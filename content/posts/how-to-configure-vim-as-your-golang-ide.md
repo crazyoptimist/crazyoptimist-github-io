@@ -40,6 +40,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 ```
 
+`SHIFT` + `K` will show documentation for every func you want to know about.  
 And that's pretty much it. Try and edit some `go` files with your awesome IDE.  
 Happy coding!  
 😎
