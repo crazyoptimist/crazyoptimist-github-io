@@ -39,7 +39,7 @@
       }
     } else {
       if(mode === true) {
-        changeMode(isDarkMode) 
+        changeMode(isDarkMode)
       }
     }
   }
@@ -64,7 +64,7 @@ function fileClosure(){
     const date = new Date();
     const year = date.getFullYear();
     const yearEl = elem('.year');
-    yearEl ? yearEl.innerHTML = year : false;
+    yearEl ? yearEl.innerHTML = `${year}` : false;
   })();
 
   (function makeExternalLinks(){
@@ -80,7 +80,7 @@ function fileClosure(){
           blank = '_blank';
           noopener = 'noopener';
           attr1 = elemAttribute(link, target);
-          attr2 = elemAttribute(link, noopener);
+          attr2 = elemAttribute(link, rel);
 
           attr1 ? false : elemAttribute(link, target, blank);
           attr2 ? false : elemAttribute(link, rel, noopener);
@@ -130,7 +130,7 @@ function fileClosure(){
     copyText.innerText = 'Link Copied';
     if(!elem(`.${yanked}`, parent)) {
       parent.appendChild(copyText);
-      setTimeout(function() { 
+      setTimeout(function() {
         parent.removeChild(copyText)
       }, 3000);
     }
@@ -226,14 +226,14 @@ function fileClosure(){
   }
 
   function populateAlt(images) {
-    let imagePosition = 0;
+    let imagePosition = containsClass(images[0], featuredImageClass) ? -1 : 0;
 
     images.forEach((image) => {
       let alt = image.alt;
-      image.loading = "lazy";
-      const modifiers = [':left', ':right'];
-      const altArr = alt.split('::').map(x => x.trim())
+      const figure = image.parentNode.parentNode;
 
+      // Image classes, including ::round
+      const altArr = alt.split('::').map(x => x.trim())
       if (altArr.length > 1) {
         altArr[1].split(' ').filter(Boolean).forEach(cls =>{
           pushClass(image, cls);
@@ -241,38 +241,43 @@ function fileClosure(){
         })
       }
 
+      // Image alignment (floating)
+      const modifiers = [':left', ':right'];
       modifiers.forEach(function(modifier){
         const canModify = alt.includes(modifier);
         if(canModify) {
-          pushClass(image, `float_${modifier.replace(":", "")}`);
+          pushClass(figure, `float_${modifier.replace(":", "")}`);
           alt = alt.replace(modifier, "");
         }
       });
 
-      const isInline = alt.includes(inline);
-      alt = alt.replace(inline, "");
-
-      // wait for position to load and a caption if the image is not online and has an alt attribute
-      if (alt.length > 0 && !containsClass(image, 'alt' && !isInline)) {
-        imagePosition += 1;
-        image.dataset.pos = imagePosition;
-        image.addEventListener('load', function() {
-          const showImagePosition = showingImagePosition();
-
-          let desc = document.createElement('p');
-          desc.classList.add('img_alt');
-          let imageAlt = alt;
-
-          const thisImgPos = image.dataset.pos;
-          // modify image caption is necessary
-          imageAlt = showImagePosition ? `${showImagePositionLabel} ${thisImgPos}: ${imageAlt}` : imageAlt;
-          desc.textContent = imageAlt;
-          image.insertAdjacentHTML('afterend', desc.outerHTML);
-        })
+      // Inline images
+      const isInline = alt.includes(":inline");
+      alt = alt.replace(":inline", "");
+      if(isInline) {
+        modifyClass(figure, 'inline');
       }
 
-      if(isInline) {
-        modifyClass(image, 'inline');
+      // Figure numbering
+      let captionText = image.title.trim().length ? image.title.trim() : alt;
+
+      if (captionText.length && !containsClass(image, 'alt' && !isInline)) {
+        imagePosition += 1;
+        image.dataset.pos = imagePosition;
+        const showImagePosition = showingImagePosition();
+
+        let desc = document.createElement('figcaption');
+        desc.classList.add('img_alt');
+
+        const thisImgPos = image.dataset.pos;
+        // modify image caption is necessary
+        captionText = showImagePosition ? `${showImagePositionLabel} ${thisImgPos}: ${captionText}` : captionText;
+        desc.textContent = captionText;
+
+        if(!image.matches(`.${featuredImageClass}`)) {
+          // add a caption below image only if the image isn't a featured image
+          image.insertAdjacentHTML('afterend', desc.outerHTML);
+        }
       }
     });
 
@@ -282,19 +287,17 @@ function fileClosure(){
   function largeImages(baseParent, images = []) {
     if(images) {
       images.forEach(function(image) {
-        image.addEventListener('load', function(){
+        window.setTimeout(function(){
           let actualWidth = image.naturalWidth;
           let parentWidth = baseParent.offsetWidth;
           let actionableRatio = actualWidth / parentWidth;
 
           if (actionableRatio > 1) {
-            pushClass(image, "image-scalable");
-            image.dataset.scale = actionableRatio;
-            let figure = createEl('figure');
-            wrapEl(image, figure)
+            pushClass(image.parentNode.parentNode, imageScalableClass);
+            image.parentNode.parentNode.dataset.scale = actionableRatio;
           }
-        });
-      })
+        }, 100)
+      });
     }
   }
 
@@ -307,20 +310,18 @@ function fileClosure(){
 
   doc.addEventListener('click', function(event) {
     let target = event.target;
-    isClickableImage = target.matches('.image-scalable');
+    isClickableImage = target.matches(`.${imageScalableClass}`) || target.closest(`.${imageScalableClass}`) ;
 
-    let isFigure = target.matches('figure');
-
-    if(isFigure) {
-      let hasClickableImage = containsClass(target.children[0], 'image-scalable');
+    if(isClickableImage) {
+      let hasClickableImage = containsClass(target.children[0], imageScalableClass);
       if(hasClickableImage) {
-        modifyClass(target, 'image-scale');
+        modifyClass(target, scaleImageClass);
       }
     }
 
     if(isClickableImage) {
-      let figure = target.parentNode;
-      modifyClass(figure, 'image-scale');
+      let figure = target.closest('figure');
+      modifyClass(figure, scaleImageClass);
     }
   });
 
@@ -349,8 +350,8 @@ function fileClosure(){
     if(isActionable) {
       if(isButton) {
         if(isExandButton) {
-          let allTagsWrapper = target.nextElementSibling 
-          pushClass(allTagsWrapper, tagsShowClass); 
+          let allTagsWrapper = target.nextElementSibling
+          pushClass(allTagsWrapper, tagsShowClass);
         } else {
           deleteClass(postTagsWrapper, tagsShowClass);
         }
@@ -403,7 +404,7 @@ function fileClosure(){
           event.preventDefault();
           Array.from(thisItem.parentNode.parentNode.children).forEach(function(item){
             const targetItem = item.firstElementChild;
-             targetItem != thisItem ? deleteClass(targetItem, showSub) : false;
+            targetItem != thisItem ? deleteClass(targetItem, showSub) : false;
           });
           modifyClass(thisItem, showSub);
         }
@@ -469,4 +470,4 @@ function fileClosure(){
   // add new code above this line
 }
 
-window.addEventListener('load', fileClosure());
+window.addEventListener(pageHasLoaded, fileClosure());

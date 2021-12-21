@@ -1,11 +1,13 @@
 $font-path: '../fonts'
-$icons: '../icons/'
+// $icons: '{{ printf "../%s" (default "icons/" .Site.Params.iconsDir) }}'
 $images: '../images/'
 $light: #fff
 $haze: #fafafa
 $xhaze: darken($haze, 11%)
 $bg: #002538
 $theme: #0077b8
+$mobile-menu-breakpoint: 769px
+$single-column-breakpoint: 42rem
 
 @mixin  content()
   --maxWidth: 1440px
@@ -48,9 +50,20 @@ html
   --choice-bg: var(--haze)
   --ease: cubic-bezier(0.39, 0.575, 0.565, 1)
   --easing: cubic-bezier(.19,1,.22,1)
+  --notice-code-bg: var(--bg)
+  --notice-info-border-color: #6AB0DE
+  --notice-info-background: #E7F2FA
+  --notice-note-border-color: #F0B37E
+  --notice-note-background: #FFF2DB
+  --notice-tip-border-color: rgba(92, 184, 92, 0.8)
+  --notice-tip-background: #E6F9E6
+  --notice-warning-border-color: rgba(217, 83, 79, 0.8)
+  --notice-warning-background: #FAE2E2
+  
   &.page
     --choice-bg: var(--light)
   @mixin darkmode
+    --light: hsla(0,0%,100%,0.87)
     --color-mode: 'dim'
     --text: var(--light)
     --accent: var(--bubble)
@@ -84,7 +97,7 @@ html
     .color
       &_choice
         &::after
-          background-image: url("#{$images}moon.svg")
+          background-image: url("#{$images}night-moon.jpg")
           transform: translateX(1.4rem)
 
   @media (prefers-color-scheme: dark)
@@ -108,5 +121,5 @@ html
       .color
         &_choice
           &::after
-            background-image: url("#{$images}moon.svg")
+            background-image: url("#{$images}night-moon.jpg")
             transform: translateX(1.4rem)

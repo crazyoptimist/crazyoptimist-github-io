@@ -2,7 +2,7 @@
 const doc = document.documentElement;
 const inline = ":inline";
 // variables read from your hugo configuration
-const parentURL = '{{ absURL "" }}';
+const parentURL = window.location.protocol + "//" + window.location.host + "/";
 let showImagePosition = "{{ .Site.Params.figurePositionShow }}";
 
 const showImagePositionLabel = '{{ .Site.Params.figurePositionLabel }}';
@@ -43,6 +43,8 @@ function hasClasses(el) {
   const codeBlocks = elems('code');
   if(codeBlocks) {
     codeBlocks.forEach(function(codeBlock){
+          // Fix for orgmode inline code, leave 'verbatim' alone as well
+          containsClass(codeBlock, 'verbatim') ? pushClass(codeBlock, 'noClass') :false;
       hasClasses(codeBlock) ? false: pushClass(codeBlock, 'noClass');
     });
   }
@@ -130,7 +132,8 @@ function copyToClipboard(str) {
   }
 }
 
-function loadSvg(file, parent, path = 'icons/') {
+const iconsPath = '{{ default "icons/" .Site.Params.iconsDir }}';
+function loadSvg(file, parent, path = iconsPath) {
   const link = `${parentURL}${path}${file}.svg`;
   fetch(link)
   .then((response) => {

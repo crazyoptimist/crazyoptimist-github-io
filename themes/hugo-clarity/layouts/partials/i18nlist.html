@@ -1,7 +1,12 @@
-{{ if .IsTranslated }}
-<p>{{ i18n "translations" }}: 
-{{ range .Translations }}
-  <a href="{{ .Permalink }}">{{ printf "%#v" .Language.LanguageName }} |</a>
-{{ end }}
-</p>
+{{ with .Translations }}
+<div class="post_i18n">
+  <h3>{{ T "translations" }}:</h3>
+  <ul>
+    {{ range . }}
+      <li>
+        <a href="{{ .Permalink }}">{{ printf "%#v" .Language.LanguageName }} |</a>
+      </li>
+    {{ end }}
+  </ul>
+</div>
 {{ end }}
