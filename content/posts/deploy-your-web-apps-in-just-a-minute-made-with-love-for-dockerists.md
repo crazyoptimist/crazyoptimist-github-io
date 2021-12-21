@@ -12,7 +12,7 @@ Note: This is just for Ubuntu Bionic/Focal. Buzz me anytime in case you want to 
 <br />
 ```bash
 #!/bin/bash
-# upgrades the system
+# upgrades operating system
 sudo apt-get update && sudo apt-get upgrade -y
 
 # install docker latest
@@ -23,20 +23,21 @@ sudo apt-key fingerprint 0EBFCD88
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt update && sudo apt install docker-ce docker-ce-cli containerd.io -y
 # install docker-compose latest
-#curl -L "https://github.com/docker/compose/releases/download/1.27.0/docker-compose-$(uname -s)-$(uname -m)" -o docker-compose
+# curl -SL https://github.com/docker/compose/releases/download/v2.1.1/docker-compose-linux-x86_64 -o docker-compose
 curl -s https://api.github.com/repos/docker/compose/releases/latest \
 | grep -v ".sha256" \
 | grep browser_download_url \
-| grep "docker-compose-$(uname -s)-$(uname -m)" \
+| grep "docker-compose-$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m)" \
 | cut -d '"' -f 4 \
 | xargs curl -L -o docker-compose
 chmod +x docker-compose
-sudo mv docker-compose /usr/sbin/    # in case of Bionic or Focal
+sudo mkdir -p /usr/local/lib/docker/cli-plugins
+sudo mv docker-compose /usr/local/lib/docker/cli-plugins
 # add the current non-root user to docker group
 sudo groupadd -f docker
 sudo usermod -aG docker $USER
 sudo docker -v
-sudo docker-compose -v
+sudo docker compose version
 
 # install nginx latest
 echo "
