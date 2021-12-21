@@ -11,16 +11,12 @@ JS/TS, Go, Python, Ruby
 [Nest.js](https://github.com/nestjs/nest), [Fiber](https://github.com/gofiber/fiber), [Gin](https://github.com/gin-gonic/gin), [FastAPI](https://github.com/tiangolo/fastapi), [Ruby on Rails](https://github.com/rails/rails)  
 React, Angular, Vue  
 
-### Methodologies:
-OOP, FP, TDD  
-
 ### Tools:
 Vim, Git, Docker, Podman  
-Jenkins, CircleCI/GitlabCI/TravisCI  
-Kubernetes, Terraform, Ansible  
+CircleCI/GitlabCI/TravisCI, Jenkins  
+Terraform, Kubernetes, Ansible  
 Jira, Trello, Slack  
-Swagger  
-Figma  
+Postman, Figma  
 
 ### Platforms:
 AWS, GCP, Azure, DigitalOcean  
@@ -30,9 +26,9 @@ Linux(Debian/Fedora/Arch)
 PostgreSQL, MySQL, MongoDB  
 
 ### Interests:
-Long run stability, Extraordinary team cultures, Lifelong learning  
-Design patterns, Clean code  
-Distributed systems, Blockchain, Applied cryptography  
+Long Run Stability, Lifelong Learning  
+Design Patterns, Clean Code, TDD  
+Blockchain, Applied Cryptography  
 
 ### PGP:
 https://keys.openpgp.org/vks/v1/by-fingerprint/412E13E6D0F0083EF322BF34C9C724D3A774A5AA  
