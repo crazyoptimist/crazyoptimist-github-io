@@ -21,7 +21,7 @@ jobs:
 
   deploy:
     docker:
-      - image: 'circleci/node:lts'
+      - image: 'cimg/node:lts'
     steps:
       - checkout
       - attach_workspace:
