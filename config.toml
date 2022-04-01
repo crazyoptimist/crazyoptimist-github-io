@@ -1,8 +1,8 @@
 baseurl = "https://crazyoptimist.net/"
 #relativeurls = true
-title = "Crazy Optimist"
-author = "Crazy Optimist"
-copyright = "Copyright @ 2019-2020, Crazy Optimist; all rights reserved."
+title = "crazyoptimist"
+author = "crazyoptimist"
+copyright = "Copyright @ 2019-2020, crazyoptimist; all rights reserved."
 
 # canonifyurls = true
 paginate = 20
@@ -37,8 +37,8 @@ DefaultContentLanguage = "en"
     tabWidth = 2
 
 [params]
-    author = "Crazy Optimist"
-    introDescription = "Crazy Optimist, Software Engineer"
+    author = "crazyoptimist"
+    introDescription = "Software Engineer"
     description = "A crazy simple stupid thing separates the doers from the dreamers."
     ga_analytics = ""
     numberOfTagsShown = 14
