@@ -32,10 +32,24 @@ reverse_proxy 127.0.0.1:8000
 
 ```bash
 sudo systemctl restart caddy
+# or
+sudo caddy reload
 ```
 
 That's it, you can now browse `https://dev-api.your-domain.com`.  
 In my case, a REST API service was running on port 8000 and I configured Caddy as a reverse proxy.  
 Configuring Caddy should be easy for other use cases as well, I'm pretty sure.  
+
+If you were to configure multiple domains:
+
+```ini
+dev-api.domain-one.com {
+  reverse_proxy 127.0.0.1:8000
+}
+
+dev-app.domain-two.com {
+  reverse_proxy 127.0.0.1:3000
+}
+```
 
 Happy coding!
