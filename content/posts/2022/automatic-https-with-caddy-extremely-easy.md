@@ -43,12 +43,37 @@ Configuring Caddy should be easy for other use cases as well, I'm pretty sure.
 If you were to configure multiple domains:
 
 ```ini
-dev-api.domain-one.com {
+api.domain.com {
   reverse_proxy 127.0.0.1:8000
 }
 
-dev-app.domain-two.com {
+app.domain.com {
   reverse_proxy 127.0.0.1:3000
+}
+```
+
+If you were to serve SPA(Single Page Application):
+
+```ini
+prod.domain.com {
+        encode zstd gzip
+        root * /home/user/domain.com/prod
+        file_server
+        try_files {path} /index.html
+}
+
+staging.domain.com {
+        encode zstd gzip
+        root * /home/user/domain.com/staging
+        file_server
+        try_files {path} /index.html
+}
+
+qa.domain.com {
+        encode zstd gzip
+        root * /home/user/domain.com/qa
+        file_server
+        try_files {path} /index.html
 }
 ```
 
