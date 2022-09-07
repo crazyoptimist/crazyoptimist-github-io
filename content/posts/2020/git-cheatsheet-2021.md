@@ -272,7 +272,8 @@ git clone url
 ```bash
 git fetch origin master             # Fetches master from origin
 git fetch                           # Shortcut for "git fetch CURRENT_BRANCH"
-git pull                            # Fetch & merge current remote branch into current local branch
+git pull                            # Fetch & merge current remote branch into the current local branch
+git pull --rebase                   # Fetch & rebase current remote branch into the current local branch
 git push origin master              # Pushes master to origin
 git push                            # Shortcut for "git push origin CURRENT_BRANCH"
 ```
