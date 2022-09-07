@@ -72,11 +72,16 @@ docker build -t image_name .
 `.`: means context is the current working directory.  
 `-t`: sets a name for the image  
 
-For accessing to the docker daemon as a non-root user
+For accessing to the docker daemon as a non-root user:
 
 ```bash
 groupadd docker
 usermod -a -G docker $USER
+```
+
+Remove all unused(dangling) build cache:
+```bash
+docker builder prune
 ```
 
 Rule of thumb  
