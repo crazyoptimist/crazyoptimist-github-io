@@ -46,7 +46,7 @@ tmux attach -t <session name>
 
 ## switch between panes
 
-`C-b` <arrow key>         # in direction  
+`C-b <arrow key>`         # in direction  
 `C-b` o                   # by sequence
 
 ## make a pane go full screen, exit from full screen
@@ -73,7 +73,7 @@ tmux attach -t <session name>
 
 `C-b` p                 # previous  
 `C-b` n                 # next  
-`C-b` <num key>         # by number  
+`C-b <num key>`         # by number  
 
 
 ## to use vim color scheme inside tmux
@@ -90,5 +90,10 @@ Put these lines in the file:
 set -g default-terminal "xterm-256color"
 set -ga terminal-overrides ",*256col*:Tc"
 ```
+
+## wait, what? I can't scroll up/down inside tmux, and it sucks, huh?
+
+NO, you can do it. You can get into scrolling mode by `C-b` [, and quit by `q`. Very cool :XD  
+
 
 That's it. Happy coding! 😎
