@@ -2,6 +2,7 @@
 title: "Automatic Https With Caddy - Extremely Easy"
 date: 2022-06-07T13:08:39-05:00
 categories: ["devops"]
+featured: true
 ---
 
 Today I had a chance to try [Caddy](https://caddyserver.com/) for dev purpose, and you guess what, it was extremely easy and funny. Only two steps and boom, you got a secured website almost instantly.  

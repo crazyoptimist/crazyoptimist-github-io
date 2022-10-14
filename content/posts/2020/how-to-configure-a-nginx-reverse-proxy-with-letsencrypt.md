@@ -2,7 +2,6 @@
 title: "How to Configure a Nginx Reverse Proxy With Let's Encrypt"
 date: 2020-03-11T00:02:26-05:00
 categories: ["devops"]
-featured: true
 ---
 Let’s say one of your micro services is running on http://localhost:3000  
 If you already have a nginx service running on the server, create a server block like this:
