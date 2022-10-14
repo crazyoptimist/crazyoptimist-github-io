@@ -1,4 +1,4 @@
---
+---
 title: "Tmux Cheatsheet"
 date: 2022-10-12T05:57:14-05:00
 categories: ["linux"]
