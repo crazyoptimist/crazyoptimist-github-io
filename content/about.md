@@ -32,4 +32,4 @@ Blockchain, Applied Cryptography
 https://keys.openpgp.org/vks/v1/by-fingerprint/412E13E6D0F0083EF322BF34C9C724D3A774A5AA  
 https://keyserver.pgp.com/vkd/DownloadKey.event?keyid=0xC9C724D3A774A5AA  
 
-### Thanks for visiting!
+**Thanks for visiting!**
