@@ -1,8 +1,9 @@
-# Build Artifacts
+# hugo build artifacts
 /public
 /resources/_gen/
 hugo_stats.json
-# Firebase Deploy Stuff
+.hugo_build.lock
+
+# firebase stuff
 .firebase/
 .firebaserc
-
