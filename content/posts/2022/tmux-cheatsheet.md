@@ -35,6 +35,10 @@ tmux ls
 ```
 tmux attach -t <session name>
 ```
+or
+```
+tmux a -t <session name>
+```
 
 ## split current pane horizontally
 
@@ -49,15 +53,15 @@ tmux attach -t <session name>
 `C-b <arrow key>`         # in direction  
 `C-b` o                   # by sequence
 
-## make a pane go full screen, exit from full screen
+## make the current pane full screen(same for exit)
 
 `C-b` z  
 
-## resize pane in direction
+## resize the current pane in an arrow direction
 
 `C-b` `C-<arrow key>`  
 
-## closing pane
+## closing the current pane
 
 `C-d` or `exit`  
 
@@ -91,9 +95,37 @@ set -g default-terminal "xterm-256color"
 set -ga terminal-overrides ",*256col*:Tc"
 ```
 
-## wait, what? I can't scroll up/down inside tmux, and it sucks, huh?
+## wait, what? I can't scroll up/down inside tmux. it sucks, huh?
 
-NO, you can do it. You can get into scrolling mode by `C-b` [, and quit by `q`. Very cool :XD  
+Nah, you can do it. You can get into scrolling mode by `C-b` [, and quit by `q`. Very cool :XD  
+
+## even better, we can persist tmux sessions between reboots. soooo cool, isn't it?
+
+Tmux has its own plugin ecosystem. A plugin called [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect) enables us to persist sessions across reboots.  
+So, there are two ways of installing `tmux-resurrect` plugin, and the manual way is my preferred one because I do not use many plugins for tmux.  
+
+```
+mkdir -p ~/.tmux
+cd ~/.tmux
+git clone https://github.com/tmux-plugins/tmux-resurrect
+```
+
+Then add this line to the bottom of `~/.tmux.conf`:
+
+```
+run-shell ~/.tmux/tmux-resurrect/resurrect.tmux
+```
+
+Reload tmux environment:
+
+```
+tmux source-file ~/.tmux.conf
+```
+
+Wowooo, you are now able to persist any number of sessions across reboots
+
+- `C-b` `C-s` - save
+- `C-b` `C-r` - restore
 
 
-That's it. Happy coding! 😎
+That's it. Happy tmuxing! :XD
