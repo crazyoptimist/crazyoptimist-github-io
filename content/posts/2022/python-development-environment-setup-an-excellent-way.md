@@ -33,6 +33,6 @@ virtualenv venv
 ## Configure vim for python intellisense
 
 `neoclide/coc.nvim` plugin is a LSP(Language Server Protocal) client for Vim. It has its own extensions ecosystem. You can get it work for python by using `coc-pyright` extension.  
-Here is my vimrc file. You may also have one :D.  
+[Here](https://github.com/crazyoptimist/dotfiles) is my vimrc file. You may also have one :D.  
 
 Happy coding!
