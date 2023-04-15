@@ -19,6 +19,10 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 Next, edit/create the ssh config file.
 
 ```bash
+vim ~/.ssh/config
+```
+
+```ini
 # Default github account: crazyoptimist
 Host github.com
    HostName github.com
