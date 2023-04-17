@@ -4,7 +4,7 @@ date: 2023-04-14T20:22:54-05:00
 categories: ["vim"]
 ---
 
-### Vim `<leader>` Key
+### Vim "leader" Key
 
 `<leader>` key is a vim tool that can be used to create personalized shortcuts.
 
