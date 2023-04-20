@@ -4,14 +4,14 @@ date: 2023-04-17T03:45:14-05:00
 categories: ["linux", "network"]
 ---
 
-There's a case that you want to use WSL(Windows Subsystem for Linux) via remote ssh connection.
+There may be a case where you want to use WSL(Windows Subsystem for Linux) via a remote SSH connection.
 
-Configuring remote ssh connection to WSL is not super straightforward, because:
+Configuring a remote SSH connection to WSL is not necessarily straightforward because:
 
-- You need to configure port-forwarding from WSL to the host machine
-- WSL doesn't have `systemd`, so you need to configure automatic booting WSL and then SSH server inside it(because you want to automate everything).
+- You need to configure port forwarding from WSL to the host machine
+- WSL does not have `systemd`, so you need to configure automatic booting of WSL and then SSH server inside it(because you will want to automate everything).
 
-So let's check out the configuring process step by step.
+Well, let's take a look at the configuration process step by step.
 
 Install SSH server on the WSL instance.
 
@@ -19,7 +19,7 @@ Install SSH server on the WSL instance.
 sudo apt install openssh-server
 ```
 
-Configure the SSH server to accept SSH connetions on port 2222(you may want to use another port, no problem!).
+Configure the SSH server to accept SSH connetions on port 2222(or any other port you prefer).
 
 ```bash
 sudo vim /etc/ssh/sshd_config
@@ -38,21 +38,21 @@ Reboot the SSH server.
 sudo service ssh restart
 ```
 
-Allow your default WSL user to start the SSH server without typing a password.
+Allow your default WSL user to start the SSH server without entering a password.
 
 ```bash
 sudo sh -c "echo '${USER} ALL=(root) NOPASSWD: /usr/sbin/service ssh start' >/etc/sudoers.d/service-ssh-start"
 ```
 
-Configure firewall on the host machine(Windows 10 or 11) to allow remote SSH connections.
+Configure firewall on the host machine(Windows 10 or 11) to allow incoming remote SSH connections.
 
-Open CMD as administrator and run:
+Open Command Prompt as an administrator and run the following commands:
 
 ```bash
 netsh advfirewall firewall add rule name="Open Port 2222 for WSL2" dir=in action=allow protocol=TCP localport=2222
 ```
 
-Create a batch script that boots WSL and SSH server on host startup.
+Create a batch script that automatically starts WSL and SSH server on host startup.
 
 ```batch
 @echo off
