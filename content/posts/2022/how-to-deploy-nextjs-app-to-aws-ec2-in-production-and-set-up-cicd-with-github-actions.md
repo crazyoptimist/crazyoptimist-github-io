@@ -4,11 +4,14 @@ date: 2022-02-04T11:06:09-06:00
 categories: ["devops"]
 featured: true
 ---
-Yo!  
-In this article, we are going through deploying a Next.js app to AWS EC2 and set up continuous integration & deployment by means of Github Actions.  
-Before proceeding, you will need the infrastructure ready on AWS, which can be deployed manually or by Terraform code. I'm skipping the infra part for the purpose of this article.  
 
-First things first, we need to ssh into the ec2 instance. Once you logged in, run this script to install Node.js on the machine:
+Yo!
+
+In this article, we'll be discussing how to deploy a Next.js app to AWS EC2 and set up continuous integration and deployment using Github Actions.
+
+Before proceeding, you will need to have the infrastructure ready on AWS, which can be deployed manually or by using Terraform code. I'll be skipping the infrastructure setup part for the purpose of this article.
+
+First things first, we need to SSH into the EC2 instance. Once you're logged in, run this script to install Node.js on the machine:
 
 {{< gist CrazyOptimist e003588c2c667ea0fb6b81bba34b662e >}}
 
@@ -35,6 +38,7 @@ cat ~/.ssh/github.pub >> authorized_keys
 ```
 
 Add the private key to **Deploy Keys** section in your github repo settings.
+
 ```bash
 cat ~/.ssh/github
 ```
@@ -161,11 +165,11 @@ jobs:
 
 Go to your repo **Settings -> Secrets -> Actions secrets** and add two secrets:
 
-`SSH_PRIVATE_KEY` can be grabbed by `cat ~/.ssh/github` on the server  
-`FE_SERVER_IP` can be grabbed by `curl ipinfo.io/ip` on the server  
+- `SSH_PRIVATE_KEY` can be grabbed by `cat ~/.ssh/github` on the server
+- `FE_SERVER_IP` can be grabbed by `curl ipinfo.io/ip` on the server
 
-Commit the workflow file in the repo and push it, and see how the workflow runs in **Actions** tab of your repo.  
-Setting up CI/CD right usually takes some efforts and experiments, if you followed through thus far, that's so cool.   
-If you are curious about deploying the whole infrastructure(vpc-ec2-alb-acm-route53-s3) as code in Terraform, email me - dockerlead at gmail dot com.
+Commit the workflow file in the repository and push it, then check how the workflow runs in the **Actions** tab of your repository. Setting up CI/CD right usually takes some effort and experimentation, so if you have followed through thus far, that's great!
+
+If you are curious about deploying the entire infrastructure (VPC, EC2, ALB, ACM, Route53, S3) as code in Terraform, it can be a whole other topic. Please feel free to email me, and I'll be happy to teach you patiently. :X
 
 Happy coding! 😎
