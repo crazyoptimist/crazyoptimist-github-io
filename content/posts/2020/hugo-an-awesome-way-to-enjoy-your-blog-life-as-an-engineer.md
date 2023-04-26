@@ -3,16 +3,14 @@ title: "Hugo - An Awesome Way to Enjoy Your Blog Life as an Engineer"
 date: 2020-09-23T18:28:24-05:00
 categories: ["golang"]
 ---
-I've just finished the migration of my blog from ghost self hosting to hugo.  
-I'm more than happy to use { framework: "Hugo", hosting: "Firebase", cicd: "CircleCI" }.  
-Just wanted to share the full path how I got it done, which was not a piece of cake, you know, it's like kinda "production", not a playing around or dev env.  
-There are tons of good materials explaining how to blog with hugo, install hugo themes, etc. I'm just going to mention about the road blockers I met during this migration.  
-***
-When you run the `hugo server` command on your local machine, it seems working flawlessly, but the first thing you may stuck when you try to deploy it to the cloud is `baseURL` in the hugo config file.  
-Here is my config file, a part of it exactly:
+
+I have just finished migrating my blog from Ghost self-hosting to Hugo. I am more than happy to use: { framework: "Hugo", hosting: "Firebase", cicd: "CircleCI" }. I just wanted to share the full process of how I got it done, which was not a piece of cake. You know, it's not just playing around or a dev environment; it's production. There are tons of good materials that explain how to blog with Hugo, install Hugo themes, etc. I'm just going to mention the roadblocks I encountered during this migration.
+
+When you run the `hugo server` command on your local machine, it seems to work flawlessly. However, when you try to deploy it to the cloud, the first issue you may encounter is the `baseURL` setting in the Hugo config file. Here is a portion of my config file that pertains to this issue:
+
 ```toml
 relativeURLs = true
-title = "Crazy Optimist"
+title = "crazyoptimist"
 theme = "hugo-coder"
 languagecode = "en"
 defaultcontentlanguage = "en"
@@ -26,20 +24,22 @@ pygmentscodefencesguesssyntax = true
 
 disqusShortname = "crazy-optimist"
 ```
-The first line is the point I'm going to mention. Yes, it enables us to use any host name as base url so that your stylesheets and other assets can have correct accessible url.  
 
-The next thing is just configuring firebase deployment. You just need to setup your firebase hosting and test if it's really deployed correctly, which is pretty straightforward.  
+The main point I want to make is about the first line. It allows us to use any hostname as a `baseURL` so that stylesheets and other assets can have a correctly accessible URL.
+
+The next step is to configure Firebase deployment. You just need to set up your Firebase hosting and test if it is deployed correctly, which is pretty straightforward.
 
 Here is my firebase.json file:
-```json
+
+```js
 {
   "hosting": {
-    //site name in firebase
+    // Site name in firebase
     "site": "crazyoptimist-net",
-    //build artifacts dir, ./public in hugo, you know, it will be the web root on the fly
+    // Build artifacts dir, ./public in hugo, you know, it will be the web root on the fly
     "public": "public",
     "ignore": [
-      //do not bundle these files to upload
+      // Do not bundle these files to upload
       "firebase.json",
       "**/.*"
     ]
@@ -47,7 +47,8 @@ Here is my firebase.json file:
 }
 ```
 
-Here is the list of firebase cli commands used:
+Here is the list of Firebase CLI commands used:
+
 ```bash
 # normal login
 firebase login
@@ -60,6 +61,7 @@ firebase deploy --token "$FIREBASE_TOKEN"
 ```
 
 And the final point is here in CircleCI config(`.circleci/config.yml`) file:
+
 ```yaml
 version: 2.1
 orbs:
@@ -101,7 +103,8 @@ workflows:
             - build
 ```
 
-As you may guess, you need to add the $FIREBASE_TOKEN as an env variable to your CircleCI project settings.  
-Yes, it should be working, you can blog anywhere using your favorite editor(mostly the VIM!), once you push your new contents to git, it will be live in less than a minute thanks to the CircleCI pipeline.  
-Sorry for not enough explanation about all the nitty-gritty, wish I were a full time blogger. :(  
+As you may have noticed, you need to add the `$FIREBASE_TOKEN` as an environment variable to your CircleCI project settings. With this setup, you can blog anywhere using your favorite editor (hopefully VIM!). Once you push your new content to Git, it will be live in less than a minute thanks to the CircleCI pipeline.
+
+I apologize if my explanation lacked some nitty-gritty details. Wish I were a full-time blogger. :X
+
 Happy blogging gents! 😎
