@@ -1,0 +1,39 @@
+author = "crazyoptimist"
+
+since = 2019 
+
+introDescription = "Software Engineer"
+
+description = "A crazy simple stupid thing separates the doers from the dreamers."
+
+ga_analytics = "G-3VLC0SM1EZ"
+
+numberOfTagsShown = 14
+
+fallBackOgImage = "/logos/logo.png"
+
+codeMaxLines = 100
+
+codeLineNumbers = false
+
+mainSections = ["posts", "about"]
+
+centerLogo = false
+
+logo = "logos/logo.png"
+
+figurePositionShow = false
+
+figurePositionLabel = "Figure"
+
+mobileNavigation = "left"
+
+enforceLightMode = true
+
+languageMenuName = "Lang"
+
+titleSeparator = "|"
+
+numberOfRecentPosts = 2
+
+numberOfFeaturedPosts = 10

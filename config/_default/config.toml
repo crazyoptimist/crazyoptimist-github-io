@@ -1,0 +1,31 @@
+baseurl = "https://crazyoptimist.net/"
+# relativeurls = true
+title = "crazyoptimist"
+author = "crazyoptimist"
+
+# canonifyurls = true
+paginate = 10
+
+# Install theme as a hugo module
+[module]
+[[module.imports]]
+  path = "github.com/chipzoller/hugo-clarity"
+
+disqusShortname = "crazy-optimist"
+
+DefaultContentLanguage = "en"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+#Menu links
+[[menus.main]]
+    name = "Posts"
+    weight = 1
+    url  = "/posts"
+[[menus.main]]
+    name = "About"
+    weight = 2
+    url = "/about"
