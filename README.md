@@ -4,6 +4,6 @@
 
 ### Thanks
 
-* to the contributors of [HUGO](https://gohugo.io/) and [Go](https://golang.org/).
+* to the contributors of [Hugo](https://gohugo.io/) and [Go](https://golang.org/).
 
 * to the contributors of [hugo-clarity](https://github.com/chipzoller/hugo-clarity).
