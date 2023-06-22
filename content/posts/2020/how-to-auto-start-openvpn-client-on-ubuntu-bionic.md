@@ -39,31 +39,31 @@ That's it. 🙂
 Make a credential file like so:  
 
 ```bash
-touch login.conf
+sudo touch /etc/openvpn/login.conf
 ```
 
-Put this into the file:
+Enter the following into the file.
 
 ```ini
-username
-password
+your-username
+your-password
 ```
 
-Open your certfile to edit:
+Open your certfile to edit.
 
 ```bash
 sudo vim /etc/openvpn/filename.conf
 ```
 
-Edit or add in this line:
+Add this line or edit it if it already exists.
 
 ```ini
-auth-user-pass /path/to/login.conf
+auth-user-pass login.conf
 ```
 
 ## If you want to launch it manually each time, I recommend a shell script
 
-Write a shell script like so:  
+Write a shell script with the following contents.
 
 ```bash
 #!/bin/bash
@@ -71,5 +71,6 @@ sudo killall openvpn
 sudo openvpn --daemon --config /path/to/filename.ovpn
 ```
 
-You can now use the script file whenever you need it, even on startup.  
-Happy networking! 🙂  
+You can now use the script file whenever you need it, even on startup.
+
+Happy networking! 🙂
