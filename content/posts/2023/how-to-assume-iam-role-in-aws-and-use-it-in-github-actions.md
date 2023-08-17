@@ -95,6 +95,28 @@ Let's use the user and assume role functionality in GitHub Actions. It's a strai
 
 Adding above step to our Github actions workflow, we will have the necessary permissions to perform AWS CLI operations within the scope of the assumed role. In our example case, we can upload files to S3 buckets, invalidate CloudFront caches, and more.
 
+Additionally, when attaching a "Trust policy" to a role, we can include an "External ID" requirement to ensure that the role can only be assumed if the 3rd party provides the correct external ID. Here's an example policy for the use case:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::123456789012:user/spa-deployment"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                    "sts:ExternalId": "some-id"
+                }
+            }
+        }
+    ]
+}
+```
+
 That's it! We have learned how to assume a role in AWS and use it within GitHub Actions.
 
 Happy coding!
