@@ -1,11 +1,13 @@
 ---
-title: "How to Assume IAM Role in AWS and Use It in Github Actions"
+title: "How to Assume IAM Role in AWS and Use It"
 date: 2023-08-17T14:06:18-05:00
 categories: ["devops"]
 ---
 AWS IAM Assume Role is a mechanism that enables a user or service to assume a specific IAM role temporarily. This allows the user or service to acquire temporary security credentials, including access keys, session tokens, and permissions, to perform actions within AWS resources. The assumed role can have different permissions and policies than the original user or service, ensuring a granular level of access control and reducing the need for sharing long-term credentials.
 
-In this post, we'll create a new IAM user without any permissions granted, and a new role with some permissions, while configuring the role assumption. Then we'll use the user and the assumed role in the Github Actions, to perform desired operations in a CI/CD pipeline.
+In this post, we'll create a new IAM user without any permissions granted, and a new role with some permissions, while configuring the role assumption. Then we'll demonstrate the use cases of assumed role with Github Actions and Terraform.
+
+### Assume Role
 
 First things first, let's create a new IAM user.
 
@@ -76,25 +78,6 @@ aws s3 ls
 
 These commands will list all the S3 buckets, indicating that the user now has the permissions granted by the assumed role.
 
-Let's use the user and assume role functionality in GitHub Actions. It's a straightforward process.
-
-```yaml
-  - name: Configure AWS credentials
-    uses: aws-actions/configure-aws-credentials@v2
-    with:
-      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      aws-region: "us-west-2"
-      role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
-      role-duration-seconds: 3600
-      role-session-name: DeploySPA
-      role-skip-session-tagging: true
-```
-
-`ROLE_TO_ASSUME` is the Role ARN.
-
-Adding above step to our Github actions workflow, we will have the necessary permissions to perform AWS CLI operations within the scope of the assumed role. In our example case, we can upload files to S3 buckets, invalidate CloudFront caches, and more.
-
 Additionally, when attaching a "Trust policy" to a role, we can include an "External ID" requirement to ensure that the role can only be assumed if the 3rd party provides the correct external ID. Here's an example policy for the use case:
 
 ```json
@@ -116,6 +99,63 @@ Additionally, when attaching a "Trust policy" to a role, we can include an "Exte
     ]
 }
 ```
+
+### Usage in Github Actions
+
+Let's use the user and assume role functionality in GitHub Actions. It's a straightforward process.
+
+```yaml
+  - name: Configure AWS credentials
+    uses: aws-actions/configure-aws-credentials@v2
+    with:
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      aws-region: "us-west-2"
+      role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
+      role-duration-seconds: 3600
+      role-session-name: DeploySPA
+      role-skip-session-tagging: true
+```
+
+`ROLE_TO_ASSUME` is the Role ARN.
+
+Adding above step to our Github actions workflow, we will have the necessary permissions to perform AWS CLI operations within the scope of the assumed role. In our example case, we can upload files to S3 buckets, invalidate CloudFront caches, and more.
+
+### Usage in Terraform
+
+```terraform
+terraform {
+  required_version = ">= 1.4.0"
+  backend "s3" {
+    profile   = "myawsprofile"
+    region    = "us-west-1"
+    bucket    = "terraform-state"
+    key       = "prod/terraform.tfstate"
+
+    role_arn  = "arn:aws:iam::123456789012:role/Terraform-Role"
+    session_name = "terraform"
+  }
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0.1"
+    }
+  }
+}
+
+provider "aws" {
+  profile     = "myawsprofile"
+  region      = "us-west-1"
+
+  assume_role {
+    role_arn  = "arn:aws:iam::123456789012:role/Terraform-Role"
+  }
+}
+
+```
+
+Above Terraform code demonstrates how we can assume role in the backend configuration and provider configuration, respectively. Very straightforward, isn't it?
+
 
 That's it! We have learned how to assume a role in AWS and use it within GitHub Actions.
 
