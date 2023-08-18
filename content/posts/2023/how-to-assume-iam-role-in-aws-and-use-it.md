@@ -157,6 +157,6 @@ provider "aws" {
 Above Terraform code demonstrates how we can assume role in the backend configuration and provider configuration, respectively. Very straightforward, isn't it?
 
 
-That's it! We have learned how to assume a role in AWS and use it within GitHub Actions.
+That's it! We have learned how to assume a role in AWS, use it within Github Actions and Terraform.
 
 Happy coding!
