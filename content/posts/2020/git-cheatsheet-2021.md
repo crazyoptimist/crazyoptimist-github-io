@@ -3,19 +3,11 @@ title: "Git Cheatsheet for Minimalists"
 date: 2020-12-04T13:20:27-05:00
 categories: ["devops"]
 ---
-***
-[Creating Snapshots](/posts/2020/git-cheatsheet-2021/#creating-snapshots)  
-[Browsing History](/posts/2020/git-cheatsheet-2021/#browsing-history)  
-[Branching & Merging](/posts/2020/git-cheatsheet-2021/#branching--merging)  
-[Collaboration](/posts/2020/git-cheatsheet-2021/#collaboration)  
-[Rewriting History](/posts/2020/git-cheatsheet-2021/#rewriting-history)  
-[Housekeeping(Personal Favorites)](/posts/2020/git-cheatsheet-2021/#housekeepingpersonal-favorites)  
-***
 
-#### **Basic Git Concepts**
+#### Basic Git Concepts
 
 - Working copy (working tree file): It refers to the file in the repository that appears on the hard disk.
-- Index (staging area or cache): it refers to you have git add-ed, or, what would be committed if you were to run git commit.
+- Index (staging area or cache): it refers to you have `git add`-ed, or, what would be committed if you were to run `git commit`.
 - HEAD: It refers to the "current" or "active" branch, when we need to check out a branch (referring to your attempt to match the branch with what is in the working copy), only one can be checked out at a time.
 
 #### git init
@@ -423,5 +415,4 @@ git reflog                          # Shows the history of HEAD
 git reflog show bugfix              # Shows the history of bugfix pointer
 ```
 
-***
 Happy gitting! :)
