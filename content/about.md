@@ -3,18 +3,19 @@ title: "About"
 date: 2020-09-19T20:42:31-05:00
 ---
 ### Bio
+
 &nbsp;&nbsp;I am a software engineer. My passion lies in hands-on software design and implementation. I seek to build software applications that both delights end users as well as the technical team that is to develop and operate the software. I strongly believe that software quality is key to delivering such delight, so I like to make sure that this is a key consideration in everything I do. I am a strong advocate for well tested code, continuous integration, continuous deployment, and team building. Happy to lead, happy to follow whatever it takes to get us there.
 
 
-### Technical Skills
+### Hard Skills
 
-- Node.js, Go, Ruby, Python
-- Git, Docker, Terraform, K8S, AWS, GCP
-- PostgreSQL, MongoDB, Snowflake
-- GHA, CircleCI, Gitlab, Jenkins
-- NestJS, gRPC
-- React, Angular
-- Vim, Neovim
+- Designing and building REST, microservice, event driven and serverless systems
+- Data modeling and aggregation with SQL and NoSQL databases
+- Infrastructure as Code with Terraform and AWS
+- TDD in Javascript/Typescript, Python, Go, Rust(currently learning)
+- Stong understanding of blockchain, EVM, Solidity
+- Containerization and orchestration with Docker, Podman, ECS, Kubernetes
+- CI/CD with Github Actions, CircleCI, GitlabCI, Bitbucket and Jenkins
 
 
 ### PGP
