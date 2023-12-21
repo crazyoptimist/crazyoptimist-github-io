@@ -9,12 +9,12 @@ date: 2020-09-19T20:42:31-05:00
 
 ### Hard Skills
 
-- Designing and building REST, microservice, event driven and serverless systems
-- Data modeling and aggregation with SQL and NoSQL databases
-- Infrastructure as Code with Terraform and AWS
-- TDD in Javascript/Typescript, Python, Go, Rust(currently learning)
-- Stong understanding of blockchain, EVM, Solidity
-- Containerization and orchestration with Docker, Podman, ECS, Kubernetes
+- Design and hands-on implementation of monolith, microservice, serverless applications at any scale
+- TDD in Javascript/Typescript, Python, Go
+- Smart contract development and private audit using Solidity, Hardhat, and Foundry
+- Frontend development using React, Redux, Next.js
+- Infrastructure as Code with Terraform on multiple cloud platforms, including AWS and GCP
+- Working with container technologies such as Docker, ECS, Kubernetes
 - CI/CD with Github Actions, CircleCI, GitlabCI, Bitbucket and Jenkins
 
 
@@ -23,55 +23,17 @@ date: 2020-09-19T20:42:31-05:00
 ```pgp
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
-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
-=8ZVf
+mDMEZYPtHBYJKwYBBAHaRw8BAQdApz9OgS3b0E961iGuzsaY+AN5HeqZ1qIgObGj
+aoLuF4W0J2NyYXp5b3B0aW1pc3QgPGNyYXp5b3B0aW1pc3RAcHJvdG9uLm1lPoiZ
+BBMWCgBBFiEEqXPpgd7VnugF8qc7Rs7068qV57oFAmWD7RwCGwMFCQWlfAQFCwkI
+BwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQRs7068qV57qwRgD8D2Rv2E84M4QM
+W9J/xfjuPcJjjpNSP8cTHM40st/FLxUA/jAiUbRCFwFYs6TarCfwIT8Mu4tp5+iN
+fdFOMI1ue7sCuDgEZYPtHBIKKwYBBAGXVQEFAQEHQBpaWw21rT5xs1/W3GzIdKOg
+9spgZ8vhtlHThZRPqzs5AwEIB4h+BBgWCgAmFiEEqXPpgd7VnugF8qc7Rs7068qV
+57oFAmWD7RwCGwwFCQWlfAQACgkQRs7068qV57r1pwD8DxfI6jTuFVXVlAcRkgTg
+FfTQxWTSjEfscnJg4ty019MBAKw90AejzWdQCZD2wK6CNpsCnzNgag8SZHzRNC0i
+IXsF
+=GhTU
 -----END PGP PUBLIC KEY BLOCK-----
 ```
 
