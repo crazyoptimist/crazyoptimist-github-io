@@ -4,23 +4,23 @@ date: 2020-09-19T20:42:31-05:00
 ---
 ### Bio
 
-&nbsp;&nbsp;I am a software engineer. My passion lies in hands-on software design and implementation. I seek to build software applications that both delights end users as well as the technical team that is to develop and operate the software. I strongly believe that software quality is key to delivering such delight, so I like to make sure that this is a key consideration in everything I do. I am a strong advocate for well tested code, continuous integration, continuous deployment, and team building. Happy to lead, happy to follow whatever it takes to get us there.
+&nbsp;&nbsp;A hardworking software engineer with eight years of professional experience, specializing in large-scale web application development. My passion lies in hands-on software design and implementation. I seek to build software applications that both delights end users as well as the technical team that is to develop and operate the software. I strongly believe that software quality is key to delivering such delight, so I like to make sure that this is a key consideration in everything I do. I am a strong advocate for well tested code, continuous integration, continuous deployment, and team building. Happy to lead, happy to follow whatever it takes to get us there.
 
 
 ### Hard Skills
 
-- Design and hands-on implementation of monolith, microservice, serverless applications at any scale
-- TDD in Javascript/Typescript, Python, Go
+- Design and implement layered, microservice, serverless, and event driven applications at any scale
+- Test Driven Development in JavaScript/TypeScript, Go, Python
 - Smart contract development and private audit using Solidity, Hardhat, and Foundry
 - Frontend development using React, Redux, Next.js
-- Infrastructure as Code with Terraform on multiple cloud platforms, including AWS and GCP
-- Working with container technologies such as Docker, ECS, Kubernetes
-- CI/CD with Github Actions, CircleCI, GitlabCI, Bitbucket and Jenkins
+- Infrastructure as Code with Terraform on various cloud platforms, including AWS and GCP
+- Work with container technologies such as Docker, ECS, Kubernetes
+- CI/CD with Github Actions, Circle CI, Gitlab CI, Bitbucket, and Jenkins
 
 
 ### PGP
 
-```pgp
+```
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mDMEZYPtHBYJKwYBBAHaRw8BAQdApz9OgS3b0E961iGuzsaY+AN5HeqZ1qIgObGj

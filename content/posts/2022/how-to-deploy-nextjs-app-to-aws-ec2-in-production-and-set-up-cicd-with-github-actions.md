@@ -2,7 +2,6 @@
 title: "How to Deploy Next.js App to AWS EC2 in Production and Set up CI/CD with Github Actions"
 date: 2022-02-04T11:06:09-06:00
 categories: ["devops"]
-featured: true
 ---
 
 Yo!
@@ -13,7 +12,7 @@ Before proceeding, you will need to have the infrastructure ready on AWS, which 
 
 First things first, we need to SSH into the EC2 instance. Once you're logged in, run this script to install Node.js on the machine:
 
-{{< gist CrazyOptimist e003588c2c667ea0fb6b81bba34b662e >}}
+{{< gist crazyoptimist e003588c2c667ea0fb6b81bba34b662e >}}
 
 Now you can install `yarn` and `pm2` globally:
 
@@ -22,7 +21,7 @@ source ~/.bashrc
 npm install -g yarn pm2
 ```
 
-The next step is to clone your Next.js app repo and cd to the project root directory. To automate the subsequent `git pull` commands, we are going to create a ssh key pair and use it.  
+The next step is to clone your Next.js app repo and cd to the project root directory. To automate the subsequent `git pull` commands, we are going to create a ssh key pair and use it.
 Create a classic ssh key pair(without a passphrase) first:
 
 ```bash
@@ -30,7 +29,7 @@ cd ~/.ssh
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
-Use `github` when you are asked for a file name, then you will have two files `github` and `github.pub` in the `~/.ssh` directory.  
+Use `github` when you are asked for a file name, then you will have two files `github` and `github.pub` in the `~/.ssh` directory.
 Add the public key to `authorized_keys`:
 
 ```bash
