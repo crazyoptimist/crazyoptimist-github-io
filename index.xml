@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>crazyoptimist</title><link>https://crazyoptimist.net/</link><description>Recent content on crazyoptimist</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 17 Aug 2023 14:06:18 -0500</lastBuildDate><atom:link href="https://crazyoptimist.net/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Assume IAM Role in AWS and Use It</title><link>https://crazyoptimist.net/posts/2023/how-to-assume-iam-role-in-aws-and-use-it/</link><pubDate>Thu, 17 Aug 2023 14:06:18 -0500</pubDate><guid>https://crazyoptimist.net/posts/2023/how-to-assume-iam-role-in-aws-and-use-it/</guid><description>
+AWS IAM Assume Role is a mechanism that enables a user or service to assume a specific IAM role temporarily. This allows the user or service to acquire temporary security credentials, including access keys, session tokens, and permissions, to perform actions within AWS resources. The assumed role can have different permissions and policies than the original user or service, ensuring a granular level of access control and reducing the need for sharing long-term credentials.</description></item><item><title>How to Configure Remote SSH Connection to WSL 2</title><link>https://crazyoptimist.net/posts/2023/how-to-configure-remote-ssh-connection-to-wsl2/</link><pubDate>Mon, 17 Apr 2023 03:45:14 -0500</pubDate><guid>https://crazyoptimist.net/posts/2023/how-to-configure-remote-ssh-connection-to-wsl2/</guid><description>
+There may be a case where you want to use WSL(Windows Subsystem for Linux) via a remote SSH connection.
+Configuring a remote SSH connection to WSL is not necessarily straightforward because:
+You need to configure port forwarding from WSL to the host machine WSL does not have systemd, so you need to configure automatic booting of WSL and then SSH server inside it(because you will want to automate everything). Well, let's take a look at the configuration process step by step.</description></item><item><title>Vim Notes</title><link>https://crazyoptimist.net/posts/2023/vim-notes/</link><pubDate>Fri, 14 Apr 2023 20:22:54 -0500</pubDate><guid>https://crazyoptimist.net/posts/2023/vim-notes/</guid><description>
+Vim &amp;quot;leader&amp;quot; Key &amp;lt;leader&amp;gt; key is a vim tool that can be used to create personalized shortcuts.
+Default &amp;lt;leader&amp;gt; key is backslash \. To change the leader key to comma , add let mapleader = &amp;quot;,&amp;quot; to your vimrc. You can use any other key as &amp;lt;leader&amp;gt; key, even space or function keys. But noting that you only have 1 second to press the actual shortcut key after the leader key is stroke(by default of course, you can configure it after all), it's kinda shitty to use backslash or function key as leader, isn't it?</description></item><item><title>How to Use Multiple Github Accounts With SSH Keys on the Same Machine</title><link>https://crazyoptimist.net/posts/2023/how-to-use-multiple-github-accounts-with-ssh-keys-on-the-same-machine/</link><pubDate>Fri, 14 Apr 2023 18:26:42 -0500</pubDate><guid>https://crazyoptimist.net/posts/2023/how-to-use-multiple-github-accounts-with-ssh-keys-on-the-same-machine/</guid><description>
+There might be a chance that you need to create and use a separate github(or bitbucket) account other than your personal one in your workplace. And Github(Bitbucket or Gitlab will do the same I believe) doesn't allow to share a ssh key between different accounts for authentication.
+That's the case we are going to figure out below.
+First of all, create a new ssh key pair on your machine.
+1ssh-keygen -t ed25519 -C &amp;#34;your_email@example.</description></item><item><title>Test Doubles in Unit Testing</title><link>https://crazyoptimist.net/posts/2023/test-doubles-in-unit-testing/</link><pubDate>Fri, 03 Mar 2023 02:25:04 -0600</pubDate><guid>https://crazyoptimist.net/posts/2023/test-doubles-in-unit-testing/</guid><description>
+Test double is one of the key concepts of TDD(Test Driven Development). Test Double is a generic term for any case where you replace a production object for testing purposes.
+There are various kinds of test doubles: Dummies, Stubs, Mocks, Spies, Fakes.
+Whew, what on earth is that? Alright, let's check them out one by one:
+Dummies A dummy is an object that is passed to a function or method but is never actually used.</description></item><item><title>Python Development Environment Setup - an Excellent Way</title><link>https://crazyoptimist.net/posts/2022/python-development-environment-setup-an-excellent-way/</link><pubDate>Thu, 08 Dec 2022 01:55:10 -0600</pubDate><guid>https://crazyoptimist.net/posts/2022/python-development-environment-setup-an-excellent-way/</guid><description>
+Install pyenv to manage multiple python versions This gist self-explains how to install pyenv and use it to manage multiple python versions on your machine
+Manage virtual envs A virtual env is where dependencies live without polluting the global space of the current python version, preventing dependency version conflicts between different projects on the same machine.
+Install virtualenv package:
+1pip install virtualenv 2virtualenv --version It's common that .gitignore file excludes virtual env directories named venv, env, .</description></item><item><title>Setup Neovim with vim-plug on Windows 11</title><link>https://crazyoptimist.net/posts/2022/setup-neovim-with-vim-plug-on-windows/</link><pubDate>Sat, 19 Nov 2022 17:15:28 -0600</pubDate><guid>https://crazyoptimist.net/posts/2022/setup-neovim-with-vim-plug-on-windows/</guid><description>
+I love to use vim everywhere. Almost all the linux distros and macOS come with Vim pre-installed, but what about Windows? You can stick to the vim within the Windows Git Bash(you should know git because that's what makes you a developer :D) with a Linux-like configuration, but you may notice that :w command lags for some reason.
+So why not use Neovim(nvim) on Windows? Let's get to it!
+Open powershell and run the command below to install Neovim on your system.</description></item><item><title>Tmux Cheatsheet</title><link>https://crazyoptimist.net/posts/2022/tmux-cheatsheet/</link><pubDate>Wed, 12 Oct 2022 05:57:14 -0500</pubDate><guid>https://crazyoptimist.net/posts/2022/tmux-cheatsheet/</guid><description>
+I use linux terminal all day, and if you are like me, you should use tmux, which enables a number of terminals to be created, accessed, and controlled from a single screen, just to be more productive!
+So, there're some essential commands for tmux down below.
+start a new session 1tmux # session name will be 0,1,2, ... by default 2tmux new -s &amp;lt;session name&amp;gt; # you can set a custom session name rename an existing session 1tmux rename-session -t &amp;lt;old name&amp;gt; &amp;lt;new name&amp;gt; detach current session C-b d</description></item><item><title>Automatic Https With Caddy - Extremely Easy</title><link>https://crazyoptimist.net/posts/2022/automatic-https-with-caddy-extremely-easy/</link><pubDate>Tue, 07 Jun 2022 13:08:39 -0500</pubDate><guid>https://crazyoptimist.net/posts/2022/automatic-https-with-caddy-extremely-easy/</guid><description>
+Today I had a chance to try Caddy for dev purpose, and you guess what, it was extremely easy and funny. Only two steps and boom, you got a secured website almost instantly.
+Here are the steps I followed:
+Install Caddy on Ubuntu/Debian Check their documentation for another OS/installation method.
+1sudo apt install -y debian-keyring debian-archive-keyring apt-transport-https 2curl -1sLf &amp;#39;https://dl.cloudsmith.io/public/caddy/stable/gpg.key&amp;#39; | sudo gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg 3curl -1sLf &amp;#39;https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt&amp;#39; | sudo tee /etc/apt/sources.</description></item><item><title>How to Deploy Next.js App to AWS EC2 in Production and Set up CI/CD with Github Actions</title><link>https://crazyoptimist.net/posts/2022/how-to-deploy-nextjs-app-to-aws-ec2-in-production-and-set-up-cicd-with-github-actions/</link><pubDate>Fri, 04 Feb 2022 11:06:09 -0600</pubDate><guid>https://crazyoptimist.net/posts/2022/how-to-deploy-nextjs-app-to-aws-ec2-in-production-and-set-up-cicd-with-github-actions/</guid><description>
+Yo!
+In this article, we'll be discussing how to deploy a Next.js app to AWS EC2 and set up continuous integration and deployment using Github Actions.
+Before proceeding, you will need to have the infrastructure ready on AWS, which can be deployed manually or by using Terraform code. I'll be skipping the infrastructure setup part for the purpose of this article.
+First things first, we need to SSH into the EC2 instance.</description></item><item><title>How to Configure Vim as Your Golang IDE</title><link>https://crazyoptimist.net/posts/2021/how-to-configure-vim-as-your-golang-ide/</link><pubDate>Mon, 13 Sep 2021 20:17:30 -0500</pubDate><guid>https://crazyoptimist.net/posts/2021/how-to-configure-vim-as-your-golang-ide/</guid><description>
+I use Vim massively as my main IDE, and my vimrc file can be found here.
+This article presumes that you have already configured Vim as your code editor basically.
+Okay, let's get started by installing fatih/vim-go plugin with your favorite vim plugin manager.
+If you have Golang installed correctly on your machine, you will be able to run :GoInstallBinaries after installing the above plugin.
+After that, install coc.nvim plugin, which is a great language server for Vim.</description></item><item><title>How to Setup Eslint and Prettier With Git Precommit Hooks in React Typescript Project</title><link>https://crazyoptimist.net/posts/2021/how-to-setup-eslint-prettier-with-git-precommit-hooks-in-react-typescript-project/</link><pubDate>Mon, 16 Aug 2021 05:39:46 -0500</pubDate><guid>https://crazyoptimist.net/posts/2021/how-to-setup-eslint-prettier-with-git-precommit-hooks-in-react-typescript-project/</guid><description>
+You should probably create a new react app with typescript using like so:
+1npx create-react-app my-app --template typescript Now let's get started to setup eslint and prettier.
+Remove eslintConfig from package.json.
+Install prettier using these commands:
+1yarn add --dev --exact prettier 2# these are for making eslint and prettier to play well together 3yarn add --dev eslint-config-prettier eslint-plugin-prettier Create config files like this:
+1touch .eslintrc.js .eslintignore .prettierrc.js .prettierignore Use same contents for both ignore files:</description></item><item><title>Improve Your Wireguard Server's Performance</title><link>https://crazyoptimist.net/posts/2021/improve-your-wireguard-server-performance/</link><pubDate>Tue, 13 Jul 2021 02:28:56 -0500</pubDate><guid>https://crazyoptimist.net/posts/2021/improve-your-wireguard-server-performance/</guid><description>
+The default MTU(Maximum Transmission Unit) is 1420 in wireguard, while the most other devices use 1496 or 1500.
+Read here for more info.
+TL;DR
+Stop the wireguard interface in use:
+1sudo systemctl stop wg-quick@wg0 2# or 3sudo wg-quick down wg0 Edit the wireguard config file:
+1sudo vim /etc/wireguard/wg0.conf Add MTU=1400 to the Interface section like this:
+1[Interface] 2Address = 10.10.10.1/24 3SaveConfig = true 4ListenPort = 51820 5MTU = 1400 6PrivateKey = xxxxxx And start the stopped service:</description></item><item><title>Redux Setup in Your React Project - Personal Preference</title><link>https://crazyoptimist.net/posts/2021/redux-setup-in-your-react-project-personal-preference/</link><pubDate>Thu, 22 Apr 2021 22:05:46 -0500</pubDate><guid>https://crazyoptimist.net/posts/2021/redux-setup-in-your-react-project-personal-preference/</guid><description>
+The first thing is to install libraries for redux, as you may guess:
+1npm install -S redux react-redux redux-logger reselect redux-persist redux-logger is a redux middleware which is really really helpful in development, but it's up to you whether to use it or not.
+reselect is a memoization implementation for redux.
+redux-persist is for leveraging localStorage/sessionStorage browser APIs in redux.
+Assuming that you have the react project structured in your own way, I'd create a new folder named redux inside the src/app folder:</description></item><item><title>Setup Wireguard VPN Server on Ubuntu</title><link>https://crazyoptimist.net/posts/2021/setup-wireguard-vpn-server-on-ubuntu/</link><pubDate>Thu, 04 Feb 2021 13:49:08 -0500</pubDate><guid>https://crazyoptimist.net/posts/2021/setup-wireguard-vpn-server-on-ubuntu/</guid><description>
+This tutorial is going to show you how to set up your own WireGuard VPN server on Ubuntu.
+WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.
+TL;DR
+Prerequisites This tutorial assumes that the VPN server and VPN client are both going to be running on Ubuntu 20.04 operating system.
+Setting Up the WireGuard Server Install Wireguard from the default Ubuntu repository:</description></item><item><title>Setup Wireguard VPN Server on CentOS</title><link>https://crazyoptimist.net/posts/2021/setup-wireguard-vpn-server-on-centos/</link><pubDate>Thu, 04 Feb 2021 12:10:35 -0500</pubDate><guid>https://crazyoptimist.net/posts/2021/setup-wireguard-vpn-server-on-centos/</guid><description>
+This tutorial is going to show you how to set up your own WireGuard VPN server on CentOS.
+WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.
+TL;DR
+Prerequisites This tutorial assumes that the VPN server and VPN client are both going to be running on CentOS 7/8 operating system.
+Step 1: Install WireGuard on CentOS Server and Desktop Log into your CentOS server, then run the following commands to install WireGuard.</description></item><item><title>Git Cheatsheet for Minimalists</title><link>https://crazyoptimist.net/posts/2020/git-cheatsheet-2021/</link><pubDate>Fri, 04 Dec 2020 13:20:27 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/git-cheatsheet-2021/</guid><description>
+Basic Git Concepts Working copy (working tree file): It refers to the file in the repository that appears on the hard disk. Index (staging area or cache): it refers to you have git add-ed, or, what would be committed if you were to run git commit. HEAD: It refers to the &amp;quot;current&amp;quot; or &amp;quot;active&amp;quot; branch, when we need to check out a branch (referring to your attempt to match the branch with what is in the working copy), only one can be checked out at a time.</description></item><item><title>Podman Basic Notes</title><link>https://crazyoptimist.net/posts/2020/podman-basic-notes/</link><pubDate>Sat, 07 Nov 2020 01:36:06 -0600</pubDate><guid>https://crazyoptimist.net/posts/2020/podman-basic-notes/</guid><description>
+Playing around with Podman 1alias docker=&amp;#34;sudo podman $1&amp;#34; The above command works as of this time and podman makes namespaces for every users for every resources, i.e., images, containers and so on.
+It means, podman images and sudo podman images will show different resources.😎
+1sudo podman pod create --name my-pod -p 8080:80 2sudo podman run -d --restart=always --pod=my-pod --name my-nginx nginx 3sudo podman run -d --restart=always --pod=my-pod --name my-curl curl 4sudo podman generate kube my-pod &amp;gt; my-pod.</description></item><item><title>Kubernetes Basic Notes</title><link>https://crazyoptimist.net/posts/2020/kubernetes-basic-notes/</link><pubDate>Sat, 07 Nov 2020 00:49:55 -0600</pubDate><guid>https://crazyoptimist.net/posts/2020/kubernetes-basic-notes/</guid><description>
+Kubectl Installation 1curl -LO &amp;#34;https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl&amp;#34; 2chmod +x kubectl 3echo $PATH 4sudo mv kubectl /usr/local/bin/ Minikube Installation 1curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 2chmod +x minikube-linux-amd64 3sudo mv minikube-linux-amd64 /usr/local/bin/minikube 4minikube start 5minikube status Kubectl Commands CRUD Commands 1kubectl create deployment [name] 2kubectl edit deployment [name] 3kubectl delete deployment [name] Status of different K8s components 1kubectl get `nodes | pods | services | replicasets | deployments` Debugging pods 1Kubectl logs [pod name] 2kubectl exec -it containername -- bin/bash Applying YAML files 1kubectl apply -f some-deployment.</description></item><item><title>How to Make a Swap Space Using a Swap File in Linux</title><link>https://crazyoptimist.net/posts/2020/how-to-make-a-swap-space-using-a-swap-file-in-linux/</link><pubDate>Tue, 06 Oct 2020 21:43:07 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-make-a-swap-space-using-a-swap-file-in-linux/</guid><description>
+This article is based on the content of aws knowledgebase.
+You might have been stuck in memory leak when building some kinda javascript-heavy frontend apps like Vue or React on a cloud server itself. Just for serving built artifacts, we do not need large instances, but still the building process is always hungry for more memory you know.
+Below is how to resolve such specific problem.
+Oh, this is not the case if you already have a dedicated(partitioned) swap space, it's a better option in any case but in most cases, we will be playing with servers without a swap patition.</description></item><item><title>GPG Key in Git - Get Your Every Commit Verified</title><link>https://crazyoptimist.net/posts/2020/gpg-key-in-git-get-verified-your-every-commits/</link><pubDate>Sun, 04 Oct 2020 14:40:59 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/gpg-key-in-git-get-verified-your-every-commits/</guid><description>
+This article is based on the contents of the Github's documentation.
+You will get your own verified badge on every git commits once you configure your GPG key with your VCS.
+First things first, check your gpg version using this command:
+1gpg --version Allow me to assume that you are on version 2.1.17 or greater.
+Use this command to generate a GPG key:
+1gpg --full-generate-key Choose the default for kind of key and give 4096 for key size, choose 0 for expiration time or up to your decision otherwise.</description></item><item><title>Hugo - An Awesome Way to Enjoy Your Blog Life as an Engineer</title><link>https://crazyoptimist.net/posts/2020/hugo-an-awesome-way-to-enjoy-your-blog-life-as-an-engineer/</link><pubDate>Wed, 23 Sep 2020 18:28:24 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/hugo-an-awesome-way-to-enjoy-your-blog-life-as-an-engineer/</guid><description>
+I have just finished migrating my blog from Ghost self-hosting to Hugo. I am more than happy to use: { framework: &amp;quot;Hugo&amp;quot;, hosting: &amp;quot;Firebase&amp;quot;, cicd: &amp;quot;CircleCI&amp;quot; }. I just wanted to share the full process of how I got it done, which was not a piece of cake. You know, it's not just playing around or a dev environment; it's production. There are tons of good materials that explain how to blog with Hugo, install Hugo themes, etc.</description></item><item><title>Deploy Your Web Apps in Just a Minute - Made With 💖 for Dockerists</title><link>https://crazyoptimist.net/posts/2020/deploy-your-web-apps-in-just-a-minute-made-with-love-for-dockerists/</link><pubDate>Mon, 07 Sep 2020 02:52:02 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/deploy-your-web-apps-in-just-a-minute-made-with-love-for-dockerists/</guid><description>
+As a software engineer or DevOps engineer, you may frequently encounter mundane tasks, such as setting up a new cloud environment for deploying your web apps or microservices.
+With the following script though, you can eliminate this tedious process. Simply obtain the script, run it with bash, and you will have a complete environment with the latest stable versions of Docker, Docker Compose, and Nginx.
+You might wanna convert it to an Ansible playbook.</description></item><item><title>How to Install Docker Engine (Not a Legacy Version!) on Ubuntu Bionic or Focal</title><link>https://crazyoptimist.net/posts/2020/how-to-install-docker-engine-on-ubuntu-bionic-or-focal/</link><pubDate>Thu, 11 Jun 2020 02:43:23 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-install-docker-engine-on-ubuntu-bionic-or-focal/</guid><description>
+In some cases, you may get stuck due to docker and docker compose version.
+Let's follow up on docker official documentation:
+1apt remove docker docker-engine docker.io containerd runc # purging the legacy version if exists 2apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common 3curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - 4apt-key fingerprint 0EBFCD88 5add-apt-repository &amp;#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;#34; 6apt update &amp;amp;&amp;amp; apt install docker-ce docker-ce-cli containerd.io Very awesome! What about the docker-compose which is a pretty cool stuff?</description></item><item><title>How to Use Jenkins - A Basic Way of Deployment Automation for Lazy Developers</title><link>https://crazyoptimist.net/posts/2020/how-to-use-jenkins-a-basic-way-of-deployment-automation-for-lazy-developers/</link><pubDate>Thu, 11 Jun 2020 02:22:20 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-use-jenkins-a-basic-way-of-deployment-automation-for-lazy-developers/</guid><description>
+I strongly believe that &amp;quot;lazy developer&amp;quot; is a synonym of &amp;quot;talented developer&amp;quot; from a motivational point of view.
+Okay, let's get started with Jenkins setup then.
+Let's go for password login for deployment, remembering that it's not the only way nor an elegant way of implementation, but just follow up ;)
+CHANGE SSH PORT - FOR DESTINATION SERVER 1sudo vim /etc/ssh/sshd_config Find out the line #port 22 and uncomment it to change into port ${YOUR_NEW_SSH_PORT}, then reload the sshd service like so:</description></item><item><title>Let's Encrypt - The Right Way in 2021</title><link>https://crazyoptimist.net/posts/2020/letsencrypt-a-right-way-in-2021/</link><pubDate>Thu, 11 Jun 2020 02:07:02 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/letsencrypt-a-right-way-in-2021/</guid><description>
+Install Certbot Install snapd.
+Remove old version of certbot:
+1sudo apt-get remove certbot 2# or 3sudo dnf remove certbot Install certbot:
+1sudo snap install --classic certbot 2sudo ln -s /snap/bin/certbot /usr/bin/certbot Run it!
+1sudo certbot --nginx Caution! In case you have an IP access blocking config in nginx, you need to disable it, temporarily at least.
+For example, imagine you have this nginx block for IP access blocking:
+1server { 2 3 listen 80 default_server; 4 return 444; 5 6} Then disable it like so:</description></item><item><title>How to Install Golang on Manjaro</title><link>https://crazyoptimist.net/posts/2020/how-to-install-golang-on-manjaro/</link><pubDate>Fri, 22 May 2020 01:59:46 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-install-golang-on-manjaro/</guid><description>
+Manjaro is an attractive distro built on top of Arch.
+Let's get golang development environment ready on your Manjaro machine!
+You can just update the whole system packages and then simply install golang stable version provided by the Arch repository, not sure what it's called really.
+1pacman -Syu 2pacman -S go 3go version Now you have a golang engine on your machine, let's make a development environment like so:
+1cd ~ 2mkdir go &amp;amp;&amp;amp; cd go &amp;amp;&amp;amp; mkdir src &amp;amp;&amp;amp; cd src &amp;amp;&amp;amp; mkdir github.</description></item><item><title>How to Install Vmware-Tools on Manjaro - an Awesome Distro of Arch Linux</title><link>https://crazyoptimist.net/posts/2020/how-to-install-vmware-tools-on-manjaro-an-awesome-distro-of-arch-linux/</link><pubDate>Thu, 23 Apr 2020 01:50:51 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-install-vmware-tools-on-manjaro-an-awesome-distro-of-arch-linux/</guid><description>
+As you may know, the package manager of Arch Linux is &amp;quot;pacman&amp;quot;.
+1sudo pacman -Syu #Update and upgrade system packages 2sudo pacman -S package_name #Install a new package 3sudo pacman -R package_name #Remove a package 4sudo pacman -Rn package_name #Remove along with backup-ed config files 5sudo pacman -Rsu package_name #Remove along with dependencies If you do not have wget on your machine, you can install like so:
+1sudo pacman -S wget Then follow the steps below:</description></item><item><title>How to Install The Latest Version of Nginx on Ubuntu Bionic</title><link>https://crazyoptimist.net/posts/2020/how-to-install-the-latest-version-of-nginx-on-ubuntu-bionic/</link><pubDate>Tue, 07 Apr 2020 00:52:18 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-install-the-latest-version-of-nginx-on-ubuntu-bionic/</guid><description>
+Nginx.org maintains a repository for Ubuntu. We can use this repository to install the latest version of Nginx.
+First off, let's create a repository source file for Nginx with the following command.
+1vim /etc/apt/sources.list.d/nginx.list Paste in the following two lines to the file:
+1deb [arch=amd64] http://nginx.org/packages/mainline/ubuntu/ bionic nginx 2deb-src http://nginx.org/packages/mainline/ubuntu/ bionic nginx In order to verify the integrity of packages downloaded from this repository, we need to import Nginx public key using the commands below.</description></item><item><title>How to Handle "Content-Type" in a Post Request Header</title><link>https://crazyoptimist.net/posts/2020/how-to-handle-content-type-in-a-post-request-header/</link><pubDate>Fri, 13 Mar 2020 00:29:46 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-handle-content-type-in-a-post-request-header/</guid><description>
+Value Description application/json Indicates that the request body format is JSON. application/xml Indicates that the request body format is XML. application/x-www-form-urlencoded Indicates that the request body is URL encoded. In some scenarios, for example, when we are going to send POST requests from a shopify form, it doesn’t allowed to use any Content-Type other than the last one in the above table.
+Okay, then how can we configure the payload?</description></item><item><title>How to Build a CI/CD Pipeline on CircleCI</title><link>https://crazyoptimist.net/posts/2020/how-to-build-a-ci-cd-pipeline-on-circleci/</link><pubDate>Wed, 11 Mar 2020 23:49:20 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-build-a-ci-cd-pipeline-on-circleci/</guid><description>
+Once you got your account on CircleCI and setup your project linked to your git repository, you will have to have a directory named “.circleci” inside the root of your project repo.
+Create a file named “config.yml” in there.
+Grab the sample script given by CircleCI platform according to your project type.
+The first step is to get the building workflow success.
+The next step is to get the deployment workflow success.</description></item><item><title>How to Configure a Nginx Reverse Proxy With Let's Encrypt</title><link>https://crazyoptimist.net/posts/2020/how-to-configure-a-nginx-reverse-proxy-with-letsencrypt/</link><pubDate>Wed, 11 Mar 2020 00:02:26 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-configure-a-nginx-reverse-proxy-with-letsencrypt/</guid><description>
+Let’s say one of your micro services is running on http://localhost:3000
+If you already have a nginx service running on the server, create a server block like this:
+1vim /etc/nginx/sites-available/domain.com.conf Grab this content to paste in:
+1server { 2 3 server_name domain.com; 4 5 root /var/www/html; 6 index index.html; 7 8 location / { 9 proxy_pass http://localhost:3000; 10 proxy_http_version 1.1; 11 proxy_set_header Upgrade $http_upgrade; 12 proxy_set_header Connection &amp;#39;upgrade&amp;#39;; 13 proxy_set_header Host $host; 14 proxy_cache_bypass $http_upgrade; 15 } 16 17} For more advanced(production ready) configuration, use below instead:</description></item><item><title>How to Use Git Rebase in a Practical Situation</title><link>https://crazyoptimist.net/posts/2020/how-to-use-git-rebase-in-a-practical-situation/</link><pubDate>Mon, 24 Feb 2020 23:39:13 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-use-git-rebase-in-a-practical-situation/</guid><description>
+Let’s say there are two pull requests open on a project repository.
+Each change has its own branch like this:
+master feature/add-base64-endpoint feature/add-user-agent-endpoint The challenge is to use git rebase to add both changes to master. When you finished, your master branch should have three commits in the following order:
+feat: add user-agent endpoint feat: add base64 endpoint init Okay, let’s go!
+1git clone repo_url 2git status 3git checkout feature/add-base64-endpoint 4git rebase master 5git status 6git checkout master 7git merge feature/add-base64-endpoint 8git status 9git checkout feature/add-user-agent-endpoint 10git rebase master Oops!</description></item><item><title>How to Enable Login With Password on Linux</title><link>https://crazyoptimist.net/posts/2020/how-to-enable-login-with-password-on-linux/</link><pubDate>Tue, 18 Feb 2020 23:20:11 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-enable-login-with-password-on-linux/</guid><description>
+Let’s update the Password Authentication parameter in the ssh service config file:
+1vim /etc/ssh/sshd_config Hey, what? You can't even find the sshd service?
+Install it then:
+1sudo apt update 2sudo apt install openssh-server In the /etc/ssh/sshd_config file, uncomment this line:
+1#PasswordAuthentication yes Boom! Done.
+Oops! Don’t forget to reboot! 🙂
+Or just run:
+1sudo systemctl restart sshd Happy networking!</description></item><item><title>How to Update Apt Repository on Kali Linux</title><link>https://crazyoptimist.net/posts/2020/how-to-update-apt-repository-on-kali-linux/</link><pubDate>Tue, 18 Feb 2020 22:55:51 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-update-apt-repository-on-kali-linux/</guid><description>
+Back up the current sources.list first.
+1sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup Well, run this command then.
+1sudo echo &amp;#34;deb http://http.kali.org/kali kali-rolling main non-free contrib&amp;#34; &amp;gt; /etc/apt/sources.list Now you can run apt update command!
+Happy networking! 😎</description></item><item><title>How to Dockerize a Full Stack MEVN Application</title><link>https://crazyoptimist.net/posts/2020/how-to-dockerize-a-full-stack-mevn-application/</link><pubDate>Sat, 15 Feb 2020 19:21:16 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-dockerize-a-full-stack-mevn-application/</guid><description>
+First things first. Let’s check the directory structure of the app.
+A Full Stack MEVN Application
+Let’s take a look into the DB image first.
+1FROM mongo:latest 2 3WORKDIR /app 4COPY . /app 5 6ENV MONGO_INITDB_ROOT_USERNAME=root 7ENV MONGO_INITDB_ROOT_PASSWORD=password 8 9EXPOSE 27017 I thought importing dump data should be working if I used CMD or ENTRYPOINT.
+It didn’t work though. So I picked a solution using exec and shell script. It’s in the last part.</description></item><item><title>How to Setup a Reverse Proxy With Let's Encrypt SSL Certificates Using Docker</title><link>https://crazyoptimist.net/posts/2020/how-to-setup-a-reverse-proxy-with-letsencrypt-ssl-certificates-using-docker/</link><pubDate>Wed, 08 Jan 2020 17:40:22 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-setup-a-reverse-proxy-with-letsencrypt-ssl-certificates-using-docker/</guid><description>
+I think this is really important in practical docker battle field. 🙂
+Let’s go for the docker-compose.yml first.
+1version: &amp;#39;3&amp;#39; 2 3services: 4 nginx: 5 image: nginx:1.15-alpine 6 restart: unless-stopped 7 volumes: 8 - ./data/nginx:/etc/nginx/conf.d 9 - ./data/certbot/conf:/etc/letsencrypt 10 - ./data/certbot/www:/var/www/certbot 11 ports: 12 - &amp;#34;80:80&amp;#34; 13 - &amp;#34;443:443&amp;#34; 14 command: &amp;#34;/bin/sh -c &amp;#39;while :; do sleep 6h &amp;amp; wait $${!}; nginx -s reload; done &amp;amp; nginx -g \&amp;#34;daemon off;\&amp;#34;&amp;#39;&amp;#34; 15 certbot: 16 image: certbot/certbot 17 restart: unless-stopped 18 volumes: 19 - .</description></item><item><title>How to Host Wordpress Using Docker</title><link>https://crazyoptimist.net/posts/2020/how-to-host-wordpress-using-docker/</link><pubDate>Mon, 06 Jan 2020 14:14:16 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-host-wordpress-using-docker/</guid><description>
+Let’s go for our docker-compose.yml first.
+1version: &amp;#39;3&amp;#39; 2 3services: 4 wp: 5 image: wordpress:latest 6 ports: 7 - ${IP}:80:80 8 volumes: 9 - ./php.conf.ini:/usr/local/etc/php/conf.d/conf.ini 10 - ./wordpress:/var/www/html 11 environment: 12 WORDPRESS_DB_HOST: db 13 WORDPRESS_DB_NAME: &amp;#34;${DB_NAME}&amp;#34; 14 WORDPRESS_DB_USER: root 15 WORDPRESS_DB_PASSWORD: &amp;#34;${DB_ROOT_PASSWORD}&amp;#34; 16 depends_on: 17 - db 18 19 pma: 20 image: phpmyadmin/phpmyadmin 21 environment: 22 PMA_HOST: db 23 PMA_PORT: 3306 24 MYSQL_ROOT_PASSWORD: &amp;#34;${DB_ROOT_PASSWORD}&amp;#34; 25 ports: 26 - ${IP}:8080:80 27 links: 28 - db:db 29 30 db: 31 image: mysql:latest 32 ports: 33 - ${IP}:3306:3306 34 command: [ 35 &amp;#39;--default_authentication_plugin=mysql_native_password&amp;#39;, 36 &amp;#39;--character-set-server=utf8mb4&amp;#39;, 37 &amp;#39;--collation-server=utf8mb4_unicode_ci&amp;#39; 38 ] 39 volumes: 40 - .</description></item><item><title>How to Auto Start OpenVPN Client on Ubuntu Bionic</title><link>https://crazyoptimist.net/posts/2020/how-to-auto-start-openvpn-client-on-ubuntu-bionic/</link><pubDate>Mon, 06 Jan 2020 00:28:23 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-auto-start-openvpn-client-on-ubuntu-bionic/</guid><description>
+Launch OpenVPN client as a daemon. Here I assume you already have your own cert file - filename.ovpn. 🙂
+Modify its file extension to conf like so:
+1mv filename.ovpn filename.conf Put your cert file inside /etc/openvpn directory like so:
+1mv /path/to/filename.conf /etc/openvpn/ OpenVPN client service name would be openvpn@filename.
+Well, you might already know what to do to launch the service.
+1sudo killall openvpn 2sudo systemctl enable --now openvpn@filename Reload the system daemons.</description></item><item><title>Basic Docker Notes</title><link>https://crazyoptimist.net/posts/2019/basic-docker-notes/</link><pubDate>Sat, 28 Dec 2019 00:08:01 -0500</pubDate><guid>https://crazyoptimist.net/posts/2019/basic-docker-notes/</guid><description>
+To run a container from an image:
+1docker container run -it --rm ubuntu /bin/bash -t: terminal inside
+-i: (STDIN) grabbing
+--rm: remove container automatically when process exits
+--name: name the container or daemon
+-d: daemonize the container running
+To list all containers:
+1docker container ps -a To start or stop container:
+1docker container stop container_name To remove container(s):
+1docker container rm -f $(docker container ps -aq) -q: print only container IDs</description></item><item><title>How to Setup LAMP Stack on Centos 7 - Right Way</title><link>https://crazyoptimist.net/posts/2019/how-to-setup-lamp-stack-on-centos-7-right-way/</link><pubDate>Wed, 25 Dec 2019 23:47:47 -0500</pubDate><guid>https://crazyoptimist.net/posts/2019/how-to-setup-lamp-stack-on-centos-7-right-way/</guid><description>
+Today I am going to follow up the procedures to setup standard LAMP stack on CentOS 7.
+For the latest version of phpMyAdmin:
+1rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY* 2yum -y install epel-release For MariaDB:
+1yum -y install mariadb-server mariadb 2systemctl enable --now mariadb 3mysql_secure_installation For Apache:
+1yum -y install httpd 2systemctl enable --now httpd For PHP:
+1rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm 2yum -y install yum-utils 3yum update -y 4yum-config-manager --enable remi-php73 5yum -y install php php-opcache 6systemctl restart httpd For making PHP work with MySQL:</description></item><item><title>How to Install Letsencrypt Certbot for Apache on Centos 7</title><link>https://crazyoptimist.net/posts/2019/how-to-install-letsencrypt-certbot-for-apache-on-centos-7/</link><pubDate>Fri, 20 Dec 2019 22:01:55 -0500</pubDate><guid>https://crazyoptimist.net/posts/2019/how-to-install-letsencrypt-certbot-for-apache-on-centos-7/</guid><description>
+Simply follow this script below:
+1yum install epel-release -y 2yum install certbot python-certbot-apache mod_ssl -y 3certbot --apache Create a cron job which renews certification once a week.
+1crontab -e 10 0,12 * * * python -C &amp;#39;import random; import time; time.sleep(random.random() * 3600)&amp;#39; &amp;amp;&amp;amp; certbot renew 2# keep this line blank, it&amp;#39;s a magic Your domain is all set to relay on https now!
+Happy networking gents! 🙂</description></item><item><title>How to Setup a Reverse Proxy With Nginx on Centos 7</title><link>https://crazyoptimist.net/posts/2019/how-to-setup-a-reverse-proxy-with-nginx-on-centos-7/</link><pubDate>Fri, 20 Dec 2019 21:50:44 -0500</pubDate><guid>https://crazyoptimist.net/posts/2019/how-to-setup-a-reverse-proxy-with-nginx-on-centos-7/</guid><description>
+First off, install nginx on the server machine.
+1yum update 2yum install epel-release 3yum install nginx Edit the nginx config file then.
+1cd /etc/nginx/nginx.conf 2vim nginx.conf Edit the file like this:
+1server_name domain.com; If you are not going to use domain name, a public ip address would also work instead of domain.com 🙂
+Find location section in the file and replace it with:
+1location / { 2 proxy_pass http://server_ip:8080; 3 proxy_http_version 1.</description></item><item><title>How to Deploy Your Nodejs App on Centos 7</title><link>https://crazyoptimist.net/posts/2019/how-to-deploy-your-nodejs-app-on-centos-7/</link><pubDate>Fri, 20 Dec 2019 21:35:46 -0500</pubDate><guid>https://crazyoptimist.net/posts/2019/how-to-deploy-your-nodejs-app-on-centos-7/</guid><description>
+PM2 is a process manager for nodejs apps. It daemonizes apps built with nodejs, which means run-as-service.
+Let’s install PM2 using npm.
+1npm install -g pm2@latest Now you can start your app using pm2 like so:
+1pm2 start app.js Next, register the app as startup process.
+1pm2 startup systemd 2pm2 save You can check the currently running apps like so:
+1pm2 list Remember your app name or id so that you can use it to restart or stop the service.</description></item><item><title>How to Configure Virtual Hosts on Centos 7 Apache Server</title><link>https://crazyoptimist.net/posts/2019/how-to-configure-virtual-hosts-on-centos-7-apache-server/</link><pubDate>Fri, 20 Dec 2019 21:25:40 -0500</pubDate><guid>https://crazyoptimist.net/posts/2019/how-to-configure-virtual-hosts-on-centos-7-apache-server/</guid><description>
+Prerequisites for a vhost setup:
+1chown -R apache:apache /path_to/site_root Set the permission of the root directory to 755, you may already know. 🙂
+Well, let’s create a vhost config file before you edit it.
+1cd /etc/httpd/conf.d 2vim domain_name.conf Now, grab this content to your config file:
+1&amp;lt;VirtualHost *:80&amp;gt; 2 3 ServerName domain.com 4 ServerAlias www.domain.com 5 DocumentRoot /var/www/path_to/site_root 6 7 &amp;lt;Directory /var/www/path_to/site_root&amp;gt; 8 Options Indexes FollowSymLinks MultiViews 9 AllowOverride All 10 &amp;lt;/Directory&amp;gt; 11 12 CustomLog /var/log/httpd/domain.</description></item><item><title>How to Fix OpenVPN Socket Bind Failure</title><link>https://crazyoptimist.net/posts/2019/how-to-fix-openvpn-socket-bind-failure/</link><pubDate>Fri, 06 Dec 2019 21:09:42 -0500</pubDate><guid>https://crazyoptimist.net/posts/2019/how-to-fix-openvpn-socket-bind-failure/</guid><description>
+I recently came up with this error on one of my OpenVPN servers.
+&amp;quot;OpenVPN - Socket bind failed on local address [AF_INET] IP:#portnum: Cannot assign requested address&amp;quot;
+Let me share how I did fix it.
+First off, check this openvpn’s default init script : openvpn@.service
+1sudo grep After /usr/lib/systemd/system/openvpn\@.service It will look like this: After=network.target
+Well, change it like this:
+1After=network-online.target Reboot the server, if the connection is still not working after rebooting, change the selinux configuration.</description></item><item><title>How to Auto-Login to a Linux Server Using Public Key</title><link>https://crazyoptimist.net/posts/2019/how-to-auto-login-to-a-linux-server-using-public-key/</link><pubDate>Tue, 19 Nov 2019 20:57:16 -0500</pubDate><guid>https://crazyoptimist.net/posts/2019/how-to-auto-login-to-a-linux-server-using-public-key/</guid><description>
+This is a manual version of ssh-copy-id command.
+Let’s say that we are logging in to server named B from a local machine named A.
+First off, generate authentication key pair without passphrase on the local machine A:
+1ssh-keygen -t rsa Now you got a public key of your local machine, of which path is:
+1cd ~/.ssh 2cat id_rsa.pub Grab the public key to append it to the server’s file named authorized_keys.</description></item><item><title>How to Login Using PPK File With SSH</title><link>https://crazyoptimist.net/posts/2019/how-to-login-using-ppk-file-with-ssh/</link><pubDate>Tue, 19 Nov 2019 20:36:34 -0500</pubDate><guid>https://crazyoptimist.net/posts/2019/how-to-login-using-ppk-file-with-ssh/</guid><description>
+In some situations, you are given only a ppk file for access to a cloud server. You know, however, it's for Putty on windows, not for OpenSSH client which might be the most familiar to you.🤔
+I am gonna introduce a method to convert a ppk file into a pem file so that you can login to the linux server with ssh command which you might be used to.
+First off, install putty-tools on your machine.</description></item><item><title>How to Install OpenVPN Server on Any Distro of Linux</title><link>https://crazyoptimist.net/posts/2019/how-to-install-openvpn-server-on-any-distro-of-linux/</link><pubDate>Sun, 17 Nov 2019 19:02:15 -0500</pubDate><guid>https://crazyoptimist.net/posts/2019/how-to-install-openvpn-server-on-any-distro-of-linux/</guid><description>
+Thanks to Stan's great work, it became so delightful to run your own secure and stable private VPN server. It's never been so easy. 👍
+Download the installation script like this:
+1wget https://raw.githubusercontent.com/Angristan/openvpn-install/master/openvpn-install.sh Change file permission to executable like this:
+1chmod +x openvpn-install.sh Boom! You did it!
+What is more .. Wireguard is more advanced VPN protocol which brings us great stability, security and remarkable speed improvement.
+It's also available for one hit installation thanks to Stan!</description></item><item><title>CI/CD Basic Tutorial With Codeship for DevOps Beginners</title><link>https://crazyoptimist.net/posts/2019/ci-cd-basic-tutorial-with-codeship/</link><pubDate>Fri, 08 Nov 2019 02:34:07 -0500</pubDate><guid>https://crazyoptimist.net/posts/2019/ci-cd-basic-tutorial-with-codeship/</guid><description>
+CI/CD Build History
+You might have ever been stuck in continuous deployment with codeship.
+Hacking principle of CI/CD is all the same in other platforms like CircleCI, Codefresh, TeamCity, etc.
+Okay, let’s get started.
+First off, connect your version control app such as github, gitlab or bitbucket to the Codeship.\
+Connect the Project Repository to Codeship
+Once connected, select the project source repository and go to project -&amp;gt; project settings at the upper right corner of your project dashboard.</description></item><item><title>How to Login Automatically With SSH</title><link>https://crazyoptimist.net/posts/2019/how-to-login-automatically-with-ssh/</link><pubDate>Fri, 08 Nov 2019 02:10:45 -0500</pubDate><guid>https://crazyoptimist.net/posts/2019/how-to-login-automatically-with-ssh/</guid><description>
+Auto Login With SSH
+Today I am going to share you how to login to a cloud server without using password.
+Let’s say there is a server and your local machine, assuming you can login to the server using some kind of credentials.
+First off, you should generate a new local public key on your local machine.
+Chdir to the current user’s root directory.
+1cd 2ssh-keygen If you see a prompt message of existing file, just overwrite it, give yes to every prompt otherwise.</description></item><item><title>How to Install Webmin on Centos7</title><link>https://crazyoptimist.net/posts/2019/how-to-install-webmin-on-centos7/</link><pubDate>Sun, 03 Nov 2019 21:11:08 -0500</pubDate><guid>https://crazyoptimist.net/posts/2019/how-to-install-webmin-on-centos7/</guid><description>
+Webmin Login Screen
+First off, access to the server via ssh with root.
+Install dependencies with this command:
+1yum -y install wget perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect perl-Data-Dumper unzip Create a repo file like this:
+1nano /etc/yum.repos.d/webmin.repo 1[Webmin] 2name=Webmin Distribution Neutral 3#baseurl=http://download.webmin.com/download/yum 4mirrorlist=http://download.webmin.com/download/yum/mirrorlist 5enabled=1 Add the Webmin author’s PGP key so that your system will trust the new repository:
+1wget http://www.webmin.com/jcameron-key.asc 2rpm --import jcameron-key.asc Download latest version of Webmin:</description></item></channel></rss>
