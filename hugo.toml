@@ -1,0 +1,57 @@
+baseurl = "https://crazyoptimist.net/"
+title = "crazyoptimist"
+author = "crazyoptimist"
+
+paginate = 10
+disqusShortname = "crazy-optimist"
+googleAnalytics = "G-3VLC0SM1EZ"
+copyright = "all rights reserved"
+
+
+theme = "github.com/rhazdon/hugo-theme-hello-friend-ng"
+
+
+[taxonomies]
+  category = "categories"
+  tag      = "tags"
+
+
+[params]
+
+  keywords = "crazyoptimist, gopher, hacker"
+  description = "crazyoptimist's personal website"
+  homeSubtitle = "chief code whisperer, problem solver"
+  backgroundImage = ""
+
+  [params.author]
+    name = "crazyoptimist"
+
+  [params.footer]
+    bottomText = ["feel free to reach out via email", "hey [at] crazyoptimist [dot] net"]
+
+  [params.logo]
+    logoMark     = "~ $"
+    logoText     = "whoami"
+    logoHomeLink = "/"
+
+  # Social Accounts
+  [[params.social]]
+    name = "github"
+    url = "https://github.com/crazyoptimist"
+  [[params.social]]
+    name = "mastodon"
+    url = "https://mastodon.social/@crazyoptimist"
+  [[params.social]]
+    name = "email"
+    url = "mailto:hey@crazyoptimist.net"
+
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "about/"
+  [[menu.main]]
+    identifier = "posts"
+    name       = "Posts"
+    url        = "posts/"
