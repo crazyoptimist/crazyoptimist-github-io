@@ -5,27 +5,15 @@ author = "crazyoptimist"
 
 # canonifyurls = true
 paginate = 10
+disqusShortname = "crazy-optimist"
 
 # Install theme as a hugo module
 [module]
 [[module.imports]]
   path = "github.com/chipzoller/hugo-clarity"
 
-disqusShortname = "crazy-optimist"
-
-DefaultContentLanguage = "en"
 
 [taxonomies]
   category = "categories"
   tag = "tags"
   series = "series"
-
-#Menu links
-[[menus.main]]
-    name = "Posts"
-    weight = 1
-    url  = "/posts"
-[[menus.main]]
-    name = "About"
-    weight = 2
-    url = "/about"
