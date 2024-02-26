@@ -27,7 +27,7 @@ theme = "github.com/rhazdon/hugo-theme-hello-friend-ng"
     name = "crazyoptimist"
 
   [params.footer]
-    bottomText = ["feel free to reach out via email", "hey [at] crazyoptimist [dot] net"]
+    bottomText = ["thanks for visiting!", "&copy;  2024 crazyoptimist. all rights reserved."]
 
   [params.logo]
     logoMark     = "~ $"
@@ -49,9 +49,16 @@ theme = "github.com/rhazdon/hugo-theme-hello-friend-ng"
 [menu]
   [[menu.main]]
     identifier = "about"
-    name       = "About"
+    name       = "about"
     url        = "about/"
+    weight     = 1
   [[menu.main]]
     identifier = "posts"
-    name       = "Posts"
+    name       = "posts"
     url        = "posts/"
+    weight     = 2
+  [[menu.main]]
+    identifier = "categories"
+    name       = "categories"
+    url        = "categories/"
+    weight     = 3
