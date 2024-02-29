@@ -740,18 +740,20 @@ Add the public key to <code>authorized_keys</code>:</p>
 <p>Commit the workflow file in the repository and push it, then check how the workflow runs in the <strong>Actions</strong> tab of your repository. Setting up CI/CD right usually takes some effort and experimentation, so if you have followed through thus far, that&rsquo;s great!</p>
 <p>If you are curious about deploying the entire infrastructure (VPC, EC2, ALB, ACM, Route53, S3) as code in Terraform, it can be a whole other topic. Please feel free to email me, and I&rsquo;ll be happy to teach you patiently. :X</p>
 <p>Happy coding! 😎</p>
-]]></content></item><item><title>How to Configure Vim as Your Golang IDE</title><link>https://crazyoptimist.net/posts/2021/how-to-configure-vim-as-your-golang-ide/</link><pubDate>Mon, 13 Sep 2021 20:17:30 -0500</pubDate><guid>https://crazyoptimist.net/posts/2021/how-to-configure-vim-as-your-golang-ide/</guid><description>I use Vim massively as my main IDE, and my vimrc file can be found here.
-This article presumes that you have already configured Vim as your code editor basically.
+]]></content></item><item><title>How to Configure Vim as Your Go IDE</title><link>https://crazyoptimist.net/posts/2021/how-to-configure-vim-as-your-golang-ide/</link><pubDate>Mon, 13 Sep 2021 20:17:30 -0500</pubDate><guid>https://crazyoptimist.net/posts/2021/how-to-configure-vim-as-your-golang-ide/</guid><description>Vim/Neovim is my IDE for day-to-day work. My vimrc file can be found here.
+This article is all about Vim(not Neovim), and I assume that you have already configured Vim as your code editor.
 Okay, let&amp;rsquo;s get started by installing fatih/vim-go plugin with your favorite vim plugin manager.
-If you have Golang installed correctly on your machine, you will be able to run :GoInstallBinaries after installing the above plugin.
-After that, install coc.nvim plugin, which is a great language server for Vim.</description><content type="html"><![CDATA[<p>I use Vim massively as my main IDE, and my vimrc file can be found <a href="https://github.com/CrazyOptimist/dotfiles">here</a>.<br>
-This article presumes that you have already configured Vim as your code editor basically.</p>
-<p>Okay, let&rsquo;s get started by installing <code>fatih/vim-go</code> plugin with your favorite vim plugin manager.<br>
-If you have Golang installed correctly on your machine, you will be able to run <code>:GoInstallBinaries</code> after installing the above plugin.</p>
-<p>After that, install <a href="https://github.com/neoclide/coc.nvim">coc.nvim plugin</a>, which is a great language server for Vim.<br>
-Now, you will need a coc.nvim extension called <code>coc-go</code>, which will serve as your golang language server.<br>
-It can be done by this command: <code>:CocInstall coc-go coc-json</code>.<br>
-You can install some other language server extensions along with <code>coc-go</code>, like <code>coc-emmet</code>, <code>coc-html</code>, <code>coc-json</code>, etc.</p>
+After that, if you have Go installed correctly on your machine already, you will be able to run :GoInstallBinaries.
+Next, install coc.nvim plugin, which is a great language server host for Vim.</description><content type="html"><![CDATA[<p>Vim/Neovim is my IDE for day-to-day work. My vimrc file can be found <a href="https://github.com/crazycptimist/dotfiles">here</a>.</p>
+<p>This article is all about Vim(not Neovim), and I assume that you have already configured Vim as your code editor.</p>
+<p>Okay, let&rsquo;s get started by installing <code>fatih/vim-go</code> plugin with your favorite vim plugin manager.</p>
+<p>After that, if you have Go installed correctly on your machine already, you will be able to run <code>:GoInstallBinaries</code>.</p>
+<p>Next, install <a href="https://github.com/neoclide/coc.nvim">coc.nvim</a> plugin, which is a great language server host for Vim.</p>
+<blockquote>
+<p>For Neovim, I would recommend to use Nvim LSP client, which is more awesome than coc-nvim in my opinion.</p>
+</blockquote>
+<p>Now, you will need a coc.nvim extension called <code>coc-go</code>, which will serve as your Go language server. It can be done by this vim command: <code>:CocInstall coc-go</code>.</p>
+<p>You can install some other language server extensions along with <code>coc-go</code>, like <code>coc-tsserver</code>, <code>coc-json</code>, etc.</p>
 <p>The next step is to configure the installed plugins properly. You can do it just by adding below scripts to your vimrc file:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#75715e">&#34; disable all linters as that is taken care of by coc.nvim</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">go_diagnostics_enabled</span> = <span style="color:#ae81ff">0</span>
@@ -774,10 +776,9 @@ You can install some other language server extensions along with <code>coc-go</c
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">go_highlight_extra_types</span> = <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">go_highlight_build_constraints</span> = <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">g</span>:<span style="color:#a6e22e">go_highlight_generate_tags</span> = <span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p><code>SHIFT</code> + <code>K</code> will show documentation for every func you want to know about.<br>
-And that&rsquo;s pretty much it. Try and edit some <code>go</code> files with your awesome IDE.<br>
-Happy coding!<br>
-😎</p>
+</span></span></code></pre></div><p><code>SHIFT</code> + <code>K</code> will show documentation for every func you want to know about.</p>
+<p>And that&rsquo;s pretty much it. Try and edit some <code>go</code> files with your awesome IDE.</p>
+<p>Happy coding, Gophers! 😎</p>
 ]]></content></item><item><title>How to Setup Eslint and Prettier With Git Precommit Hooks in React Typescript Project</title><link>https://crazyoptimist.net/posts/2021/how-to-setup-eslint-prettier-with-git-precommit-hooks-in-react-typescript-project/</link><pubDate>Mon, 16 Aug 2021 05:39:46 -0500</pubDate><guid>https://crazyoptimist.net/posts/2021/how-to-setup-eslint-prettier-with-git-precommit-hooks-in-react-typescript-project/</guid><description>You should probably create a new react app with typescript using like so:
 npx create-react-app my-app --template typescript Now let&amp;rsquo;s get started to setup eslint and prettier.
 Remove eslintConfig from package.json.
@@ -1694,7 +1695,7 @@ If you do not like it for some reason, skip the line and use -S tag instead, whe
 </span></span><span style="display:flex;"><span>gpg --import public.pub
 </span></span></code></pre></div><p>Hooray! You did it!
 Happy coding gents! 😎</p>
-]]></content></item><item><title>Hugo - An Awesome Way to Enjoy Your Blog Life as an Engineer</title><link>https://crazyoptimist.net/posts/2020/hugo-an-awesome-way-to-enjoy-your-blog-life-as-an-engineer/</link><pubDate>Wed, 23 Sep 2020 18:28:24 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/hugo-an-awesome-way-to-enjoy-your-blog-life-as-an-engineer/</guid><description>I have just finished migrating my blog from Ghost self-hosting to Hugo. I am more than happy to use: { framework: &amp;ldquo;Hugo&amp;rdquo;, hosting: &amp;ldquo;Firebase&amp;rdquo;, cicd: &amp;ldquo;CircleCI&amp;rdquo; }. I just wanted to share the full process of how I got it done, which was not a piece of cake. You know, it&amp;rsquo;s not just playing around or a dev environment; it&amp;rsquo;s production. There are tons of good materials that explain how to blog with Hugo, install Hugo themes, etc.</description><content type="html"><![CDATA[<p>I have just finished migrating my blog from Ghost self-hosting to Hugo. I am more than happy to use: { framework: &ldquo;Hugo&rdquo;, hosting: &ldquo;Firebase&rdquo;, cicd: &ldquo;CircleCI&rdquo; }. I just wanted to share the full process of how I got it done, which was not a piece of cake. You know, it&rsquo;s not just playing around or a dev environment; it&rsquo;s production. There are tons of good materials that explain how to blog with Hugo, install Hugo themes, etc. I&rsquo;m just going to mention the roadblocks I encountered during this migration.</p>
+]]></content></item><item><title>Hugo - An Awesome Way to Enjoy Your Blog Life as an Engineer</title><link>https://crazyoptimist.net/posts/2020/hugo-an-awesome-way-to-enjoy-your-blog-life-as-an-engineer/</link><pubDate>Wed, 23 Sep 2020 18:28:24 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/hugo-an-awesome-way-to-enjoy-your-blog-life-as-an-engineer/</guid><description>I have just finished migrating my blog from Ghost self-hosting to Hugo. I am more than happy to use: { framework: &amp;ldquo;Hugo&amp;rdquo;, hosting: &amp;ldquo;Firebase&amp;rdquo;, cicd: &amp;ldquo;CircleCI&amp;rdquo; }. I just wanted to share the full process of how I got it done, which was not a piece of cake. You see, it&amp;rsquo;s not just playing around or a development environment; it&amp;rsquo;s for &amp;ldquo;production&amp;rdquo;. There are plenty of great resources available that explain how to blog with Hugo, install Hugo themes, and so on.</description><content type="html"><![CDATA[<p>I have just finished migrating my blog from Ghost self-hosting to Hugo. I am more than happy to use: { framework: &ldquo;Hugo&rdquo;, hosting: &ldquo;Firebase&rdquo;, cicd: &ldquo;CircleCI&rdquo; }. I just wanted to share the full process of how I got it done, which was not a piece of cake. You see, it&rsquo;s not just playing around or a development environment; it&rsquo;s for &ldquo;production&rdquo;. There are plenty of great resources available that explain how to blog with Hugo, install Hugo themes, and so on. In this post, I will focus on the challenges I faced during this migration.</p>
 <p>When you run the <code>hugo server</code> command on your local machine, it seems to work flawlessly. However, when you try to deploy it to the cloud, the first issue you may encounter is the <code>baseURL</code> setting in the Hugo config file. Here is a portion of my config file that pertains to this issue:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">relativeURLs</span> = <span style="color:#66d9ef">true</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;crazyoptimist&#34;</span>
@@ -1875,24 +1876,6 @@ For example, imagine you have this nginx block for IP access blocking:</p>
 </span></span><span style="display:flex;"><span>nginx -s reload
 </span></span></code></pre></div><p>Yay, your certbot should be working for sure! 😎<br>
 Happy securing!</p>
-]]></content></item><item><title>How to Install Golang on Manjaro</title><link>https://crazyoptimist.net/posts/2020/how-to-install-golang-on-manjaro/</link><pubDate>Fri, 22 May 2020 01:59:46 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-install-golang-on-manjaro/</guid><description>Manjaro is an attractive distro built on top of Arch.
-Let&amp;rsquo;s get golang development environment ready on your Manjaro machine!
-You can just update the whole system packages and then simply install golang stable version provided by the Arch repository, not sure what it&amp;rsquo;s called really.
-pacman -Syu pacman -S go go version Now you have a golang engine on your machine, let&amp;rsquo;s make a development environment like so:
-cd ~ mkdir go &amp;amp;&amp;amp; cd go &amp;amp;&amp;amp; mkdir src &amp;amp;&amp;amp; cd src &amp;amp;&amp;amp; mkdir github.</description><content type="html"><![CDATA[<p>Manjaro is an attractive distro built on top of Arch.<br>
-Let&rsquo;s get golang development environment ready on your Manjaro machine!<br>
-You can just update the whole system packages and then simply install golang stable version provided by the Arch repository, not sure what it&rsquo;s called really.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -Syu
-</span></span><span style="display:flex;"><span>pacman -S go
-</span></span><span style="display:flex;"><span>go version
-</span></span></code></pre></div><p>Now you have a golang engine on your machine, let&rsquo;s make a development environment like so:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~
-</span></span><span style="display:flex;"><span>mkdir go <span style="color:#f92672">&amp;&amp;</span> cd go <span style="color:#f92672">&amp;&amp;</span> mkdir src <span style="color:#f92672">&amp;&amp;</span> cd src <span style="color:#f92672">&amp;&amp;</span> mkdir github.com <span style="color:#f92672">&amp;&amp;</span> cd github.com <span style="color:#f92672">&amp;&amp;</span> mkdir github_username <span style="color:#f92672">&amp;&amp;</span> cd github_username <span style="color:#f92672">&amp;&amp;</span> pwd
-</span></span></code></pre></div><p>Then you will see an output similar to this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/home/netfan/go/src/github.com/crazyoptimist
-</span></span></code></pre></div><p>Great, we are almost there, now google for the best golang extension for vim and configure your vim, then we are all set to go!<br>
-FYI, working directory inside the docker official image of golang is <code>/go/src/app</code>.<br>
-Happy coding Gophers! 😍</p>
 ]]></content></item><item><title>How to Install Vmware-Tools on Manjaro - an Awesome Distro of Arch Linux</title><link>https://crazyoptimist.net/posts/2020/how-to-install-vmware-tools-on-manjaro-an-awesome-distro-of-arch-linux/</link><pubDate>Thu, 23 Apr 2020 01:50:51 -0500</pubDate><guid>https://crazyoptimist.net/posts/2020/how-to-install-vmware-tools-on-manjaro-an-awesome-distro-of-arch-linux/</guid><description>As you may know, the package manager of Arch Linux is &amp;ldquo;pacman&amp;rdquo;.
 sudo pacman -Syu #Update and upgrade system packages sudo pacman -S package_name #Install a new package sudo pacman -R package_name #Remove a package sudo pacman -Rn package_name #Remove along with backup-ed config files sudo pacman -Rsu package_name #Remove along with dependencies If you do not have wget on your machine, you can install like so:
 sudo pacman -S wget Then follow the steps below:</description><content type="html"><![CDATA[<p>As you may know, the package manager of Arch Linux is &ldquo;pacman&rdquo;.</p>
