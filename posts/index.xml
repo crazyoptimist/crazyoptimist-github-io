@@ -1,4 +1,147 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on crazyoptimist</title><link>https://crazyoptimist.net/posts/</link><description>Recent content in Posts on crazyoptimist</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>all rights reserved</copyright><lastBuildDate>Thu, 17 Aug 2023 14:06:18 -0500</lastBuildDate><atom:link href="https://crazyoptimist.net/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Assume IAM Role in AWS and Use It</title><link>https://crazyoptimist.net/posts/2023/how-to-assume-iam-role-in-aws-and-use-it/</link><pubDate>Thu, 17 Aug 2023 14:06:18 -0500</pubDate><guid>https://crazyoptimist.net/posts/2023/how-to-assume-iam-role-in-aws-and-use-it/</guid><description>AWS IAM Assume Role is a mechanism that enables a user or service to assume a specific IAM role temporarily. This allows the user or service to acquire temporary security credentials, including access keys, session tokens, and permissions, to perform actions within AWS resources. The assumed role can have different permissions and policies than the original user or service, ensuring a granular level of access control and reducing the need for sharing long-term credentials.</description><content type="html"><![CDATA[<p>AWS IAM Assume Role is a mechanism that enables a user or service to assume a specific IAM role temporarily. This allows the user or service to acquire temporary security credentials, including access keys, session tokens, and permissions, to perform actions within AWS resources. The assumed role can have different permissions and policies than the original user or service, ensuring a granular level of access control and reducing the need for sharing long-term credentials.</p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on crazyoptimist</title><link>https://crazyoptimist.net/posts/</link><description>Recent content in Posts on crazyoptimist</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>all rights reserved</copyright><lastBuildDate>Thu, 29 Feb 2024 14:00:09 -0600</lastBuildDate><atom:link href="https://crazyoptimist.net/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Go Does Not Have Reference Variables</title><link>https://crazyoptimist.net/posts/2024/go-does-not-have-reference-variables/</link><pubDate>Thu, 29 Feb 2024 14:00:09 -0600</pubDate><guid>https://crazyoptimist.net/posts/2024/go-does-not-have-reference-variables/</guid><description>To be clear, Go does not have reference variables, so Go does not have pass-by-reference function call semantics. Dave Cheney
+What is a reference variable? In languages like C++ you can declare an alias, or an alternate name to an existing variable. This is called a reference variable.
+#include &amp;lt;stdio.h&amp;gt; int main() { int a = 10; int &amp;amp;b = a; int &amp;amp;c = b; printf(&amp;#34;%p %p %p\n&amp;#34;, &amp;amp;a, &amp;amp;b, &amp;amp;c); // 0x7ffe114f0b14 0x7ffe114f0b14 0x7ffe114f0b14 return 0; } You can see that a, b, and c all refer to the same memory location.</description><content type="html"><![CDATA[<blockquote>
+<p>To be clear, Go does not have reference variables, so Go does not have pass-by-reference function call semantics.
+<a href="https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go">Dave Cheney</a></p>
+</blockquote>
+<h3 id="what-is-a-reference-variable">What is a reference variable?</h3>
+<p>In languages like C++ you can declare an <em>alias</em>, or an alternate name to an existing variable. This is called a reference variable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>b <span style="color:#f92672">=</span> a;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>c <span style="color:#f92672">=</span> b;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%p %p %p</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b, <span style="color:#f92672">&amp;</span>c); <span style="color:#75715e">// 0x7ffe114f0b14 0x7ffe114f0b14 0x7ffe114f0b14
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>You can see that a, b, and c all refer to the same memory location. A write to a will alter the contents of b and c. This is useful when you want to declare reference variables in different scopes–namely function calls.</p>
+<h3 id="go-does-not-have-reference-variables">Go does not have reference variables</h3>
+<p>Unlike C++, each variable defined in a Go program occupies a unique memory location.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">a</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">b</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">c</span>) <span style="color:#75715e">// 0x1040a124 0x1040a128 0x1040a12c
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>It is NOT possible to create a Go program where two variables share the same storage location in memory. It is possible to create two variables whose contents point to the same storage location, but that is not the same thing as two variables who share the same storage location.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">a</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">a</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span>)   <span style="color:#75715e">// 0x1040a124 0x1040a124
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">b</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">c</span>) <span style="color:#75715e">// 0x1040c108 0x1040c110
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>In this example, b and c hold the same value(the address of a), however, b and c themselves are stored in unique locations. Updating the contents of b would have no effect on c.</p>
+<h3 id="theres-no-reference-type-in-go">There&rsquo;s no &ldquo;reference type&rdquo; in Go</h3>
+<p>What about struct and map and channel, they are reference types, no?</p>
+<p>NOOOOO!</p>
+<p>By the way, I&rsquo;m not mentioning slice here because slice is a special data type associated with its &ldquo;underlying array&rdquo; in Go.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Person</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">Age</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">modifyAge</span>(<span style="color:#a6e22e">p</span> <span style="color:#a6e22e">Person</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Age</span> = <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">john</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Person</span>{
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">Age</span>: <span style="color:#ae81ff">50</span>,
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">modifyAge</span>(<span style="color:#a6e22e">john</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">john</span>.<span style="color:#a6e22e">Age</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">100</span>) <span style="color:#75715e">// false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>If the struct john was a C++ style reference variable, we should see <code>true</code> to be printed out. But it&rsquo;s not.</p>
+<p>So, we can conclude that Go does not have <em>pass-by-reference</em> semantics because Go does not have reference variables.</p>
+<h3 id="maps-in-structs">Maps in structs</h3>
+<p>Well, how would you explain this example?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Person</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">Skills</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">modifySkills</span>(<span style="color:#a6e22e">p</span> <span style="color:#a6e22e">Person</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Skills</span>[<span style="color:#e6db74">&#34;Writing&#34;</span>] = <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">john</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Person</span>{
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">Skills</span>: <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">int</span>{
+</span></span><span style="display:flex;"><span>                        <span style="color:#e6db74">&#34;Making Mistakes&#34;</span>: <span style="color:#ae81ff">10</span>,
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">modifySkills</span>(<span style="color:#a6e22e">john</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%+v&#34;</span>, <span style="color:#a6e22e">john</span>) <span style="color:#75715e">// {Skills:map[Making Mistakes:10 Writing:6]}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><blockquote>
+<p>A map value is a pointer to a runtime.hmap structure.
+<a href="https://dave.cheney.net/2017/04/30/if-a-map-isnt-a-reference-variable-what-is-it">Dave Cheney</a></p>
+</blockquote>
+<p>So, <code>john.Skills</code> holds the pointer to the content of the map variable, and thus, <code>modifySkills</code> function modifies the content of the <code>Skills</code> map variable.</p>
+<p>The same holds true for nested maps, structs, and channels.</p>
+<h3 id="what-is-a-pointer-in-go">What is a pointer in Go?</h3>
+<p>Off-topic, but not entirely.</p>
+<p>This Gist explains it awesomely.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">42</span>, <span style="color:#ae81ff">2701</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">i</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">j</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// you can read &#34;&amp;i&#34; as &#34;address of i&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">i</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// var p *int
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// here, p&#39;s type is &#34;pointer pointing to integers&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%T\n&#34;</span>, <span style="color:#a6e22e">p</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// *p
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// here, * is an operator that returns what p is pointing to
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// it is also called &#34;dereferencing&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">p</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// changing value of *p will change the value of i
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">*</span><span style="color:#a6e22e">p</span> = <span style="color:#ae81ff">21</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">i</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">p</span> = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">j</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">*</span><span style="color:#a6e22e">p</span> = <span style="color:#f92672">*</span><span style="color:#a6e22e">p</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">37</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">j</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// this function call mutates the value of i
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">squareVal</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">i</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">i</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">squareVal</span>(<span style="color:#a6e22e">p</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">int</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">*</span><span style="color:#a6e22e">p</span> <span style="color:#f92672">*=</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">p</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// so, return a pointer or a value? up to ya!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// if you return a pointer, the Go garbage collector will have something more todo with the heap.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// just focus on readibility for now
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// consider trade-offs when you optimize
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">p</span>, <span style="color:#f92672">*</span><span style="color:#a6e22e">p</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Alright, that&rsquo;s it for now.</p>
+<p>Happy coding, Gophers!</p>
+]]></content></item><item><title>How to Assume IAM Role in AWS and Use It</title><link>https://crazyoptimist.net/posts/2023/how-to-assume-iam-role-in-aws-and-use-it/</link><pubDate>Thu, 17 Aug 2023 14:06:18 -0500</pubDate><guid>https://crazyoptimist.net/posts/2023/how-to-assume-iam-role-in-aws-and-use-it/</guid><description>AWS IAM Assume Role is a mechanism that enables a user or service to assume a specific IAM role temporarily. This allows the user or service to acquire temporary security credentials, including access keys, session tokens, and permissions, to perform actions within AWS resources. The assumed role can have different permissions and policies than the original user or service, ensuring a granular level of access control and reducing the need for sharing long-term credentials.</description><content type="html"><![CDATA[<p>AWS IAM Assume Role is a mechanism that enables a user or service to assume a specific IAM role temporarily. This allows the user or service to acquire temporary security credentials, including access keys, session tokens, and permissions, to perform actions within AWS resources. The assumed role can have different permissions and policies than the original user or service, ensuring a granular level of access control and reducing the need for sharing long-term credentials.</p>
 <p>In this post, we&rsquo;ll create a new IAM user without any permissions granted, and a new role with some permissions, while configuring the role assumption. Then we&rsquo;ll demonstrate the use cases of assumed role with Github Actions and Terraform.</p>
 <h3 id="assume-role">Assume Role</h3>
 <p>First things first, let&rsquo;s create a new IAM user.</p>
