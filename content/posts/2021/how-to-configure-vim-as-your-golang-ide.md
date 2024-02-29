@@ -1,20 +1,25 @@
 ---
-title: "How to Configure Vim as Your Golang IDE"
+title: "How to Configure Vim as Your Go IDE"
 date: 2021-09-13T20:17:30-05:00
-categories: ["golang"]
+categories: ["go"]
 ---
-I use Vim massively as my main IDE, and my vimrc file can be found [here](https://github.com/CrazyOptimist/dotfiles).  
-This article presumes that you have already configured Vim as your code editor basically.  
+Vim/Neovim is my IDE for day-to-day work. My vimrc file can be found [here](https://github.com/crazycptimist/dotfiles).
 
-Okay, let's get started by installing `fatih/vim-go` plugin with your favorite vim plugin manager.  
-If you have Golang installed correctly on your machine, you will be able to run `:GoInstallBinaries` after installing the above plugin.  
+This article is all about Vim(not Neovim), and I assume that you have already configured Vim as your code editor.
 
-After that, install [coc.nvim plugin](https://github.com/neoclide/coc.nvim), which is a great language server for Vim.  
-Now, you will need a coc.nvim extension called `coc-go`, which will serve as your golang language server.  
-It can be done by this command: `:CocInstall coc-go coc-json`.  
-You can install some other language server extensions along with `coc-go`, like `coc-emmet`, `coc-html`, `coc-json`, etc.  
+Okay, let's get started by installing `fatih/vim-go` plugin with your favorite vim plugin manager.
 
-The next step is to configure the installed plugins properly. You can do it just by adding below scripts to your vimrc file:  
+After that, if you have Go installed correctly on your machine already, you will be able to run `:GoInstallBinaries`.
+
+Next, install [coc.nvim](https://github.com/neoclide/coc.nvim) plugin, which is a great language server host for Vim.
+
+> For Neovim, I would recommend to use Nvim LSP client, which is more awesome than coc-nvim in my opinion.
+
+Now, you will need a coc.nvim extension called `coc-go`, which will serve as your Go language server. It can be done by this vim command: `:CocInstall coc-go`.
+
+You can install some other language server extensions along with `coc-go`, like `coc-tsserver`, `coc-json`, etc.
+
+The next step is to configure the installed plugins properly. You can do it just by adding below scripts to your vimrc file:
 
 ```vim
 " disable all linters as that is taken care of by coc.nvim
@@ -40,7 +45,8 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 ```
 
-`SHIFT` + `K` will show documentation for every func you want to know about.  
-And that's pretty much it. Try and edit some `go` files with your awesome IDE.  
-Happy coding!  
-😎
+`SHIFT` + `K` will show documentation for every func you want to know about.
+
+And that's pretty much it. Try and edit some `go` files with your awesome IDE.
+
+Happy coding, Gophers! 😎

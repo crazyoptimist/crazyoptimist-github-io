@@ -1,7 +1,7 @@
 ---
 title: "Test Doubles in Unit Testing"
 date: 2023-03-03T02:25:04-06:00
-categories: ["tdd", "golang"]
+categories: ["tdd", "go"]
 ---
 Test double is one of the key concepts of TDD(Test Driven Development). Test Double is a generic term for any case where you replace a production object for testing purposes.
 

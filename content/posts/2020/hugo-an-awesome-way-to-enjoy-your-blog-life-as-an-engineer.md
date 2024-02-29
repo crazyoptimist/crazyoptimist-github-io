@@ -1,10 +1,10 @@
 ---
 title: "Hugo - An Awesome Way to Enjoy Your Blog Life as an Engineer"
 date: 2020-09-23T18:28:24-05:00
-categories: ["golang"]
+categories: ["go"]
 ---
 
-I have just finished migrating my blog from Ghost self-hosting to Hugo. I am more than happy to use: { framework: "Hugo", hosting: "Firebase", cicd: "CircleCI" }. I just wanted to share the full process of how I got it done, which was not a piece of cake. You know, it's not just playing around or a dev environment; it's production. There are tons of good materials that explain how to blog with Hugo, install Hugo themes, etc. I'm just going to mention the roadblocks I encountered during this migration.
+I have just finished migrating my blog from Ghost self-hosting to Hugo. I am more than happy to use: { framework: "Hugo", hosting: "Firebase", cicd: "CircleCI" }. I just wanted to share the full process of how I got it done, which was not a piece of cake. You see, it's not just playing around or a development environment; it's for "production". There are plenty of great resources available that explain how to blog with Hugo, install Hugo themes, and so on. In this post, I will focus on the challenges I faced during this migration.
 
 When you run the `hugo server` command on your local machine, it seems to work flawlessly. However, when you try to deploy it to the cloud, the first issue you may encounter is the `baseURL` setting in the Hugo config file. Here is a portion of my config file that pertains to this issue:
 
