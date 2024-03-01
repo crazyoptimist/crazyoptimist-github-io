@@ -1,64 +1,152 @@
 baseurl = "https://crazyoptimist.net/"
 title = "crazyoptimist"
-author = "crazyoptimist"
+theme = "github.com/xianmin/hugo-theme-jane"
 
+enableRobotsTXT = true
+enableEmoji = true
+hasCJKLanguage = false
 paginate = 10
+rssLimit = 20
 disqusShortname = "crazy-optimist"
 googleAnalytics = "G-3VLC0SM1EZ"
-copyright = "all rights reserved"
+enableGitInfo = true      # use git commit log to generate lastmod record
 
+[sitemap]                 # essential
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
 
-theme = "github.com/rhazdon/hugo-theme-hello-friend-ng"
-
-
-[taxonomies]
-  category = "categories"
-  tag      = "tags"
+[[menu.main]]
+  name = "Home"
+  weight = 10
+  identifier = "home"
+  pageref = "/"
+[[menu.main]]
+  name = "About"
+  weight = 20
+  identifier = "about"
+  pageref = "/about"
+[[menu.main]]
+  name = "Archives"
+  weight = 30
+  identifier = "archives"
+  pageref = "/post"
+[[menu.main]]
+  name = "Categories"
+  weight = 40
+  identifier = "categories"
+  pageref = "/categories"
+[[menu.main]]
+  name = "Source"
+  weight = 50
+  url = "https://github.com/crazyoptimist/crazyoptimist-github-io"
 
 
 [params]
+  debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
+  since = "2019"            # Site creation time
+  homeFullContent = false   # if false, show post summaries on home page. Otherwise show full content.
+  rssFullContent = true     # if false, Rss feed instead of the summary
+  mainSections = ["post"]
 
-  keywords = "crazyoptimist, gopher, hacker"
+  author.name = "crazyoptimist"
+  author.email = "hey@crazyoptimist.net"
+  author.url = "/about"
+
+  # site info (optional)
+  logoTitle = "crazyoptimist"
+  keywords = ["software engineer", "backend developer", "gopher", "rustacean", "blockchain developer"]
   description = "crazyoptimist's personal website"
-  homeSubtitle = "chief code whisperer, problem solver"
-  backgroundImage = ""
 
-  [params.author]
-    name = "crazyoptimist"
+  # paginate of archives, tags and categories
+  archive-paginate = 3
 
-  [params.footer]
-    bottomText = ["thanks for visiting!", "&copy;  2024 crazyoptimist. all rights reserved."]
+  # paginate style, default use numbered pagination links
+  # if true, use original "Previous" and "Next" links.
+  # paginateOriginalStyle = true
 
-  [params.logo]
-    logoMark     = "~ $"
-    logoText     = "whoami"
-    logoHomeLink = "/"
+  # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
+  dateFormatToUse = "2006-01-02"
 
-  # Social Accounts
-  [[params.social]]
-    name = "github"
-    url = "https://github.com/crazyoptimist"
-  [[params.social]]
-    name = "mastodon"
-    url = "https://mastodon.social/@crazyoptimist"
-  [[params.social]]
-    name = "email"
-    url = "mailto:hey@crazyoptimist.net"
+  # show word count and read time ?
+  moreMeta = true
+
+  # show author info below the article
+  showAuthorInfo = true
+
+  # Optional custom wallpaper image URL. Can be a remote image or local /static/img/wallpaper.jpg (make sure it has a small filesize for quick site painting)
+  # wallpaper = "/static/img/wallpaper.jpg"
+  # wallpaper = "https://followingmyfeet.com/wp-content/uploads/2018/02/825_2229-HDR.jpg"
+
+  # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
+  toc = true
+  photoswipe = true         # see https://github.com/dimsemenov/PhotoSwipe
+  mathjax = false           # see https://www.mathjax.org/
+  katex = false             # see https://github.com/KaTeX/KaTeX
+  contentCopyright = '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'
+
+  # google_verification = ""  # Google_Verification
+
+  # Link custom CSS and JS assets
+  #   (relative to /static/css and /static/js respectively)
+  customCSS = []            # if ['custom.css'], load '/static/css/custom.css' file
+  customJS = []             # if ['custom.js'], load '/static/js/custom.js' file
+
+  # add custom info on the footer.
+  customFooter = "Thanks for visiting!"
+
+  [params.publicCDN]        # load these files from public cdn
+    enable = false
+    jquery = '<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>'
+    slideout = '<script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>'
+    gitmentJS = '<script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>'
+    gitmentCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">'
+    photoswipe = '<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.js" integrity="sha256-AC9ChpELidrhGHX23ZU53vmRdz3FhKaN9E28+BbcWBw=" crossorigin="anonymous"></script>'
+    photoswipeUI = '<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js" integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin="anonymous"></script>'
+    photoswipeCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css" integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin="anonymous">'
+    photoswipeSKIN = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css" integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin="anonymous">'
 
 
-[menu]
-  [[menu.main]]
-    identifier = "about"
-    name       = "about"
-    url        = "about/"
-    weight     = 1
-  [[menu.main]]
-    identifier = "posts"
-    name       = "posts"
-    url        = "posts/"
-    weight     = 2
-  [[menu.main]]
-    identifier = "categories"
-    name       = "categories"
-    url        = "categories/"
-    weight     = 3
+#   [params.utteranc]         # utteranc is a comment system based on GitHub issues. see https://utteranc.es
+#     enable = false
+#     repo = "xianmin/comments-for-hugo-theme-jane"    # The repo to store comments
+#     issueTerm = "pathname"
+
+  # google custom search, see https://cse.google.com
+  [params.search.google]
+    enable = false
+    id = "016207405477778770429:5biatnym6mq"
+    title = "Search"
+
+  # use public git repo url to link lastmod git commit, enableGitInfo should be true.
+  [params.gitInfo]
+    gitRepo = "https://github.com/crazyoptimist/crazyoptimist-github-io"
+    showCommitMessage = true
+
+  [params.social]
+    a-email = "mailto:hey@crazyoptimist.net"
+    b-github = "https://github.com/crazyoptimist"
+    c-stack-overflow = "https://stackoverflow.com/users/13894746/crazyoptimist"
+    s-mastodon = "https://mastodon.social/@crazyoptimist"
+
+# more information https://gohugo.io/getting-started/configuration-markup/#goldmark
+[markup]
+  defaultMarkdownHandler = "goldmark"  # blackfriday or goldmark
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+  # Highlight options. See https://gohugo.io/content-management/syntax-highlighting/
+  [markup.highlight]
+    anchorLineNos = true
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noHl = false
+    style = 'gruvbox'
+    tabWidth = 4

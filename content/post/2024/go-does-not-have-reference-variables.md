@@ -11,7 +11,7 @@ categories: ["go"]
 
 In languages like C++ you can declare an _alias_, or an alternate name to an existing variable. This is called a reference variable.
 
-```c
+```cpp
 #include <stdio.h>
 
 int main() {
@@ -63,18 +63,18 @@ package main
 import "fmt"
 
 func main() {
-	// integer type
-	var a int
-	// pointer type; type annotation: "*int"
-	var b, c *int = &a, &a
+        // integer type
+        var a int
+        // pointer type; type annotation: "*int"
+        var b, c *int = &a, &a
 
-	// b and c holds the same memory address as their contents
-	// 0xc000094018 0xc000094018
-	fmt.Println(b, c)
+        // b and c holds the same memory address as their contents
+        // 0xc000094018 0xc000094018
+        fmt.Println(b, c)
 
-	// but b and c are completely different variables with their own memory addresses
-	// 0xc0000a2018 0xc0000a2020
-	fmt.Println(&b, &c)
+        // but b and c are completely different variables with their own memory addresses
+        // 0xc0000a2018 0xc0000a2020
+        fmt.Println(&b, &c)
 }
 ```
 
