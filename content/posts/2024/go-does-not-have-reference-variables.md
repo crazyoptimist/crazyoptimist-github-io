@@ -15,31 +15,45 @@ In languages like C++ you can declare an _alias_, or an alternate name to an exi
 #include <stdio.h>
 
 int main() {
-        int a = 10;
-        int &b = a;
-        int &c = b;
+  // integer type
+  int a = 10;
+  // reference type; type annotation: "int &"
+  // means "reference to an integer variable" type
+  int &b = a;
+  int &c = b;
 
-        printf("%p %p %p\n", &a, &b, &c); // 0x7ffe114f0b14 0x7ffe114f0b14 0x7ffe114f0b14
-        return 0;
+  // 10 10 10
+  printf("%d %d %d\n", a, b, c);
+  // reference variables share the same memory address
+  // with the variable which they refer to;
+  // 0x7ffeea4654f8 0x7ffeea4654f8 0x7ffeea4654f8
+  printf("%p %p %p\n", &a, &b, &c); // here, & is "address of" operator
+
+  // pointer type; type annotation: "int *"
+  // means "pointer to an integer variable" type
+  int *p1 = &a;
+  int *p2 = &a;
+  int *p3 = &a;
+
+  // here, * is "deferencing"(or "content of") operator
+  // 10 10 10
+  printf("%d %d %d\n", *p1, *p2, *p3);
+
+  // pointer variables have their own memory address
+  // 0x7ffee82644e0 0x7ffee82644d8 0x7ffee82644d0
+  printf("%p %p %p\n", &p1, &p2, &p3);
+
+  return 0;
 }
 ```
 
 You can see that a, b, and c all refer to the same memory location. A write to a will alter the contents of b and c. This is useful when you want to declare reference variables in different scopes–namely function calls.
 
+On the other hand, pointer variables hold memory addresses as their content. p1, p2, and p3 all hold the same memory address, but they are completely different variables and have their own memory addresses.
+
 ### Go does not have reference variables
 
-Unlike C++, each variable defined in a Go program occupies a unique memory location.
-
-```go
-package main
-
-import "fmt"
-
-func main() {
-        var a, b, c int
-        fmt.Println(&a, &b, &c) // 0x1040a124 0x1040a128 0x1040a12c
-}
-```
+Unlike C++, Go does not have reference variables.
 
 It is NOT possible to create a Go program where two variables share the same storage location in memory. It is possible to create two variables whose contents point to the same storage location, but that is not the same thing as two variables who share the same storage location.
 
@@ -49,10 +63,18 @@ package main
 import "fmt"
 
 func main() {
-        var a int
-        var b, c = &a, &a
-        fmt.Println(b, c)   // 0x1040a124 0x1040a124
-        fmt.Println(&b, &c) // 0x1040c108 0x1040c110
+	// integer type
+	var a int
+	// pointer type; type annotation: "*int"
+	var b, c *int = &a, &a
+
+	// b and c holds the same memory address as their contents
+	// 0xc000094018 0xc000094018
+	fmt.Println(b, c)
+
+	// but b and c are completely different variables with their own memory addresses
+	// 0xc0000a2018 0xc0000a2020
+	fmt.Println(&b, &c)
 }
 ```
 
@@ -90,7 +112,7 @@ func main() {
 }
 ```
 
-If the struct john was a C++ style reference variable, we should see `true` to be printed out. But it's not.
+If the struct `john` was a C++ style reference variable, we should see `true` to be printed out. But it's not.
 
 So, we can conclude that Go does not have _pass-by-reference_ semantics because Go does not have reference variables.
 
