@@ -5,7 +5,7 @@ theme = "github.com/xianmin/hugo-theme-jane"
 enableRobotsTXT = true
 enableEmoji = true
 hasCJKLanguage = false
-paginate = 10
+paginate = 5
 rssLimit = 20
 disqusShortname = "crazy-optimist"
 googleAnalytics = "G-3VLC0SM1EZ"
@@ -41,7 +41,6 @@ enableGitInfo = true      # use git commit log to generate lastmod record
   weight = 50
   url = "https://github.com/crazyoptimist/crazyoptimist-github-io"
 
-
 [params]
   debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
   since = "2019"            # Site creation time
@@ -59,7 +58,7 @@ enableGitInfo = true      # use git commit log to generate lastmod record
   description = "crazyoptimist's personal website"
 
   # paginate of archives, tags and categories
-  archive-paginate = 3
+  archive-paginate = 20
 
   # paginate style, default use numbered pagination links
   # if true, use original "Previous" and "Next" links.
@@ -114,7 +113,7 @@ enableGitInfo = true      # use git commit log to generate lastmod record
 
   # google custom search, see https://cse.google.com
   [params.search.google]
-    enable = false
+    enable = true
     id = "016207405477778770429:5biatnym6mq"
     title = "Search"
 
