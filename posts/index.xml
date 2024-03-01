@@ -1,6 +1,6 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on crazyoptimist</title><link>https://crazyoptimist.net/posts/</link><description>Recent content in Posts on crazyoptimist</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>all rights reserved</copyright><lastBuildDate>Thu, 29 Feb 2024 14:00:09 -0600</lastBuildDate><atom:link href="https://crazyoptimist.net/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Go Does Not Have Reference Variables</title><link>https://crazyoptimist.net/posts/2024/go-does-not-have-reference-variables/</link><pubDate>Thu, 29 Feb 2024 14:00:09 -0600</pubDate><guid>https://crazyoptimist.net/posts/2024/go-does-not-have-reference-variables/</guid><description>To be clear, Go does not have reference variables, so Go does not have pass-by-reference function call semantics. Dave Cheney
 What is a reference variable? In languages like C++ you can declare an alias, or an alternate name to an existing variable. This is called a reference variable.
-#include &amp;lt;stdio.h&amp;gt; int main() { int a = 10; int &amp;amp;b = a; int &amp;amp;c = b; printf(&amp;#34;%p %p %p\n&amp;#34;, &amp;amp;a, &amp;amp;b, &amp;amp;c); // 0x7ffe114f0b14 0x7ffe114f0b14 0x7ffe114f0b14 return 0; } You can see that a, b, and c all refer to the same memory location.</description><content type="html"><![CDATA[<blockquote>
+#include &amp;lt;stdio.h&amp;gt; int main() { // integer type int a = 10; // reference type; type annotation: &amp;#34;int &amp;amp;&amp;#34; // means &amp;#34;reference to an integer variable&amp;#34; type int &amp;amp;b = a; int &amp;amp;c = b; // 10 10 10 printf(&amp;#34;%d %d %d\n&amp;#34;, a, b, c); // reference variables share the same memory address // with the variable which they refer to; // 0x7ffeea4654f8 0x7ffeea4654f8 0x7ffeea4654f8 printf(&amp;#34;%p %p %p\n&amp;#34;, &amp;amp;a, &amp;amp;b, &amp;amp;c); // here, &amp;amp; is &amp;#34;address of&amp;#34; operator // pointer type; type annotation: &amp;#34;int *&amp;#34; // means &amp;#34;pointer to an integer variable&amp;#34; type int *p1 = &amp;amp;a; int *p2 = &amp;amp;a; int *p3 = &amp;amp;a; // here, * is &amp;#34;deferencing&amp;#34;(or &amp;#34;content of&amp;#34;) operator // 10 10 10 printf(&amp;#34;%d %d %d\n&amp;#34;, *p1, *p2, *p3); // pointer variables have their own memory address // 0x7ffee82644e0 0x7ffee82644d8 0x7ffee82644d0 printf(&amp;#34;%p %p %p\n&amp;#34;, &amp;amp;p1, &amp;amp;p2, &amp;amp;p3); return 0; } You can see that a, b, and c all refer to the same memory location.</description><content type="html"><![CDATA[<blockquote>
 <p>To be clear, Go does not have reference variables, so Go does not have pass-by-reference function call semantics.
 <a href="https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go">Dave Cheney</a></p>
 </blockquote>
@@ -9,35 +9,59 @@ What is a reference variable? In languages like C++ you can declare an alias, or
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>b <span style="color:#f92672">=</span> a;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>c <span style="color:#f92672">=</span> b;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// integer type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// reference type; type annotation: &#34;int &amp;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// means &#34;reference to an integer variable&#34; type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>b <span style="color:#f92672">=</span> a;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> <span style="color:#f92672">&amp;</span>c <span style="color:#f92672">=</span> b;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%p %p %p</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b, <span style="color:#f92672">&amp;</span>c); <span style="color:#75715e">// 0x7ffe114f0b14 0x7ffe114f0b14 0x7ffe114f0b14
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// 10 10 10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d %d %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, a, b, c);
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// reference variables share the same memory address
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// with the variable which they refer to;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// 0x7ffeea4654f8 0x7ffeea4654f8 0x7ffeea4654f8
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%p %p %p</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#f92672">&amp;</span>a, <span style="color:#f92672">&amp;</span>b, <span style="color:#f92672">&amp;</span>c); <span style="color:#75715e">// here, &amp; is &#34;address of&#34; operator
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// pointer type; type annotation: &#34;int *&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// means &#34;pointer to an integer variable&#34; type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>p1 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>a;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>p2 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>a;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>p3 <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>a;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// here, * is &#34;deferencing&#34;(or &#34;content of&#34;) operator
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// 10 10 10
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%d %d %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#f92672">*</span>p1, <span style="color:#f92672">*</span>p2, <span style="color:#f92672">*</span>p3);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// pointer variables have their own memory address
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// 0x7ffee82644e0 0x7ffee82644d8 0x7ffee82644d0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;%p %p %p</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, <span style="color:#f92672">&amp;</span>p1, <span style="color:#f92672">&amp;</span>p2, <span style="color:#f92672">&amp;</span>p3);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>You can see that a, b, and c all refer to the same memory location. A write to a will alter the contents of b and c. This is useful when you want to declare reference variables in different scopes–namely function calls.</p>
+<p>On the other hand, pointer variables hold memory addresses as their content. p1, p2, and p3 all hold the same memory address, but they are completely different variables and have their own memory addresses.</p>
 <h3 id="go-does-not-have-reference-variables">Go does not have reference variables</h3>
-<p>Unlike C++, each variable defined in a Go program occupies a unique memory location.</p>
+<p>Unlike C++, Go does not have reference variables.</p>
+<p>It is NOT possible to create a Go program where two variables share the same storage location in memory. It is possible to create two variables whose contents point to the same storage location, but that is not the same thing as two variables who share the same storage location.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> <span style="color:#66d9ef">int</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">a</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">b</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">c</span>) <span style="color:#75715e">// 0x1040a124 0x1040a128 0x1040a12c
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
-</span></span></code></pre></div><p>It is NOT possible to create a Go program where two variables share the same storage location in memory. It is possible to create two variables whose contents point to the same storage location, but that is not the same thing as two variables who share the same storage location.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// integer type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// pointer type; type annotation: &#34;*int&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> <span style="color:#f92672">*</span><span style="color:#66d9ef">int</span> = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">a</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">a</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// b and c holds the same memory address as their contents
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// 0xc000094018 0xc000094018
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span> = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">a</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">a</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">c</span>)   <span style="color:#75715e">// 0x1040a124 0x1040a124
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">b</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">c</span>) <span style="color:#75715e">// 0x1040c108 0x1040c110
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// but b and c are completely different variables with their own memory addresses
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// 0xc0000a2018 0xc0000a2020
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">b</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">c</span>)
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>In this example, b and c hold the same value(the address of a), however, b and c themselves are stored in unique locations. Updating the contents of b would have no effect on c.</p>
 <h3 id="theres-no-reference-type-in-go">There&rsquo;s no &ldquo;reference type&rdquo; in Go</h3>
 <p>What about struct and map and channel, they are reference types, no?</p>
@@ -64,7 +88,7 @@ What is a reference variable? In languages like C++ you can declare an alias, or
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">john</span>.<span style="color:#a6e22e">Age</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">100</span>) <span style="color:#75715e">// false
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
-</span></span></code></pre></div><p>If the struct john was a C++ style reference variable, we should see <code>true</code> to be printed out. But it&rsquo;s not.</p>
+</span></span></code></pre></div><p>If the struct <code>john</code> was a C++ style reference variable, we should see <code>true</code> to be printed out. But it&rsquo;s not.</p>
 <p>So, we can conclude that Go does not have <em>pass-by-reference</em> semantics because Go does not have reference variables.</p>
 <h3 id="maps-in-structs">Maps in structs</h3>
 <p>Well, how would you explain this example?</p>
