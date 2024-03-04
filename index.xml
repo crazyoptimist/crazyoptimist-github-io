@@ -124,7 +124,7 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>In this example, b and c hold the same value(the address of a), however, b and c themselves are stored in unique locations. Updating the contents of b would have no effect on c.&lt;/p>
-&lt;h3 id="theres-no-reference-type-in-go">There&amp;rsquo;s no &amp;ldquo;reference type&amp;rdquo; in Go&lt;/h3>
+&lt;h3 id="there-is-no-reference-type-in-go">There is no &amp;ldquo;reference type&amp;rdquo; in Go&lt;/h3>
 &lt;p>What about struct and map and channel, they are reference types, no?&lt;/p>
 &lt;p>NOOOOO!&lt;/p>
 &lt;p>By the way, I&amp;rsquo;m not mentioning slice here because slice is a special data type associated with its &amp;ldquo;underlying array&amp;rdquo; in Go.&lt;/p>
