@@ -9,7 +9,6 @@ paginate = 5
 rssLimit = 20
 disqusShortname = "crazy-optimist"
 googleAnalytics = "G-3VLC0SM1EZ"
-enableGitInfo = true      # use git commit log to generate lastmod record
 
 [sitemap]                 # essential
   changefreq = "weekly"
@@ -116,11 +115,6 @@ enableGitInfo = true      # use git commit log to generate lastmod record
     enable = true
     id = "016207405477778770429:5biatnym6mq"
     title = "Search"
-
-  # use public git repo url to link lastmod git commit, enableGitInfo should be true.
-  [params.gitInfo]
-    gitRepo = "https://github.com/crazyoptimist/crazyoptimist-github-io"
-    showCommitMessage = true
 
   [params.social]
     a-email = "mailto:hey@crazyoptimist.net"

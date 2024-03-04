@@ -80,7 +80,7 @@ func main() {
 
 In this example, b and c hold the same value(the address of a), however, b and c themselves are stored in unique locations. Updating the contents of b would have no effect on c.
 
-### There's no "reference type" in Go
+### There is no "reference type" in Go
 
 What about struct and map and channel, they are reference types, no?
 
