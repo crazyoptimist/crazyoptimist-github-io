@@ -229,7 +229,7 @@ A fake is a simplified implementation of a real object that is used to test code
 
 Here's an example of a fake in Go:
 
-```Go
+```go
 type MyService interface {
     DoSomething(arg string) error
 }

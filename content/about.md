@@ -4,15 +4,19 @@ date: 2020-09-19T20:42:31-05:00
 ---
 ### Bio
 
-&nbsp;&nbsp;A hardworking software engineer with eight years of professional experience, specializing in large-scale web application development. My passion lies in hands-on software design and implementation. I seek to build software applications that both delights end users as well as the technical team that is to develop and operate the software. I strongly believe that software quality is key to delivering such delight, so I like to make sure that this is a key consideration in everything I do. I am a strong advocate for well tested code, continuous integration, continuous deployment, and team building. Happy to lead, happy to follow whatever it takes to get us there.
+An engineer at heart, I enjoy trying different languages, frameworks and programming paradigms. I like making things work, then finding the faults in the system and repeating the process until it all ticks predictably.
+
+I appreciate good design in all levels, from the smallest software module to the configuration of the company's procedures, team dynamics.
+
+I love being around positive and driven people, optimistic atmosphere.
 
 
 ### Hard Skills
 
-- Design and implement layered, microservice, serverless, and event driven applications at any scale
-- Test Driven Development in JavaScript/TypeScript, Go, Python
+- Design and implement layered, microservice, and event driven applications at any scale
+- Test Driven Development in Go, JavaScript/TypeScript, Python, and Rust
 - Smart contract development and private audit using Solidity, Hardhat, and Foundry
-- Frontend development using React, Redux, Next.js
+- Frontend development using React, Next.js, and Angular
 - Infrastructure as Code with Terraform on various cloud platforms, including AWS and GCP
 - Work with container technologies such as Docker, ECS, Kubernetes
 - CI/CD with Github Actions, Circle CI, Gitlab CI, Bitbucket, and Jenkins
@@ -20,7 +24,7 @@ date: 2020-09-19T20:42:31-05:00
 
 ### PGP
 
-```
+```txt
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mDMEZYPtHBYJKwYBBAHaRw8BAQdApz9OgS3b0E961iGuzsaY+AN5HeqZ1qIgObGj
