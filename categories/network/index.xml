@@ -6,7 +6,7 @@ TL;DR
 Stop the wireguard interface in use:
 sudo systemctl stop wg-quick@wg0 # or sudo wg-quick down wg0 Edit the wireguard config file:
 sudo vim /etc/wireguard/wg0.conf Add MTU=1400 to the Interface section like this:
-1 2 3 4 5 6 [Interface] Address = 10.10.10.1/24 SaveConfig = true ListenPort = 51820 MTU = 1400 PrivateKey = xxxxxx And start the stopped service:</description></item><item><title>Setup Wireguard VPN Server on Ubuntu</title><link>https://crazyoptimist.net/post/2021/setup-wireguard-vpn-server-on-ubuntu/</link><pubDate>Thu, 04 Feb 2021 13:49:08 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2021/setup-wireguard-vpn-server-on-ubuntu/</guid><description>This tutorial is going to show you how to set up your own WireGuard VPN server on Ubuntu.
+1 2 3 4 5 6 [Interface] Address = 10.10.10.1/24 SaveConfig = true ListenPort = 51820 MTU = 1400 PrivateKey = xxxxxx And start the stopped service:</description></item><item><title>Setup a Wireguard VPN Server on Ubuntu</title><link>https://crazyoptimist.net/post/2021/setup-wireguard-vpn-server-on-ubuntu/</link><pubDate>Thu, 04 Feb 2021 13:49:08 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2021/setup-wireguard-vpn-server-on-ubuntu/</guid><description>This tutorial is going to show you how to set up your own WireGuard VPN server on Ubuntu.
 WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.
 TL;DR
 Prerequisites This tutorial assumes that the VPN server and VPN client are both going to be running on Ubuntu 20.04 operating system.
@@ -14,16 +14,16 @@ Setting Up the WireGuard Server Install Wireguard from the default Ubuntu reposi
 WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.
 TL;DR
 Prerequisites This tutorial assumes that the VPN server and VPN client are both going to be running on CentOS 7/8 operating system.
-Step 1: Install WireGuard on CentOS Server and Desktop Log into your CentOS server, then run the following commands to install WireGuard.</description></item><item><title>How to Enable Login With Password on Linux</title><link>https://crazyoptimist.net/post/2020/how-to-enable-login-with-password-on-linux/</link><pubDate>Tue, 18 Feb 2020 23:20:11 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2020/how-to-enable-login-with-password-on-linux/</guid><description>Let’s update the Password Authentication parameter in the ssh service config file:
-1 vim /etc/ssh/sshd_config Hey, what? You can&amp;rsquo;t even find the sshd service?
+Step 1: Install WireGuard on CentOS Server and Desktop Log into your CentOS server, then run the following commands to install WireGuard.</description></item><item><title>How to Enable Login with Password on Linux</title><link>https://crazyoptimist.net/post/2020/how-to-enable-login-with-password-on-linux/</link><pubDate>Tue, 18 Feb 2020 23:20:11 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2020/how-to-enable-login-with-password-on-linux/</guid><description>Let’s update the Password Authentication parameter in the ssh service config file:
+1 vim /etc/ssh/sshd_config Wait, what? I can&amp;rsquo;t even find the sshd service?
 Install it then:
 1 2 sudo apt update sudo apt install openssh-server In the /etc/ssh/sshd_config file, uncomment this line:
-1 #PasswordAuthentication yes Boom! Done.
+1 #PasswordAuthentication yes Done.
 Oops! Don’t forget to reboot! 🙂
 Or just run:
-1 sudo systemctl restart sshd Happy networking!</description></item><item><title>How to Auto Start OpenVPN Client on Ubuntu Bionic</title><link>https://crazyoptimist.net/post/2020/how-to-auto-start-openvpn-client-on-ubuntu-bionic/</link><pubDate>Mon, 06 Jan 2020 00:28:23 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2020/how-to-auto-start-openvpn-client-on-ubuntu-bionic/</guid><description>Launch OpenVPN client as a daemon. Here I assume you already have your own cert file - filename.ovpn. 🙂
-Modify its file extension to conf like so:
-1 mv filename.ovpn filename.conf Put your cert file inside /etc/openvpn directory like so:
+1 sudo systemctl restart sshd Happy networking!</description></item><item><title>How to Auto Start OpenVPN Client on Ubuntu Bionic</title><link>https://crazyoptimist.net/post/2020/how-to-auto-start-openvpn-client-on-ubuntu-bionic/</link><pubDate>Mon, 06 Jan 2020 00:28:23 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2020/how-to-auto-start-openvpn-client-on-ubuntu-bionic/</guid><description>Launch OpenVPN client as a daemon. Here I assume you already have your own cert file: filename.ovpn. 🙂
+Modify its file extension to a conf file like so:
+1 mv filename.ovpn filename.conf Move the file inside /etc/openvpn directory like so:
 1 mv /path/to/filename.conf /etc/openvpn/ OpenVPN client service name would be openvpn@filename.
 Well, you might already know what to do to launch the service.
 1 2 sudo killall openvpn sudo systemctl enable --now openvpn@filename Reload the system daemons.</description></item><item><title>How to Configure Virtual Hosts on Centos 7 Apache Server</title><link>https://crazyoptimist.net/post/2019/how-to-configure-virtual-hosts-on-centos-7-apache-server/</link><pubDate>Fri, 20 Dec 2019 21:25:40 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2019/how-to-configure-virtual-hosts-on-centos-7-apache-server/</guid><description>Prerequisites for a vhost setup:

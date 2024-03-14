@@ -663,7 +663,39 @@
 &lt;/div>
 &lt;/div>&lt;p>On the host OS(Windows), open start menu and search for &amp;ldquo;Task Scheduler&amp;rdquo;, where you can create a new scheduled task that runs the above batch script. Make sure that you configure the task run whether a user is logged in or not.&lt;/p>
 &lt;p>That&amp;rsquo;s pretty much. Please comment below if you got stuck in the process.&lt;/p>
-&lt;p>Happy coding!&lt;/p></description></item><item><title>Vim Notes</title><link>https://crazyoptimist.net/post/2023/vim-notes/</link><pubDate>Fri, 14 Apr 2023 20:22:54 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2023/vim-notes/</guid><description>&lt;h3 id="vim-leader-key">Vim &amp;ldquo;leader&amp;rdquo; Key&lt;/h3>
+&lt;p>Happy coding!&lt;/p></description></item><item><title>Vim Notes</title><link>https://crazyoptimist.net/post/2023/vim-notes/</link><pubDate>Fri, 14 Apr 2023 20:22:54 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2023/vim-notes/</guid><description>&lt;p>There are several modes in VIM. &lt;code>NORMAL&lt;/code>, &lt;code>INSERT&lt;/code>, &lt;code>VISUAL&lt;/code> are most common ones.&lt;/p>
+&lt;h3 id="the-most-used-default-key-bindings">The Most Used Default Key Bindings&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>:q&lt;/code>: quit VIM. &lt;code>:wq&lt;/code>: save the current buffer and quit. &lt;code>:q!&lt;/code> discard unsaved changes and quit&lt;/li>
+&lt;li>&lt;code>h&lt;/code>, &lt;code>j&lt;/code>, &lt;code>k&lt;/code>, &lt;code>l&lt;/code>: Movement. Example: &lt;code>8k&lt;/code> - move 8 lines up&lt;/li>
+&lt;li>&lt;code>:99&lt;/code>: jump to the line 99&lt;/li>
+&lt;li>&lt;code>w&lt;/code>: move one word forward&lt;/li>
+&lt;li>&lt;code>b&lt;/code>: move one word backward&lt;/li>
+&lt;li>&lt;code>$&lt;/code>: move to the end of the current line&lt;/li>
+&lt;li>&lt;code>0&lt;/code>: move to the beginning of the current line&lt;/li>
+&lt;li>&lt;code>o&lt;/code>: insert a new line below and go insert mode&lt;/li>
+&lt;li>&lt;code>O&lt;/code>: insert a new line above and go insert mode&lt;/li>
+&lt;li>&lt;code>A&lt;/code>: go insert mode at the end of the current line&lt;/li>
+&lt;li>&lt;code>y&lt;/code>: yank (copy) selected text&lt;/li>
+&lt;li>&lt;code>p&lt;/code>: paste the yanked text&lt;/li>
+&lt;li>&lt;code>d&lt;/code>: delete the selected text&lt;/li>
+&lt;li>&lt;code>dd&lt;/code>: delete the current line&lt;/li>
+&lt;li>&lt;code>x&lt;/code>: delete the cursor character&lt;/li>
+&lt;li>&lt;code>v&lt;/code>: select the cursor character&lt;/li>
+&lt;li>&lt;code>V&lt;/code>: select the current line&lt;/li>
+&lt;li>&lt;code>:sp&lt;/code>: split the screen horizontally&lt;/li>
+&lt;li>&lt;code>:vs&lt;/code>: split the screen vertically&lt;/li>
+&lt;li>&lt;code>/john&lt;/code>: search for &amp;ldquo;john&amp;rdquo; in the current file&lt;/li>
+&lt;li>&lt;code>n&lt;/code>: jump to the next search result&lt;/li>
+&lt;li>&lt;code>N&lt;/code>: jump to the previous search result&lt;/li>
+&lt;li>&lt;code>gg&lt;/code>: jump to the top of the current file&lt;/li>
+&lt;li>&lt;code>G&lt;/code>: jump to the bottom of the current file&lt;/li>
+&lt;li>&lt;code>%&lt;/code>: jump to the closing/opening pair bracket&lt;/li>
+&lt;li>&lt;code>:%s/abc/xyz/g&lt;/code>: replace every &amp;ldquo;abc&amp;rdquo; with &amp;ldquo;xyz&amp;rdquo; in the current file&lt;/li>
+&lt;li>&lt;code>:vimgrep&lt;/code>: search current directory, see the help for more info&lt;/li>
+&lt;li>&lt;code>:help&lt;/code>: open VIM help&lt;/li>
+&lt;/ul>
+&lt;h3 id="vim-leader-key">Vim &amp;ldquo;leader&amp;rdquo; Key&lt;/h3>
 &lt;p>&lt;code>&amp;lt;leader&amp;gt;&lt;/code> key is a vim tool that can be used to create personalized shortcuts.&lt;/p>
 &lt;p>Default &lt;code>&amp;lt;leader&amp;gt;&lt;/code> key is backslash &lt;code>\&lt;/code>. To change the leader key to comma &lt;code>,&lt;/code> add &lt;code>let mapleader = &amp;quot;,&amp;quot;&lt;/code> to your vimrc. You can use any other key as &lt;code>&amp;lt;leader&amp;gt;&lt;/code> key, even space or function keys. But noting that you only have 1 second to press the actual shortcut key after the leader key is stroke(by default of course, you can configure it after all), it&amp;rsquo;s kinda shitty to use backslash or function key as leader, isn&amp;rsquo;t it?&lt;/p>
 &lt;p>Mapping a command with &lt;code>&amp;lt;leader&amp;gt;&lt;/code> key is pretty easy.&lt;/p>
@@ -1898,7 +1930,7 @@ Add the public key to &lt;code>authorized_keys&lt;/code>:&lt;/p>
 &lt;/div>
 &lt;/div>&lt;p>&lt;code>SHIFT&lt;/code> + &lt;code>K&lt;/code> will show documentation for every func you want to know about.&lt;/p>
 &lt;p>And that&amp;rsquo;s pretty much it. Try and edit some &lt;code>go&lt;/code> files with your awesome IDE.&lt;/p>
-&lt;p>Happy coding, Gophers! 😎&lt;/p></description></item><item><title>How to Setup Eslint and Prettier With Git Precommit Hooks in React Typescript Project</title><link>https://crazyoptimist.net/post/2021/how-to-setup-eslint-prettier-with-git-precommit-hooks-in-react-typescript-project/</link><pubDate>Mon, 16 Aug 2021 05:39:46 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2021/how-to-setup-eslint-prettier-with-git-precommit-hooks-in-react-typescript-project/</guid><description>&lt;p>You should probably create a new react app with typescript using like so:&lt;/p>
+&lt;p>Happy coding, Gophers! 😎&lt;/p></description></item><item><title>How to Setup Eslint and Prettier With Git Precommit Hooks in React Typescript Project</title><link>https://crazyoptimist.net/post/2021/how-to-setup-eslint-prettier-with-git-precommit-hooks-in-react-typescript-project/</link><pubDate>Mon, 16 Aug 2021 05:39:46 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2021/how-to-setup-eslint-prettier-with-git-precommit-hooks-in-react-typescript-project/</guid><description>&lt;p>You may create a new react app with typescript like so:&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>
@@ -1907,9 +1939,9 @@ Add the public key to &lt;code>authorized_keys&lt;/code>:&lt;/p>
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>npx create-react-app my-app --template typescript
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Now let&amp;rsquo;s get started to setup eslint and prettier.&lt;br>
-Remove &lt;code>eslintConfig&lt;/code> from &lt;code>package.json&lt;/code>.&lt;br>
-Install &lt;code>prettier&lt;/code> using these commands:&lt;/p>
+&lt;/div>&lt;p>Now let&amp;rsquo;s setup eslint and prettier.&lt;/p>
+&lt;p>Remove &lt;code>eslintConfig&lt;/code> from &lt;code>package.json&lt;/code>.&lt;/p>
+&lt;p>Install &lt;code>prettier&lt;/code> using these commands:&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>
@@ -2070,8 +2102,8 @@ node_modules
 &lt;pre tabindex="0">&lt;code>&amp;#34;lint&amp;#34;: &amp;#34;eslint . --fix&amp;#34;,
 &amp;#34;format&amp;#34;: &amp;#34;prettier . --write&amp;#34;
 &lt;/code>&lt;/pre>&lt;p>Now you are good to run &lt;code>yarn lint&lt;/code> and &lt;code>yarn format&lt;/code>.&lt;/p>
-&lt;p>Let&amp;rsquo;s setup git precommit hooks with &lt;code>husky&lt;/code> and &lt;code>lint-staged&lt;/code>.&lt;br>
-Install &lt;code>lint-staged&lt;/code> first:&lt;/p>
+&lt;p>Let&amp;rsquo;s setup git precommit hooks with &lt;code>husky&lt;/code> and &lt;code>lint-staged&lt;/code>.&lt;/p>
+&lt;p>Install &lt;code>lint-staged&lt;/code> first:&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-7-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1">1&lt;/a>
@@ -2102,11 +2134,11 @@ Install &lt;code>lint-staged&lt;/code> first:&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>npx husky add .husky/pre-commit &lt;span style="color:#b8bb26">&amp;#34;yarn lint-staged&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>That&amp;rsquo;s pretty much it.&lt;br>
-Happy coding! :)&lt;/p></description></item><item><title>Improve Your Wireguard Server's Performance</title><link>https://crazyoptimist.net/post/2021/improve-your-wireguard-server-performance/</link><pubDate>Tue, 13 Jul 2021 02:28:56 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2021/improve-your-wireguard-server-performance/</guid><description>&lt;p>The default MTU(Maximum Transmission Unit) is 1420 in wireguard, while the most other devices use 1496 or 1500.&lt;br>
-Read &lt;a href="https://superuser.com/questions/1537638/wireguard-tunnel-slow-and-intermittent?newreg=4af74385cf164e0f8e1d156bae77ad03">here&lt;/a> for more info.&lt;br>
-TL;DR&lt;br>
-Stop the wireguard interface in use:&lt;/p>
+&lt;/div>&lt;p>That&amp;rsquo;s pretty much.&lt;/p>
+&lt;p>Happy coding! :)&lt;/p></description></item><item><title>Improve Your Wireguard Server's Performance</title><link>https://crazyoptimist.net/post/2021/improve-your-wireguard-server-performance/</link><pubDate>Tue, 13 Jul 2021 02:28:56 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2021/improve-your-wireguard-server-performance/</guid><description>&lt;p>The default MTU(Maximum Transmission Unit) is 1420 in wireguard, while the most other devices use 1496 or 1500.&lt;/p>
+&lt;p>Read &lt;a href="https://superuser.com/questions/1537638/wireguard-tunnel-slow-and-intermittent?newreg=4af74385cf164e0f8e1d156bae77ad03">here&lt;/a> for more info.&lt;/p>
+&lt;p>TL;DR&lt;/p>
+&lt;p>Stop the wireguard interface in use:&lt;/p>
 &lt;pre tabindex="0">&lt;code>sudo systemctl stop wg-quick@wg0
 # or
 sudo wg-quick down wg0
@@ -2133,9 +2165,9 @@ sudo wg-quick down wg0
 &lt;/div>
 &lt;/div>&lt;p>And start the stopped service:&lt;/p>
 &lt;pre tabindex="0">&lt;code>systemctl start wg-quick@wg0
-&lt;/code>&lt;/pre>&lt;p>Add the same for the client config.&lt;br>
-Hope this helps.&lt;br>
-Happy networking!&lt;/p></description></item><item><title>Redux Setup in Your React Project - Personal Preference</title><link>https://crazyoptimist.net/post/2021/redux-setup-in-your-react-project-personal-preference/</link><pubDate>Thu, 22 Apr 2021 22:05:46 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2021/redux-setup-in-your-react-project-personal-preference/</guid><description>&lt;p>The first thing is to install libraries for redux, as you may guess:&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>Add the same for the client config.&lt;/p>
+&lt;p>That&amp;rsquo;s it.&lt;/p>
+&lt;p>Happy networking!&lt;/p></description></item><item><title>Redux Setup in Your React Project - Personal Preference</title><link>https://crazyoptimist.net/post/2021/redux-setup-in-your-react-project-personal-preference/</link><pubDate>Thu, 22 Apr 2021 22:05:46 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2021/redux-setup-in-your-react-project-personal-preference/</guid><description>&lt;p>The first thing is to install libraries for redux, as you may guess:&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>
@@ -2144,8 +2176,8 @@ Happy networking!&lt;/p></description></item><item><title>Redux Setup in Your Re
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>npm install -S redux react-redux redux-logger reselect redux-persist
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>&lt;code>redux-logger&lt;/code> is a redux middleware which is really really helpful in development, but it&amp;rsquo;s up to you whether to use it or not.&lt;br>
-&lt;code>reselect&lt;/code> is a memoization implementation for redux.&lt;br>
+&lt;/div>&lt;p>&lt;code>redux-logger&lt;/code> is a redux middleware which is really really helpful in development, but it&amp;rsquo;s up to you whether to use it or not.
+&lt;code>reselect&lt;/code> is a memoization implementation for redux.
 &lt;code>redux-persist&lt;/code> is for leveraging localStorage/sessionStorage browser APIs in redux.&lt;/p>
 &lt;p>Assuming that you have the react project structured in your own way, I&amp;rsquo;d create a new folder named &lt;code>redux&lt;/code> inside the &lt;code>src/app&lt;/code> folder:&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -2156,8 +2188,8 @@ Happy networking!&lt;/p></description></item><item><title>Redux Setup in Your Re
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mkdir -p src/app/redux
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>For demonstration purposes, we gonna setup &lt;code>user reducer&lt;/code>, which is specific to &lt;code>user&lt;/code> domain.&lt;br>
-Create a &lt;code>root reducer&lt;/code> and &lt;code>store&lt;/code> first, though.&lt;/p>
+&lt;/div>&lt;p>For demonstration purposes, we gonna setup &lt;code>user reducer&lt;/code>, which is specific to &lt;code>user&lt;/code> domain.&lt;/p>
+&lt;p>Create a &lt;code>root reducer&lt;/code> and &lt;code>store&lt;/code> first, though.&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>
@@ -2184,9 +2216,9 @@ Create a &lt;code>root reducer&lt;/code> and &lt;code>store&lt;/code> first, tho
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Overwhelming already? Nah~ it&amp;rsquo;s not, let me explain what the files do.&lt;/p>
-&lt;p>&lt;code>user.reducer.js&lt;/code> is a file that contains real reducer, which can be called &lt;code>CPU&lt;/code> of redux.&lt;br>
-&lt;code>user.types.js&lt;/code> will be containing action types as variables(I&amp;rsquo;d call it mapping), which is a good convention in redux world.&lt;br>
-&lt;code>user.actions.js&lt;/code> has real action definitions in it.&lt;br>
+&lt;p>&lt;code>user.reducer.js&lt;/code> is a file that contains real reducer, which can be called &lt;code>CPU&lt;/code> of redux.
+&lt;code>user.types.js&lt;/code> will be containing action types as variables(I&amp;rsquo;d call it mapping), which is a good convention in redux world.
+&lt;code>user.actions.js&lt;/code> has real action definitions in it.
 &lt;code>user.selectors.js&lt;/code> is for memoization which is a great concept for pure functions, and it&amp;rsquo;s all about performance.&lt;/p>
 &lt;p>Here is our &lt;code>root-reducer.js&lt;/code> file:&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -2484,10 +2516,10 @@ Create a &lt;code>root reducer&lt;/code> and &lt;code>store&lt;/code> first, tho
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fe8019">export&lt;/span> &lt;span style="color:#fe8019">default&lt;/span> connect(mapStateToProps, mapDispatchToProps)(YourComponent);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>That&amp;rsquo;s it. Once you setup the redux, it&amp;rsquo;s pretty much repetitive task to use it in any corner of your application.&lt;br>
-Happy coding! 😎&lt;/p></description></item><item><title>Setup Wireguard VPN Server on Ubuntu</title><link>https://crazyoptimist.net/post/2021/setup-wireguard-vpn-server-on-ubuntu/</link><pubDate>Thu, 04 Feb 2021 13:49:08 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2021/setup-wireguard-vpn-server-on-ubuntu/</guid><description>&lt;p>This tutorial is going to show you how to set up your own WireGuard VPN server on Ubuntu.&lt;br>
-WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.&lt;br>
-TL;DR&lt;/p>
+&lt;/div>&lt;p>That&amp;rsquo;s it. Once you setup the redux, it&amp;rsquo;s pretty much repetitive task to use it in every corner of your application.&lt;/p>
+&lt;p>Happy coding! 😎&lt;/p></description></item><item><title>Setup a Wireguard VPN Server on Ubuntu</title><link>https://crazyoptimist.net/post/2021/setup-wireguard-vpn-server-on-ubuntu/</link><pubDate>Thu, 04 Feb 2021 13:49:08 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2021/setup-wireguard-vpn-server-on-ubuntu/</guid><description>&lt;p>This tutorial is going to show you how to set up your own WireGuard VPN server on Ubuntu.&lt;/p>
+&lt;p>WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.&lt;/p>
+&lt;p>TL;DR&lt;/p>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
 &lt;p>This tutorial assumes that the VPN server and VPN client are both going to be running on Ubuntu 20.04 operating system.&lt;/p>
 &lt;h2 id="setting-up-the-wireguard-server">Setting Up the WireGuard Server&lt;/h2>
@@ -2502,8 +2534,8 @@ TL;DR&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install wireguard
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>You should got the two cli &lt;code>wg&lt;/code> and &lt;code>wg-quick&lt;/code> now.&lt;br>
-Generate a key pair for your server:&lt;/p>
+&lt;/div>&lt;p>You should got the two cli &lt;code>wg&lt;/code> and &lt;code>wg-quick&lt;/code> now.&lt;/p>
+&lt;p>Generate a key pair for your server:&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>
@@ -2516,9 +2548,9 @@ Generate a key pair for your server:&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cat /etc/wireguard/publickey
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Keep the server key pair in your clipboard or somewhere temporary place.&lt;br>
-Now, edit the wireguard server configuration file.&lt;br>
-Check the name of your public network interface first:&lt;/p>
+&lt;/div>&lt;p>Keep the server key pair in your clipboard or somewhere temporary place.&lt;/p>
+&lt;p>Now, edit the wireguard server configuration file.&lt;/p>
+&lt;p>Check the name of your public network interface first:&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>
@@ -2558,18 +2590,10 @@ Check the name of your public network interface first:&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;ul>
-&lt;li>
-&lt;p>Address - A comma-separated list of v4 or v6 IP addresses for the wg0 interface. Use IPs from a range that is reserved for private networks (10.0.0.0/8, 172.16.0.0/12 or 192.168.0.0/16).&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>SaveConfig - When set to true, the current state of the interface is saved to the configuration file when shutdown.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>PostUp - Command or script that is executed before bringing the interface up. In above configuration, we’re using iptables to enable masquerading. This allows traffic to leave the server, giving the VPN clients access to the Internet.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;code>eth0&lt;/code> - Name of your public network interface&lt;/p>
-&lt;/li>
+&lt;li>Address - A comma-separated list of v4 or v6 IP addresses for the wg0 interface. Use IPs from a range that is reserved for private networks (10.0.0.0/8, 172.16.0.0/12 or 192.168.0.0/16).&lt;/li>
+&lt;li>SaveConfig - When set to true, the current state of the interface is saved to the configuration file when shutdown.&lt;/li>
+&lt;li>PostUp - Command or script that is executed before bringing the interface up. In above configuration, we’re using iptables to enable masquerading. This allows traffic to leave the server, giving the VPN clients access to the Internet.&lt;/li>
+&lt;li>&lt;code>eth0&lt;/code> - Name of your public network interface&lt;/li>
 &lt;/ul>
 &lt;p>Secure the configuration file and private key file like so:&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -2640,7 +2664,7 @@ Check the name of your public network interface first:&lt;/p>
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wg genkey | sudo tee /etc/wireguard/privatekey | wg pubkey | sudo tee /etc/wireguard/publickey
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Create Wireguard client configuration:&lt;/p>
+&lt;/div>&lt;p>Create a Wireguard client configuration:&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-12-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-1">1&lt;/a>
@@ -2674,15 +2698,9 @@ Check the name of your public network interface first:&lt;/p>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;ul>
-&lt;li>
-&lt;p>Address - A comma-separated list of v4 or v6 IP addresses for the wg0 interface. Your client machine will have this private ip.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>PrivateKey - To see the contents of the file on the client machine run: sudo cat /etc/wireguard/privatekey&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>AllowedIPs - A comma-separated list of v4 or v6 IP addresses from which incoming traffic for the peer is allowed and to which outgoing traffic for this peer is directed. We’re using 0.0.0.0/0 because we are routing the traffic and want the server peer to send packets with any source IP.&lt;/p>
-&lt;/li>
+&lt;li>Address - A comma-separated list of v4 or v6 IP addresses for the wg0 interface. Your client machine will have this private ip.&lt;/li>
+&lt;li>PrivateKey - To see the contents of the file on the client machine run: sudo cat /etc/wireguard/privatekey&lt;/li>
+&lt;li>AllowedIPs - A comma-separated list of v4 or v6 IP addresses from which incoming traffic for the peer is allowed and to which outgoing traffic for this peer is directed. We’re using 0.0.0.0/0 because we are routing the traffic and want the server peer to send packets with any source IP.&lt;/li>
 &lt;/ul>
 &lt;h2 id="add-the-client-peer-to-the-server-peer">Add the Client Peer to the Server Peer&lt;/h2>
 &lt;p>On the server, use this command:&lt;/p>
@@ -2714,10 +2732,10 @@ Check the name of your public network interface first:&lt;/p>
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo wg &lt;span style="color:#fabd2f">set&lt;/span> wg0 peer CLIENT_PUBLIC_KEY remove
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>That&amp;rsquo;s it.&lt;br>
-Happy networking! 😎&lt;/p></description></item><item><title>Setup Wireguard VPN Server on CentOS</title><link>https://crazyoptimist.net/post/2021/setup-wireguard-vpn-server-on-centos/</link><pubDate>Thu, 04 Feb 2021 12:10:35 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2021/setup-wireguard-vpn-server-on-centos/</guid><description>&lt;p>This tutorial is going to show you how to set up your own WireGuard VPN server on CentOS.&lt;br>
-WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.&lt;br>
-TL;DR&lt;/p>
+&lt;/div>&lt;p>That&amp;rsquo;s it.&lt;/p>
+&lt;p>Happy networking! 😎&lt;/p></description></item><item><title>Setup Wireguard VPN Server on CentOS</title><link>https://crazyoptimist.net/post/2021/setup-wireguard-vpn-server-on-centos/</link><pubDate>Thu, 04 Feb 2021 12:10:35 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2021/setup-wireguard-vpn-server-on-centos/</guid><description>&lt;p>This tutorial is going to show you how to set up your own WireGuard VPN server on CentOS.&lt;/p>
+&lt;p>WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.&lt;/p>
+&lt;p>TL;DR&lt;/p>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
 &lt;p>This tutorial assumes that the VPN server and VPN client are both going to be running on CentOS 7/8 operating system.&lt;/p>
 &lt;h2 id="step-1-install-wireguard-on-centos-server-and-desktop">Step 1: Install WireGuard on CentOS Server and Desktop&lt;/h2>
@@ -3060,8 +3078,8 @@ TL;DR&lt;/p>
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo systemctl &lt;span style="color:#fabd2f">enable&lt;/span> wg-quick@wg-client0.service
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>By default, all traffic on the VPN client will be routed through the VPN server. Sometimes you may want to route only a specific type of traffic, based on the transport layer protocol and the destination port. This is known as policy routing.
-Policy routing is configured on the client computer, and we need to stop the VPN connection first.&lt;/p>
+&lt;/div>&lt;p>By default, all traffic on the VPN client will be routed through the VPN server. Sometimes you may want to route only a specific type of traffic, based on the transport layer protocol and the destination port. This is known as policy routing.&lt;/p>
+&lt;p>Policy routing is configured on the client computer, and we need to stop the VPN connection first.&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-29-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-29-1">1&lt;/a>
@@ -3102,8 +3120,8 @@ Policy routing is configured on the client computer, and we need to stop the VPN
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h4 id="vpn-kill-switch">VPN Kill Switch&lt;/h4>
-&lt;p>By default, your computer can access the Internet via the normal gateway when the VPN connection is disrupted. You may want to enable the kill switch feature, which prevents the flow of unencrypted packets through non-WireGuard interfaces.&lt;br>
-Stop the WireGuard client process.&lt;/p>
+&lt;p>By default, your computer can access the Internet via the normal gateway when the VPN connection is disrupted. You may want to enable the kill switch feature, which prevents the flow of unencrypted packets through non-WireGuard interfaces.&lt;/p>
+&lt;p>Stop the WireGuard client process.&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-33-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-33-1">1&lt;/a>
@@ -3181,9 +3199,8 @@ Stop the WireGuard client process.&lt;/p>
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo wg &lt;span style="color:#fabd2f">set&lt;/span> wg0 peer CLIENT_PUBLIC_KEY remove
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>That&amp;rsquo;s it.&lt;br>
-Happy networking! 😎&lt;br>
-&lt;em>Same content posted in many places on the internet!&lt;/em>&lt;/p></description></item><item><title>Git Cheatsheet for Minimalists</title><link>https://crazyoptimist.net/post/2020/git-cheatsheet-2021/</link><pubDate>Fri, 04 Dec 2020 13:20:27 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2020/git-cheatsheet-2021/</guid><description>&lt;h4 id="basic-git-concepts">Basic Git Concepts&lt;/h4>
+&lt;/div>&lt;p>That&amp;rsquo;s it. &lt;em>The same content posted in many places on the internet.&lt;/em>&lt;/p>
+&lt;p>Happy networking! 😎&lt;/p></description></item><item><title>Git Cheatsheet for Minimalists</title><link>https://crazyoptimist.net/post/2020/git-cheatsheet-2021/</link><pubDate>Fri, 04 Dec 2020 13:20:27 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2020/git-cheatsheet-2021/</guid><description>&lt;h4 id="basic-git-concepts">Basic Git Concepts&lt;/h4>
 &lt;ul>
 &lt;li>Working copy (working tree file): It refers to the file in the repository that appears on the hard disk.&lt;/li>
 &lt;li>Index (staging area or cache): it refers to you have &lt;code>git add&lt;/code>-ed, or, what would be committed if you were to run &lt;code>git commit&lt;/code>.&lt;/li>
@@ -3494,6 +3511,11 @@ Happy networking! 😎&lt;br>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Auto-CRLF&lt;/p>
+&lt;p>What&amp;rsquo;s this? It&amp;rsquo;s all about line endings.&lt;/p>
+&lt;ul>
+&lt;li>Windows: CR (Carriage Return \r) and LF (LineFeed \n) pair&lt;/li>
+&lt;li>OSX, Linux: LF (LineFeed \n)&lt;/li>
+&lt;/ul>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-24-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-1">1&lt;/a>
@@ -3767,18 +3789,27 @@ Happy networking! 😎&lt;br>
 &lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-44-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-44-3">3&lt;/a>
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git reset --soft HEAD^ &lt;span style="color:#928374;font-style:italic"># Removes the last commit, keeps changed staged&lt;/span>
+&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git reset --soft HEAD^ &lt;span style="color:#928374;font-style:italic"># Removes the last commit, keeps the changes staged&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git reset --mixed HEAD^ &lt;span style="color:#928374;font-style:italic"># Unstages the changes as well&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git reset --hard HEAD^ &lt;span style="color:#928374;font-style:italic"># Discards local changes&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git reset --hard HEAD^ &lt;span style="color:#928374;font-style:italic"># Completely removes the changes&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Undo x commits&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-45-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-45-1">1&lt;/a>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git reset --hard HEAD~x
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h4 id="git-revert">git revert&lt;/h4>
 &lt;p>Revert commits&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-45-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-45-1">1&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-45-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-45-2">2&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-45-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-45-3">3&lt;/a>
+&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-46-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-46-1">1&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-46-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-46-2">2&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-46-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-46-3">3&lt;/a>
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git revert 72856ea &lt;span style="color:#928374;font-style:italic"># Reverts the given commit&lt;/span>
@@ -3790,8 +3821,8 @@ Happy networking! 😎&lt;br>
 &lt;p>Recover lost commits&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-46-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-46-1">1&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-46-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-46-2">2&lt;/a>
+&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-47-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-47-1">1&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-47-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-47-2">2&lt;/a>
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>git reflog &lt;span style="color:#928374;font-style:italic"># Shows the history of HEAD&lt;/span>
@@ -3807,8 +3838,8 @@ Happy networking! 😎&lt;br>
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fabd2f">alias&lt;/span> docker&lt;span style="color:#fe8019">=&lt;/span>&lt;span style="color:#b8bb26">&amp;#34;sudo podman &lt;/span>$1&lt;span style="color:#b8bb26">&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>The above command works as of this time and podman makes namespaces for every users for every resources, i.e., images, containers and so on.&lt;br>
-It means, &lt;code>podman images&lt;/code> and &lt;code>sudo podman images&lt;/code> will show different resources.😎&lt;/p>
+&lt;/div>&lt;p>The above command works as of this time and podman makes namespaces for every users for every resources, i.e., images, containers and so on.&lt;/p>
+&lt;p>It means, &lt;code>podman images&lt;/code> and &lt;code>sudo podman images&lt;/code> will show different resources.😎&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>
@@ -3825,9 +3856,8 @@ It means, &lt;code>podman images&lt;/code> and &lt;code>sudo podman images&lt;/c
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo podman play kube ./my-pod.yaml
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>The generated file can not be used as raw. Below is an example of a manually edited version.
+&lt;/div>&lt;p>The generated file can not be used as raw. Below is an example of a manually edited version.&lt;/p>
 &lt;script src="https://gist.github.com/dockerlead/6bb435b321bc73589db230c98cca0e4f.js">&lt;/script>
-&lt;/p>
 &lt;h1 id="install-podman-on-centos-8">Install Podman on CentOS 8&lt;/h1>
 &lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
