@@ -5,11 +5,7 @@ A Full Stack MEVN Application
 Let’s take a look into the DB image first.
 1 2 3 4 5 6 7 8 9 FROM mongo:latest WORKDIR /app COPY . /app ENV MONGO_INITDB_ROOT_USERNAME=root ENV MONGO_INITDB_ROOT_PASSWORD=password EXPOSE 27017 I thought importing dump data should be working if I used CMD or ENTRYPOINT.
 It didn’t work though. So I picked a solution using exec and shell script.</description></item><item><title>Basic Docker Notes</title><link>https://crazyoptimist.net/post/2019/basic-docker-notes/</link><pubDate>Sat, 28 Dec 2019 00:08:01 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2019/basic-docker-notes/</guid><description>To run a container from an image:
-1 docker container run -it --rm ubuntu /bin/bash -t: terminal inside
--i: (STDIN) grabbing
---rm: remove container automatically when process exits
---name: name the container or daemon
--d: daemonize the container running
+1 docker container run -it --rm ubuntu /bin/bash -t: terminal inside -i: (STDIN) grabbing --rm: remove container automatically when process exits --name: name the container or daemon -d: daemonize the container running
 To list all containers:
 1 docker container ps -a To start or stop container:
 1 docker container stop container_name To remove container(s):
