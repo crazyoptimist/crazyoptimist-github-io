@@ -1,7 +1,7 @@
 ---
 title: "Basic Docker Notes"
 date: 2019-12-28T00:08:01-05:00
-categories: ["devops", "docker"]
+categories: ["docker"]
 ---
 
 To run a container from an image:
@@ -10,11 +10,11 @@ To run a container from an image:
 docker container run -it --rm ubuntu /bin/bash
 ```
 
-`-t`: terminal inside  
-`-i`: (STDIN) grabbing  
-`--rm`: remove container automatically when process exits  
-`--name`: name the container or daemon  
-`-d`: daemonize the container running  
+`-t`: terminal inside
+`-i`: (STDIN) grabbing
+`--rm`: remove container automatically when process exits
+`--name`: name the container or daemon
+`-d`: daemonize the container running
 
 To list all containers:
 
@@ -42,9 +42,9 @@ To run a container as a daemon:
 docker container run -d --name "test-nginx" -p 8080:80 -v $(pwd):/usr/share/nginx/html:ro nginx:latest
 ```
 
-`-p`: port mapping, `host_port:container_port`  
-`-v`: volume mounting, `host_dir:container_dir`  
-`$(pwd)`: current working dir  
+`-p`: port mapping, `host_port:container_port`
+`-v`: volume mounting, `host_dir:container_dir`
+`$(pwd)`: current working dir
 
 To check the information of a resource(container or image or volume or network):
 
@@ -55,12 +55,12 @@ docker container inspect container_name
 To write a basic Dockerfile:
 
 ```bash
-FROM        #Set base image
-RUN         #Execute command in container
-ENV         #Set environment variable
-WORKDIR     #Set working directory
-VOLUME      #Create a mount point for a volume
-CMD         #Set executable for container
+FROM        # Set base image
+RUN         # Execute command in container
+ENV         # Set environment variable
+WORKDIR     # Set working directory
+VOLUME      # Create a mount point for a volume
+CMD         # Set executable for container
 ```
 
 To build an image from Dockerfile:
@@ -69,8 +69,8 @@ To build an image from Dockerfile:
 docker build -t image_name .
 ```
 
-`.`: means context is the current working directory.  
-`-t`: sets a name for the image  
+`.`: means context is the current working directory.
+`-t`: sets a name for the image
 
 For accessing to the docker daemon as a non-root user:
 
@@ -84,11 +84,11 @@ Remove all unused(dangling) build cache:
 docker builder prune
 ```
 
-Rule of thumb  
+Rule of thumb
 * 1 app = 1 container
 * Process should be running in the foreground
 * Keep data in volumes, not in containers
 * Do not use SSH, use `docker exec` instead
 * Avoid manual configurations inside container
 
-Happy dockerizing, Gents! 🙂
+Happy containerizing! 🙂
