@@ -3,15 +3,16 @@ title: "Redux Setup in Your React Project - Personal Preference"
 date: 2021-04-22T22:05:46-05:00
 categories: ['javascript']
 ---
+
 The first thing is to install libraries for redux, as you may guess:
 
 ```bash
 npm install -S redux react-redux redux-logger reselect redux-persist
 ```
 
-`redux-logger` is a redux middleware which is really really helpful in development, but it's up to you whether to use it or not.  
-`reselect` is a memoization implementation for redux.  
-`redux-persist` is for leveraging localStorage/sessionStorage browser APIs in redux.  
+`redux-logger` is a redux middleware which is really really helpful in development, but it's up to you whether to use it or not.
+`reselect` is a memoization implementation for redux.
+`redux-persist` is for leveraging localStorage/sessionStorage browser APIs in redux.
 
 Assuming that you have the react project structured in your own way, I'd create a new folder named `redux` inside the `src/app` folder:
 
@@ -19,8 +20,9 @@ Assuming that you have the react project structured in your own way, I'd create 
 mkdir -p src/app/redux
 ```
 
-For demonstration purposes, we gonna setup `user reducer`, which is specific to `user` domain.  
-Create a `root reducer` and `store` first, though.  
+For demonstration purposes, we gonna setup `user reducer`, which is specific to `user` domain.
+
+Create a `root reducer` and `store` first, though.
 
 ```bash
 # inside the 'redux' folder:
@@ -36,12 +38,12 @@ cd user
 touch user.reducer.js user.types.js user.actions.js user.selectors.js
 ```
 
-Overwhelming already? Nah~ it's not, let me explain what the files do.  
+Overwhelming already? Nah~ it's not, let me explain what the files do.
 
-`user.reducer.js` is a file that contains real reducer, which can be called `CPU` of redux.  
-`user.types.js` will be containing action types as variables(I'd call it mapping), which is a good convention in redux world.  
-`user.actions.js` has real action definitions in it.  
-`user.selectors.js` is for memoization which is a great concept for pure functions, and it's all about performance.  
+`user.reducer.js` is a file that contains real reducer, which can be called `CPU` of redux.
+`user.types.js` will be containing action types as variables(I'd call it mapping), which is a good convention in redux world.
+`user.actions.js` has real action definitions in it.
+`user.selectors.js` is for memoization which is a great concept for pure functions, and it's all about performance.
 
 Here is our `root-reducer.js` file:
 
@@ -203,5 +205,6 @@ const mapDispatchToProps = dispatch => ({
 export default connect(mapStateToProps, mapDispatchToProps)(YourComponent);
 ```
 
-That's it. Once you setup the redux, it's pretty much repetitive task to use it in any corner of your application.  
+That's it. Once you setup the redux, it's pretty much repetitive task to use it in every corner of your application.
+
 Happy coding! 😎

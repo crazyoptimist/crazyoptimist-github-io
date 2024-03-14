@@ -1,15 +1,18 @@
 ---
-title: "Setup Wireguard VPN Server on Ubuntu"
+title: "Setup a Wireguard VPN Server on Ubuntu"
 date: 2021-02-04T13:49:08-05:00
 categories: ["network"]
 ---
-This tutorial is going to show you how to set up your own WireGuard VPN server on Ubuntu.  
-WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.  
-TL;DR  
+
+This tutorial is going to show you how to set up your own WireGuard VPN server on Ubuntu.
+
+WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.
+
+TL;DR
 
 ## Prerequisites
 
-This tutorial assumes that the VPN server and VPN client are both going to be running on Ubuntu 20.04 operating system.  
+This tutorial assumes that the VPN server and VPN client are both going to be running on Ubuntu 20.04 operating system.
 
 ## Setting Up the WireGuard Server
 
@@ -20,7 +23,8 @@ sudo apt update
 sudo apt install wireguard
 ```
 
-You should got the two cli `wg` and `wg-quick` now.  
+You should got the two cli `wg` and `wg-quick` now.
+
 Generate a key pair for your server:
 
 ```bash
@@ -29,8 +33,10 @@ cat /etc/wireguard/privatekey
 cat /etc/wireguard/publickey
 ```
 
-Keep the server key pair in your clipboard or somewhere temporary place.  
-Now, edit the wireguard server configuration file.  
+Keep the server key pair in your clipboard or somewhere temporary place.
+
+Now, edit the wireguard server configuration file.
+
 Check the name of your public network interface first:
 
 ```bash
@@ -55,13 +61,10 @@ PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o 
 PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 ```
 
-* Address - A comma-separated list of v4 or v6 IP addresses for the wg0 interface. Use IPs from a range that is reserved for private networks (10.0.0.0/8, 172.16.0.0/12 or 192.168.0.0/16).
-
-* SaveConfig - When set to true, the current state of the interface is saved to the configuration file when shutdown.
-
-* PostUp - Command or script that is executed before bringing the interface up. In above configuration, we’re using iptables to enable masquerading. This allows traffic to leave the server, giving the VPN clients access to the Internet.
-
-* `eth0` - Name of your public network interface
+- Address - A comma-separated list of v4 or v6 IP addresses for the wg0 interface. Use IPs from a range that is reserved for private networks (10.0.0.0/8, 172.16.0.0/12 or 192.168.0.0/16).
+- SaveConfig - When set to true, the current state of the interface is saved to the configuration file when shutdown.
+- PostUp - Command or script that is executed before bringing the interface up. In above configuration, we’re using iptables to enable masquerading. This allows traffic to leave the server, giving the VPN clients access to the Internet.
+- `eth0` - Name of your public network interface
 
 
 Secure the configuration file and private key file like so:
@@ -112,7 +115,7 @@ Installation is all the same, and so the key pair generation is:
 wg genkey | sudo tee /etc/wireguard/privatekey | wg pubkey | sudo tee /etc/wireguard/publickey
 ```
 
-Create Wireguard client configuration:
+Create a Wireguard client configuration:
 
 ```bash
 sudo vim /etc/wireguard/wg0.conf
@@ -130,11 +133,9 @@ Endpoint = SERVER_IP_ADDRESS:51820
 AllowedIPs = 0.0.0.0/0
 ```
 
-* Address - A comma-separated list of v4 or v6 IP addresses for the wg0 interface. Your client machine will have this private ip.
-
-* PrivateKey - To see the contents of the file on the client machine run: sudo cat /etc/wireguard/privatekey
-
-* AllowedIPs - A comma-separated list of v4 or v6 IP addresses from which incoming traffic for the peer is allowed and to which outgoing traffic for this peer is directed. We’re using 0.0.0.0/0 because we are routing the traffic and want the server peer to send packets with any source IP.
+- Address - A comma-separated list of v4 or v6 IP addresses for the wg0 interface. Your client machine will have this private ip.
+- PrivateKey - To see the contents of the file on the client machine run: sudo cat /etc/wireguard/privatekey
+- AllowedIPs - A comma-separated list of v4 or v6 IP addresses from which incoming traffic for the peer is allowed and to which outgoing traffic for this peer is directed. We’re using 0.0.0.0/0 because we are routing the traffic and want the server peer to send packets with any source IP.
 
 ## Add the Client Peer to the Server Peer
 
@@ -157,5 +158,6 @@ If you want to remove a peer from your server, this will work:
 sudo wg set wg0 peer CLIENT_PUBLIC_KEY remove
 ```
 
-That's it.  
-Happy networking! 😎  
+That's it.
+
+Happy networking! 😎

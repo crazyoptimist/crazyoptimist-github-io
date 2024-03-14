@@ -5,38 +5,40 @@ categories: ["network"]
 ---
 ## Launch OpenVPN client as a daemon.
 
-Here I assume you already have your own cert file - `filename.ovpn`. 🙂  
-Modify its file extension to `conf` like so:  
+Here I assume you already have your own cert file: `filename.ovpn`. 🙂
+
+Modify its file extension to a `conf` file like so:
 
 ```bash
-mv filename.ovpn filename.conf 
+mv filename.ovpn filename.conf
 ```
 
-Put your cert file inside `/etc/openvpn` directory like so:  
+Move the file inside `/etc/openvpn` directory like so:
 
 ```bash
 mv /path/to/filename.conf /etc/openvpn/
 ```
 
-OpenVPN client service name would be `openvpn@filename`.  
-Well, you might already know what to do to launch the service.  
+OpenVPN client service name would be `openvpn@filename`.
+
+Well, you might already know what to do to launch the service.
 
 ```bash
 sudo killall openvpn
 sudo systemctl enable --now openvpn@filename
 ```
 
-Reload the system daemons.  
+Reload the system daemons.
 
 ```bash
 sudo systemctl daemon-reload
 ```
 
-That's it. 🙂  
+That's it. 🙂
 
 ## If you have `username` and `password` for the certfile, you need this step
 
-Make a credential file like so:  
+Make a credential file like so:
 
 ```bash
 sudo touch /etc/openvpn/login.conf

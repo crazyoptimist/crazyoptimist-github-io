@@ -3,12 +3,17 @@ title: "How to Configure a Nginx Reverse Proxy With Let's Encrypt"
 date: 2020-03-11T00:02:26-05:00
 categories: ["devops"]
 ---
-Let’s say one of your micro services is running on http://localhost:3000  
+
+Let’s say one of your micro services is running on http://localhost:3000
+
 If you already have a nginx service running on the server, create a server block like this:
+
 ```bash
 vim /etc/nginx/sites-available/domain.com.conf
 ```
+
 Grab this content to paste in:
+
 ```ini
 server {
 
@@ -28,7 +33,9 @@ server {
 
 }
 ```
-For more advanced(production ready) configuration, use below instead:
+
+For more advanced (more so production ready) configuration, use below instead:
+
 ```ini
 server {
 
@@ -97,17 +104,25 @@ server {
 
 }
 ```
+
 Make a link of the config file:
+
 ```bash
 sudo ln -s /etc/nginx/sites-available/domain.com.conf /etc/nginx/sites-enabled/
 ```
+
 Or in nginx v14+, just create the .conf file inside the conf.d directory then you are good to go.
+
 Check the validity of your config file with this command
+
 ```bash
 sudo nginx -t
 ```
-Now that it went fine, you will be able to see your public domain will be showing your landing page or something like that.  
-It’s time to secure your service with Let’s Encrypt (Let's just assume that the server is running Ubuntu 18.04 Bionic for simplicity):  
+
+Now that it went well, you will be able to see your public domain will be showing your landing page or something like that.
+
+It’s time to secure your service with Let’s Encrypt (Let's just assume that the server is running Ubuntu 18.04 Bionic for simplicity):
+
 ```bash
 apt-get update
 apt-get install software-properties-common
@@ -117,23 +132,33 @@ apt-get update
 apt-get install certbot python-certbot-nginx
 certbot --nginx
 ```
-Now, you will have to configure a cron job for auto-renewing the received certificates.  
+
+Now, you will have to configure a cron job for auto-renewing the received certificates.
+
 ```bash
 certbot renew --dry-run
 crontab -e
 ```
-Grab this code **followed by an empty line**  
+
+Grab this code **followed by an empty line**
+
 ```bash
 0 0,12 * * * python -c 'import random; import time; time.sleep(random.random() * 3600)' && certbot renew
 
 ```
-It seems you did an awesome job! 😉  
+
+It seems you did an awesome job! 😉
+
 **A Bonus Tip:** Nginx Purging - Right Way
+
 ```bash
 apt purge nginx nginx-common nginx-full
 ```
+
 On CentOS 7/8, you need to configure SELinux as well like so:
+
 ```bash
 setsebool -P httpd_can_network_connect on
 ```
-Happy coding! 😎
+
+Happy networking! 😎

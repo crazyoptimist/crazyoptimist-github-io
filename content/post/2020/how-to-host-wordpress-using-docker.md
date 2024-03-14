@@ -3,7 +3,9 @@ title: "How to Host Wordpress Using Docker"
 date: 2020-01-06T14:14:16-05:00
 categories: ["devops"]
 ---
-Let’s go for our docker-compose.yml first.
+
+Let’s the docker compose file first.
+
 ```yaml
 version: '3'
 
@@ -53,7 +55,9 @@ services:
 volumes:
   db_data:
 ```
+
 Here comes a relavant php.conf.ini file:
+
 ```ini
 file_uploads = On
 memory_limit = 500M
@@ -61,14 +65,19 @@ upload_max_filesize = 30M
 post_max_size = 30M
 max_execution_time = 600
 ```
+
 Environmental variables will be needed, right? Here comes the .env file:
+
 ```ini
 IP=127.0.0.1
 DB_ROOT_PASSWORD=password
 DB_NAME=wordpress
 ```
-You will have to export a SQL dump sometimes. (I don’t do that though 😉)  
+
+You will have to export a SQL dump sometimes. (I don’t do that though 😉)
+
 Here comes the export_dump.sh file:
+
 ```bash
 #!/bin/bash
 _now=$(date +"%m_%d_%Y")
@@ -79,11 +88,13 @@ EXPORT_COMMAND='exec mysqldump "$MYSQL_DATABASE" -uroot -p"$MYSQL_ROOT_PASSWORD"
 docker-compose exec db sh -c "$EXPORT_COMMAND" > $_file
 sed -i 1,1d $_file
 ```
-All thing left is to run the container.
+
+All thing left is to spin up everything.
+
 ```bash
 docker-compose up -d
 ```
-Your container is running? Done awesome!  
-Happy dockerizing, Gents! 🙂
 
+Everything is running already? You've done awesome!
 
+Happy containerizing! 🙂

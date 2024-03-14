@@ -3,20 +3,24 @@ title: "How to Setup Eslint and Prettier With Git Precommit Hooks in React Types
 date: 2021-08-16T05:39:46-05:00
 categories: ['javascript']
 ---
-You should probably create a new react app with typescript using like so:
+
+You may create a new react app with typescript like so:
 
 ```bash
 npx create-react-app my-app --template typescript
 ```
 
-Now let's get started to setup eslint and prettier.  
-Remove `eslintConfig` from `package.json`.  
-Install `prettier` using these commands:  
+Now let's setup eslint and prettier.
+
+Remove `eslintConfig` from `package.json`.
+
+Install `prettier` using these commands:
+
 
 ```bash
 yarn add --dev --exact prettier
 # these are for making eslint and prettier to play well together
-yarn add --dev eslint-config-prettier eslint-plugin-prettier 
+yarn add --dev eslint-config-prettier eslint-plugin-prettier
 ```
 
 Create config files like this:
@@ -107,9 +111,10 @@ Add these scripts to `package.json` file:
 "format": "prettier . --write"
 ```
 
-Now you are good to run `yarn lint` and `yarn format`.  
+Now you are good to run `yarn lint` and `yarn format`.
 
-Let's setup git precommit hooks with `husky` and `lint-staged`.  
+Let's setup git precommit hooks with `husky` and `lint-staged`.
+
 Install `lint-staged` first:
 
 ```bash
@@ -137,5 +142,6 @@ yarn
 npx husky add .husky/pre-commit "yarn lint-staged"
 ```
 
-That's pretty much it.  
-Happy coding! :)  
+That's pretty much.
+
+Happy coding! :)

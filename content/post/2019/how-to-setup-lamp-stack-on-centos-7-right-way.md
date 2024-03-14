@@ -4,7 +4,8 @@ date: 2019-12-25T23:47:47-05:00
 categories: ["devops"]
 ---
 
-Today I am going to follow up the procedures to setup standard LAMP stack on CentOS 7.
+This post shows how to setup a standard LAMP stack on CentOS 7.
+
 For the latest version of phpMyAdmin:
 
 ```bash

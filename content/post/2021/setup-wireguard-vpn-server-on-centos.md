@@ -3,9 +3,12 @@ title: "Setup Wireguard VPN Server on CentOS"
 date: 2021-02-04T12:10:35-05:00
 categories: ["network"]
 ---
-This tutorial is going to show you how to set up your own WireGuard VPN server on CentOS.  
-WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.  
-TL;DR  
+
+This tutorial is going to show you how to set up your own WireGuard VPN server on CentOS.
+
+WireGuard is made specifically for the Linux kernel. It runs inside the Linux kernel and allows you to create fast, modern, and secure VPN tunnel.
+
+TL;DR
 
 ## Prerequisites
 
@@ -242,6 +245,7 @@ sudo systemctl enable wg-quick@wg-client0.service
 ```
 
 By default, all traffic on the VPN client will be routed through the VPN server. Sometimes you may want to route only a specific type of traffic, based on the transport layer protocol and the destination port. This is known as policy routing.
+
 Policy routing is configured on the client computer, and we need to stop the VPN connection first.
 
 ```bash
@@ -270,7 +274,8 @@ sudo systemctl start wg-quick@wg-client0.service
 
 #### VPN Kill Switch
 
-By default, your computer can access the Internet via the normal gateway when the VPN connection is disrupted. You may want to enable the kill switch feature, which prevents the flow of unencrypted packets through non-WireGuard interfaces.  
+By default, your computer can access the Internet via the normal gateway when the VPN connection is disrupted. You may want to enable the kill switch feature, which prevents the flow of unencrypted packets through non-WireGuard interfaces.
+
 Stop the WireGuard client process.
 
 ```bash
@@ -319,6 +324,6 @@ If you want to remove a peer from your server, this will work:
 sudo wg set wg0 peer CLIENT_PUBLIC_KEY remove
 ```
 
-That's it.  
-Happy networking! 😎  
-*Same content posted in many places on the internet!*
+That's it. *The same content posted in many places on the internet.*
+
+Happy networking! 😎

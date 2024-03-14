@@ -3,6 +3,7 @@ title: "Kubernetes Basic Notes"
 date: 2020-11-07T00:49:55-06:00
 categories: ["devops"]
 ---
+
 ### Kubectl Installation
 ```bash
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -53,7 +54,8 @@ kubectl delete -f some-deployment.yaml
 kubectl delete -f some-service.yaml
 kubectl delete -f some-secret.yaml
 ```
-[Single Node Deployment Example](https://github.com/CrazyOptimist/kubernetes-mongo-express)  
+
+[Single Node Deployment Example](https://github.com/CrazyOptimist/kubernetes-mongo-express)
 
 ### Creating secrets
 ```bash

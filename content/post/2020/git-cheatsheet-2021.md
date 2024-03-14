@@ -218,6 +218,10 @@ git config --global alias.lg "log --oneline"
 
 Auto-CRLF
 
+What's this? It's all about line endings.
+- Windows: CR (Carriage Return \r) and LF (LineFeed \n) pair
+- OSX, Linux: LF (LineFeed \n)
+
 ```bash
 git config --global core.autocrlf input           # Unix
 git config --global core.autocrlf true            # Windows
@@ -391,9 +395,15 @@ git remote prune origin
 Undo commits
 
 ```bash
-git reset --soft HEAD^              # Removes the last commit, keeps changed staged
+git reset --soft HEAD^              # Removes the last commit, keeps the changes staged
 git reset --mixed HEAD^             # Unstages the changes as well
-git reset --hard HEAD^              # Discards local changes
+git reset --hard HEAD^              # Completely removes the changes
+```
+
+Undo x commits
+
+```bash
+git reset --hard HEAD~x
 ```
 
 #### git revert

@@ -3,8 +3,9 @@ title: "How to Setup a Reverse Proxy With Let's Encrypt SSL Certificates Using D
 date: 2020-01-08T17:40:22-05:00
 categories: ["devops"]
 ---
-I think this is really important in practical docker battle field. 🙂  
-Let’s go for the docker-compose.yml first.
+
+Let’s check our docker compose file first.
+
 ```yaml
 version: '3'
 
@@ -28,7 +29,9 @@ services:
       - ./data/certbot/www:/var/www/certbot
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 ```
+
 In order to get Let’s Encrypt SSL certificates, create a shell script file (init_letsencrypt.sh) like so:
+
 ```bash
 #!/bin/bash
 
@@ -109,7 +112,9 @@ echo
 echo "### Reloading nginx ..."
 docker-compose exec nginx nginx -s reload
 ```
+
 As you can see in the docker-compose.yml file, you need a nginx config file in data/nginx/app.conf
+
 ```ini
 server {
     listen 80;
@@ -144,9 +149,13 @@ server {
     }
 }
 ```
-All set to start proxy server. Run the init_letsencrypt.sh first, and then as you may know,
+
+We are now ready to start the proxy server. Run `init_letsencrypt.sh` first, and then as you may know,
+
 ```bash
 docker-compose up -d
 ```
-Boom! Your service is now secured by Let's Encrypt SSL/TLS certificates.  
-Happy dockerizing, Gents! 🙂
+
+Your service is now secured by Let's Encrypt SSL/TLS certificates.
+
+Happy containerizing! 🙂

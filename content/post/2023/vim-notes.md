@@ -4,6 +4,39 @@ date: 2023-04-14T20:22:54-05:00
 categories: ["vim"]
 ---
 
+There are several modes in VIM. `NORMAL`, `INSERT`, `VISUAL` are most common ones.
+
+### The Most Used Default Key Bindings
+
+- `:q`: quit VIM. `:wq`: save the current buffer and quit. `:q!` discard unsaved changes and quit
+- `h`, `j`, `k`, `l`: Movement. Example: `8k` - move 8 lines up
+- `:99`: jump to the line 99
+- `w`: move one word forward
+- `b`: move one word backward
+- `$`: move to the end of the current line
+- `0`: move to the beginning of the current line
+- `o`: insert a new line below and go insert mode
+- `O`: insert a new line above and go insert mode
+- `A`: go insert mode at the end of the current line
+- `y`: yank (copy) selected text
+- `p`: paste the yanked text
+- `d`: delete the selected text
+- `dd`: delete the current line
+- `x`: delete the cursor character
+- `v`: select the cursor character
+- `V`: select the current line
+- `:sp`: split the screen horizontally
+- `:vs`: split the screen vertically
+- `/john`: search for "john" in the current file
+- `n`: jump to the next search result
+- `N`: jump to the previous search result
+- `gg`: jump to the top of the current file
+- `G`: jump to the bottom of the current file
+- `%`: jump to the closing/opening pair bracket
+- `:%s/abc/xyz/g`: replace every "abc" with "xyz" in the current file
+- `:vimgrep`: search current directory, see the help for more info
+- `:help`: open VIM help
+
 ### Vim "leader" Key
 
 `<leader>` key is a vim tool that can be used to create personalized shortcuts.

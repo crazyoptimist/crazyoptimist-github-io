@@ -3,8 +3,10 @@ title: "How to Use Git Rebase in a Practical Situation"
 date: 2020-02-24T23:39:13-05:00
 categories: ["devops"]
 ---
-Let’s say there are two pull requests open on a project repository.  
-Each change has its own branch like this:  
+
+Let’s say there are two pull requests open on a project repository.
+
+Each change has its own branch like this:
 
 - master
 - feature/add-base64-endpoint
@@ -17,6 +19,7 @@ The challenge is to use git rebase to add both changes to master. When you finis
 >* init
 
 Okay, let’s go!
+
 ```bash
 git clone repo_url
 git status
@@ -29,9 +32,13 @@ git status
 git checkout feature/add-user-agent-endpoint
 git rebase master
 ```
-Oops! You should see `rebase conflict`!  
-You need to check the code and fix it. Fortunately VS Code provides great hints for you to do that.  
-Once you fix it, do like this:  
+
+Oops! You now see `rebase conflict`!
+
+You need to check the code and fix it. Fortunately VS Code provides great hints for you to do that.
+
+Once you fix it, do like this:
+
 ```bash
 git add .
 git rebase --continue
@@ -42,7 +49,7 @@ git merge feature/add-user-agent-endpoint
 git status
 git log
 ```
-Boom! You must be done!  
-Happy gitting! 😉
 
+Boom! You must be done!
 
+Happy coding! 😉

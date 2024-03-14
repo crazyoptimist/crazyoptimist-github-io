@@ -1,12 +1,13 @@
 ---
-title: "Hugo - An Awesome Way to Enjoy Your Blog Life as an Engineer"
+title: "Hugo - Awesome Way to Enjoy Blogging as an Engineer"
 date: 2020-09-23T18:28:24-05:00
 categories: ["go"]
 ---
 
-I have just finished migrating my blog from Ghost self-hosting to Hugo. I am more than happy to use: { framework: "Hugo", hosting: "Firebase", cicd: "CircleCI" }. I just wanted to share the full process of how I got it done, which was not a piece of cake. You see, it's not just playing around or a development environment; it's for "production". There are plenty of great resources available that explain how to blog with Hugo, install Hugo themes, and so on. In this post, I will focus on the challenges I faced during this migration.
+I have just finished migrating my blog from Ghost self-hosting to Hugo. I am more than happy to use: { framework: "Hugo", hosting: "Firebase", cicd: "CircleCI" }. I just wanted to share the full process of how I got it done, which was not a piece of cake. You see, it's not a toy project, it's real one. There are plenty of great resources available that explain how to setup Hugo, install Hugo themes, and so on. In this post, I will focus on the challenges I faced during this migration.
 
 When you run the `hugo server` command on your local machine, it seems to work flawlessly. However, when you try to deploy it to the cloud, the first issue you may encounter is the `baseURL` setting in the Hugo config file. Here is a portion of my config file that pertains to this issue:
+
 
 ```toml
 relativeURLs = true
@@ -105,6 +106,6 @@ workflows:
 
 As you may have noticed, you need to add the `$FIREBASE_TOKEN` as an environment variable to your CircleCI project settings. With this setup, you can blog anywhere using your favorite editor (hopefully VIM!). Once you push your new content to Git, it will be live in less than a minute thanks to the CircleCI pipeline.
 
-I apologize if my explanation lacked some nitty-gritty details. Wish I were a full-time blogger. :X
+I apologize if my explanation lacked some nitty-gritty details.
 
-Happy blogging gents! 😎
+Happy blogging! 😎
