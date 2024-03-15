@@ -78,7 +78,9 @@ Here's an example of a spy in Go:
 type EmailService interface {
 	Send(msg string) error
 }
+```
 
+```go
 type emailService struct{}
 
 var _ EmailService = (*emailService)(nil)
@@ -88,7 +90,9 @@ func (s *emailService) Send(msg string) error {
 	fmt.Println(msg)
 	return nil
 }
+```
 
+```go
 type spyEmailService struct {
 	MessageCount int
 }
@@ -101,7 +105,6 @@ func (s *spyEmailService) Send(msg string) error {
 }
 ```
 
-Then we can use the spy in our test:
 
 ```go
 func TestEmailService(t *testing.T) {

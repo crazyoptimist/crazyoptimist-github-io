@@ -27,7 +27,7 @@ There are several modes in VIM. `NORMAL`, `INSERT`, `VISUAL` are most common one
 - `V`: select the current line
 - `:sp`: split the screen horizontally
 - `:vs`: split the screen vertically
-- `/john`: search for "john" in the current file
+- `/john`: search for "john" in the current <s>file</s> buffer
 - `n`: jump to the next search result
 - `N`: jump to the previous search result
 - `gg`: jump to the top of the current file
