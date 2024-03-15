@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>crazyoptimist</title><link>https://crazyoptimist.net/</link><description>Recent content on crazyoptimist</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>hey@crazyoptimist.net (crazyoptimist)</managingEditor><webMaster>hey@crazyoptimist.net (crazyoptimist)</webMaster><lastBuildDate>Thu, 29 Feb 2024 14:00:09 -0600</lastBuildDate><atom:link href="https://crazyoptimist.net/index.xml" rel="self" type="application/rss+xml"/><item><title>Go Does Not Have Reference Variables</title><link>https://crazyoptimist.net/post/2024/go-does-not-have-reference-variables/</link><pubDate>Thu, 29 Feb 2024 14:00:09 -0600</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2024/go-does-not-have-reference-variables/</guid><description>&lt;blockquote>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>crazyoptimist</title><link>https://crazyoptimist.net/</link><description>Recent content on crazyoptimist</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>hey@crazyoptimist.net (crazyoptimist)</managingEditor><webMaster>hey@crazyoptimist.net (crazyoptimist)</webMaster><lastBuildDate>Fri, 15 Mar 2024 15:29:42 -0500</lastBuildDate><atom:link href="https://crazyoptimist.net/index.xml" rel="self" type="application/rss+xml"/><item><title>Why Do We Need Unit Tests?</title><link>https://crazyoptimist.net/post/2024/why-do-we-need-unit-tests/</link><pubDate>Fri, 15 Mar 2024 15:29:42 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2024/why-do-we-need-unit-tests/</guid><description>&lt;h2 id="what-is-unit-testing">What is unit testing?&lt;/h2>
+&lt;p>Unit testing is the process where you test the smallest functional unit of code.&lt;/p>
+&lt;p>Software testing helps ensure code quality, and it&amp;rsquo;s an integral part of software development.&lt;/p>
+&lt;p>It&amp;rsquo;s a software development best practice to write software as small, functional units then write a unit test for each code unit.&lt;/p>
+&lt;p>You can first write unit tests as code. Then, run that test code automatically every time you make changes in the software code. This way, if a test fails, you can quickly isolate the area of the code that has the bug or error.&lt;/p>
+&lt;p>Unit testing enforces modular thinking paradigms and improves test coverage and quality. Automated unit testing helps ensure you or your developers have more time to concentrate on coding.&lt;/p>
+&lt;h2 id="what-is-a-unit-test">What is a unit test?&lt;/h2>
+&lt;p>A unit test is a block of code that verifies the accuracy of a smaller, isolated block of application code, typically a function or method. The unit test is designed to check that the block of code runs as expected, according to the developer’s theoretical logic behind it. The unit test is only capable of interacting with the block of code via inputs and captured asserted (true or false) output.&lt;/p>
+&lt;p>A single block of code may also have a set of unit tests, known as test cases. A complete set of test cases cover the full expected behavior of the code block, but it’s not always necessary to define the full set of test cases.&lt;/p>
+&lt;p>When a block of code requires other parts of the system to run, you can’t use a unit test with that external data. The unit test needs to run in isolation. Other system data, such as databases, objects, or network communication, might be required for the code’s functionality. If that&amp;rsquo;s the case, you should use data stubs instead. It’s easiest to write unit tests for small and logically simple blocks of code.&lt;/p>
+&lt;h2 id="what-should-you-write-unit-tests-for">What should you write unit tests for?&lt;/h2>
+&lt;p>&lt;strong>Logic checks&lt;/strong>&lt;/p>
+&lt;p>Does the system perform the right calculations and follow the right path through the code given a correct, expected input? Are all paths through the code covered by the given inputs?&lt;/p>
+&lt;p>&lt;strong>Boundary checks&lt;/strong>&lt;/p>
+&lt;p>For the given inputs, how does the system respond? How does it respond to typical inputs, edge cases, or invalid inputs?&lt;/p>
+&lt;p>Let’s say you expect an integer input between 3 and 7. How does the system respond when you use a 5 (typical input), a 3 (edge case), or a 9 (invalid input)?&lt;/p>
+&lt;p>&lt;strong>Error handling&lt;/strong>&lt;/p>
+&lt;p>When there are errors in inputs, how does the system respond? Is the user prompted for another input? Does the software crash?&lt;/p>
+&lt;p>&lt;strong>Object-oriented checks&lt;/strong>&lt;/p>
+&lt;p>If the state of any persistent objects is changed by running the code, is the object updated correctly?&lt;/p>
+&lt;h2 id="why-do-we-need-unit-tests-at-all">Why do we need unit tests at all?&lt;/h2>
+&lt;p>Unit testing benefits software development projects in many ways.&lt;/p>
+&lt;p>&lt;strong>Efficient bug discovery&lt;/strong>&lt;/p>
+&lt;p>If there are any input, output, or logic-based errors within a code block, your unit tests help you catch them before the bugs reach production. When code changes, you run the same set of unit tests—alongside other tests such as integration tests—and expect the same results. If tests fail (also called broken tests) it indicates regression-based bugs.&lt;/p>
+&lt;p>Unit testing also helps finds bugs faster in code. Your developers don’t spend a large amount of time on debugging activities. They can quickly pinpoint the exact part of the code that has an error.&lt;/p>
+&lt;p>&lt;strong>Documentation&lt;/strong>&lt;/p>
+&lt;p>It&amp;rsquo;s important to document code to know exactly what that code is supposed to be doing. That said, unit tests also act as a form of documentation.&lt;/p>
+&lt;p>Other developers read the tests to see what behaviors the code is expected to exhibit when it runs. They use the information to modify or refactor the code. Refactoring code makes it more performant and well-composed. You can run the unit testing again to check that code works as expected after changes.&lt;/p>
+&lt;h2 id="when-is-unit-testing-less-beneficial">When is unit testing less beneficial?&lt;/h2>
+&lt;p>Unit testing isn’t always required for every single test case in every single block of code in every single project. Here are some examples of when unit testing could potentially be omitted.&lt;/p>
+&lt;p>&lt;strong>When time is constrained&lt;/strong>&lt;/p>
+&lt;p>Even with generative unit testing frameworks, writing new unit tests takes a significant amount of your developers&amp;rsquo; time. While input and output-based unit tests may be easy to generate, logic-based checks are more difficult.&lt;/p>
+&lt;p>Once your developers start writing tests, they also see refactoring opportunities in the block of code and get distracted from completing them. This can lead to extended development timelines and budget issues.&lt;/p>
+&lt;p>&lt;strong>UI/UX applications&lt;/strong>&lt;/p>
+&lt;p>When the main system is concerned with look and feel rather than logic, there may not be many unit tests to run. Other types of testing, such as manual testing, are a better strategy than unit testing in these cases.&lt;/p>
+&lt;p>&lt;strong>Legacy codebases&lt;/strong>&lt;/p>
+&lt;p>Writing tests to wrap around existing legacy code can prove to be near impossible, depending on the style of the written code. Because unit tests require dummy data, it can also be too time-intensive to write unit tests for highly interconnected systems with a lot of data parsing.&lt;/p>
+&lt;p>&lt;strong>Rapidly evolving requirements&lt;/strong>&lt;/p>
+&lt;p>Depending on the project, the software can grow, change directions, or have whole parts scrapped altogether in any given work sprint. If requirements are likely to change often, there&amp;rsquo;s not much reason to write unit tests each time a block of code is developed.&lt;/p>
+&lt;p>That&amp;rsquo;s pretty much it. Credit goes to &lt;a href="https://aws.amazon.com/what-is/unit-testing/">AWS&lt;/a>.&lt;/p>
+&lt;p>Happy testing!&lt;/p></description></item><item><title>Go Does Not Have Reference Variables</title><link>https://crazyoptimist.net/post/2024/go-does-not-have-reference-variables/</link><pubDate>Thu, 29 Feb 2024 14:00:09 -0600</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2024/go-does-not-have-reference-variables/</guid><description>&lt;blockquote>
 &lt;p>To be clear, Go does not have reference variables, so Go does not have pass-by-reference function call semantics.
 &lt;a href="https://dave.cheney.net/2017/04/29/there-is-no-pass-by-reference-in-go">Dave Cheney&lt;/a>&lt;/p>
 &lt;/blockquote>
@@ -3630,155 +3670,4 @@ sudo wg-quick down wg0
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo dnf -y install podman
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Happy containerizing! 😎&lt;/p></description></item><item><title>Kubernetes Basic Notes</title><link>https://crazyoptimist.net/post/2020/kubernetes-basic-notes/</link><pubDate>Sat, 07 Nov 2020 00:49:55 -0600</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2020/kubernetes-basic-notes/</guid><description>&lt;h3 id="kubectl-installation">Kubectl Installation&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2">2&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3">3&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4">4&lt;/a>
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>curl -LO &lt;span style="color:#b8bb26">&amp;#34;https://storage.googleapis.com/kubernetes-release/release/&lt;/span>&lt;span style="color:#fe8019">$(&lt;/span>curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt&lt;span style="color:#fe8019">)&lt;/span>&lt;span style="color:#b8bb26">/bin/linux/amd64/kubectl&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>chmod +x kubectl
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fabd2f">echo&lt;/span> $PATH
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mv kubectl /usr/local/bin/
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="minikube-installation">Minikube Installation&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">5&lt;/a>
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>chmod +x minikube-linux-amd64
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo mv minikube-linux-amd64 /usr/local/bin/minikube
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>minikube start
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>minikube status
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="kubectl-commands">Kubectl Commands&lt;/h3>
-&lt;h4 id="crud-commands">CRUD Commands&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-2-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-2-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3">3&lt;/a>
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>kubectl create deployment &lt;span style="color:#fe8019">[&lt;/span>name&lt;span style="color:#fe8019">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl edit deployment &lt;span style="color:#fe8019">[&lt;/span>name&lt;span style="color:#fe8019">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete deployment &lt;span style="color:#fe8019">[&lt;/span>name&lt;span style="color:#fe8019">]&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="status-of-different-k8s-components">Status of different K8s components&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-3-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1&lt;/a>
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>kubectl get &lt;span style="color:#b8bb26">`&lt;/span>nodes | pods | services | replicasets | deployments&lt;span style="color:#b8bb26">`&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h4 id="debugging-pods">Debugging pods&lt;/h4>
-&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-4-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-4-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2&lt;/a>
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>Kubectl logs &lt;span style="color:#fe8019">[&lt;/span>pod name&lt;span style="color:#fe8019">]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl &lt;span style="color:#fabd2f">exec&lt;/span> -it containername -- bin/bash
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="applying-yaml-files">Applying YAML files&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-5-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1"> 1&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-5-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2"> 2&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-5-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3"> 3&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-5-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-4"> 4&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-5-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-5"> 5&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-5-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-6"> 6&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-5-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-7"> 7&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-5-8">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-8"> 8&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-5-9">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-9"> 9&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-5-10">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-10">10&lt;/a>
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>kubectl apply -f some-deployment.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl apply -f some-service.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl apply -f some-secret.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl describe service some-service
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get pods -o wide
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get deployments -o yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get secrets
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete -f some-deployment.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete -f some-service.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl delete -f some-secret.yaml
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>&lt;a href="https://github.com/CrazyOptimist/kubernetes-mongo-express">Single Node Deployment Example&lt;/a>&lt;/p>
-&lt;h3 id="creating-secrets">Creating secrets&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-6-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-6-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-2">2&lt;/a>
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fabd2f">echo&lt;/span> -n &lt;span style="color:#b8bb26">&amp;#39;username&amp;#39;&lt;/span> | base64
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fabd2f">echo&lt;/span> -n &lt;span style="color:#b8bb26">&amp;#39;yourpassword&amp;#39;&lt;/span> | base64
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="namespaces">Namespaces&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-7-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1">1&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-7-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2">2&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-7-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-3">3&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-7-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-4">4&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-7-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-5">5&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-7-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-6">6&lt;/a>
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>kubectl get namespace
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get ns
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl cluster-info
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get configmap -n default
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl get configmap -n some-namespace
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl config set-context --current --namespace&lt;span style="color:#fe8019">=&lt;/span>NAMESPACE_NAME
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;h3 id="ingress">Ingress&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-8-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1">1&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-8-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-2">2&lt;/a>
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>minikube addons &lt;span style="color:#fabd2f">enable&lt;/span> ingress
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>minikube dashboard
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;script src="https://gist.github.com/dockerlead/18696732e8ecb1a97772911e9a0d4637.js">&lt;/script>
-&lt;h3 id="helms">Helms&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-9-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-1">1&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-9-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-2">2&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-9-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-3">3&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-9-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-4">4&lt;/a>
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>helm install --values&lt;span style="color:#fe8019">=&lt;/span>my-values.yaml &amp;lt;chartname&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl &lt;span style="color:#fabd2f">exec&lt;/span> -it nginx -c sidecar -- /bin/sh
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>curl localhost
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>kubectl logs nginx -c nginx-container
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div></description></item></channel></rss>
+&lt;/div>&lt;p>Happy containerizing! 😎&lt;/p></description></item></channel></rss>
