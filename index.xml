@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>crazyoptimist</title><link>https://crazyoptimist.net/</link><description>Recent content on crazyoptimist</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>hey@crazyoptimist.net (crazyoptimist)</managingEditor><webMaster>hey@crazyoptimist.net (crazyoptimist)</webMaster><lastBuildDate>Fri, 15 Mar 2024 15:29:42 -0500</lastBuildDate><atom:link href="https://crazyoptimist.net/index.xml" rel="self" type="application/rss+xml"/><item><title>Why Do We Need Unit Tests?</title><link>https://crazyoptimist.net/post/2024/why-do-we-need-unit-tests/</link><pubDate>Fri, 15 Mar 2024 15:29:42 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2024/why-do-we-need-unit-tests/</guid><description>&lt;h2 id="what-is-unit-testing">What is unit testing?&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>crazyoptimist</title><link>https://crazyoptimist.net/</link><description>Recent content on crazyoptimist</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>hey@crazyoptimist.net (crazyoptimist)</managingEditor><webMaster>hey@crazyoptimist.net (crazyoptimist)</webMaster><lastBuildDate>Fri, 15 Mar 2024 16:01:30 -0500</lastBuildDate><atom:link href="https://crazyoptimist.net/index.xml" rel="self" type="application/rss+xml"/><item><title>Type Conversion and Type Assertion in Go</title><link>https://crazyoptimist.net/post/2024/type-conversion-and-type-assertion-in-go/</link><pubDate>Fri, 15 Mar 2024 16:01:30 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2024/type-conversion-and-type-assertion-in-go/</guid><description>&lt;h2 id="type-conversion">Type conversion&lt;/h2>
+&lt;p>The expression &lt;code>T(v)&lt;/code> converts the value &lt;code>v&lt;/code> to the type &lt;code>T&lt;/code>.&lt;/p>
+&lt;p>In Go, assignment between items of different type requires an explicit conversion.&lt;/p>
+&lt;p>Here&amp;rsquo;s an example.&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-5"> 5&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-6"> 6&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-7"> 7&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-8">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-8"> 8&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-9">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-9"> 9&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-10">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-10">10&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-11">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-11">11&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-12">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-13">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-13">13&lt;/a>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fe8019">package&lt;/span> main
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fe8019">import&lt;/span> (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b8bb26">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b8bb26">&amp;#34;math&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fe8019">func&lt;/span> &lt;span style="color:#fabd2f">main&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#fe8019">var&lt;/span> x, y &lt;span style="color:#fabd2f">int&lt;/span> = &lt;span style="color:#d3869b">11&lt;/span>, &lt;span style="color:#d3869b">12&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> f &lt;span style="color:#fe8019">:=&lt;/span> math.&lt;span style="color:#fabd2f">Sqrt&lt;/span>(&lt;span style="color:#fabd2f">float64&lt;/span>(x&lt;span style="color:#fe8019">*&lt;/span>x &lt;span style="color:#fe8019">+&lt;/span> y&lt;span style="color:#fe8019">*&lt;/span>y))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#fe8019">var&lt;/span> z &lt;span style="color:#fabd2f">uint&lt;/span> = &lt;span style="color:#fabd2f">uint&lt;/span>(f)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fmt.&lt;span style="color:#fabd2f">Println&lt;/span>(x, y, z)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="type-assertion">Type assertion&lt;/h2>
+&lt;p>Type assertion provides access to an interface value&amp;rsquo;s underlying concrete value.&lt;/p>
+&lt;p>&lt;code>t := i.(T)&lt;/code>&lt;/p>
+&lt;p>This statement asserts that the interface value &lt;code>i&lt;/code> holds the concrete type &lt;code>T&lt;/code> and assigns the underlying &lt;code>T&lt;/code> value to the variable &lt;code>t&lt;/code>.&lt;/p>
+&lt;p>If &lt;code>i&lt;/code> does not hold a &lt;code>T&lt;/code>, the statement will trigger a panic.&lt;/p>
+&lt;p>To test whether an interface value holds a specific type, a type assertion can return two values: the underlying value and a boolean value that reports whether the assertion succeeded.&lt;/p>
+&lt;p>&lt;code>t, ok := i.(T)&lt;/code>&lt;/p>
+&lt;p>If &lt;code>i&lt;/code> holds a &lt;code>T&lt;/code>, then &lt;code>t&lt;/code> will be the underlying value and &lt;code>ok&lt;/code> will be &lt;code>true&lt;/code>.&lt;/p>
+&lt;p>If not, &lt;code>ok&lt;/code> will be &lt;code>false&lt;/code> and &lt;code>t&lt;/code> will be the zero value of type &lt;code>T&lt;/code>, and no panic occurs.&lt;/p>
+&lt;p>Here&amp;rsquo;s an example.&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1"> 1&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2"> 2&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3"> 3&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4"> 4&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5"> 5&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-6"> 6&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-7">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-7"> 7&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-8">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-8"> 8&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-9">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-9"> 9&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-10">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-10">10&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-11">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-11">11&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-12">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-12">12&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-13">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-13">13&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-14">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-14">14&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-15">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-15">15&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-16">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-16">16&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-17">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-17">17&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-18">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-18">18&lt;/a>
+&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-19">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-19">19&lt;/a>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fe8019">package&lt;/span> main
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fe8019">import&lt;/span> &lt;span style="color:#b8bb26">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fe8019">func&lt;/span> &lt;span style="color:#fabd2f">main&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#fe8019">var&lt;/span> i &lt;span style="color:#fe8019">interface&lt;/span>{} = &lt;span style="color:#b8bb26">&amp;#34;hello&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> s &lt;span style="color:#fe8019">:=&lt;/span> i.(&lt;span style="color:#fabd2f">string&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fmt.&lt;span style="color:#fabd2f">Println&lt;/span>(s) &lt;span style="color:#928374;font-style:italic">// hello
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#928374;font-style:italic">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> s, ok &lt;span style="color:#fe8019">:=&lt;/span> i.(&lt;span style="color:#fabd2f">string&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fmt.&lt;span style="color:#fabd2f">Println&lt;/span>(s, ok) &lt;span style="color:#928374;font-style:italic">// hello true
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#928374;font-style:italic">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> f, ok &lt;span style="color:#fe8019">:=&lt;/span> i.(&lt;span style="color:#fabd2f">float64&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fmt.&lt;span style="color:#fabd2f">Println&lt;/span>(f, ok) &lt;span style="color:#928374;font-style:italic">// 0 false
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#928374;font-style:italic">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> f = i.(&lt;span style="color:#fabd2f">float64&lt;/span>) &lt;span style="color:#928374;font-style:italic">// panic
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#928374;font-style:italic">&lt;/span> fmt.&lt;span style="color:#fabd2f">Println&lt;/span>(f)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Note the similarity between this syntax and that of reading from a map.&lt;/p>
+&lt;p>&lt;code>val, ok := zoo[&amp;quot;cat&amp;quot;]&lt;/code>&lt;/p>
+&lt;p>In this statement, &lt;code>val&lt;/code> is assigned the value stored under the key &amp;ldquo;cat&amp;rdquo;. If that key doesn’t exist, &lt;code>val&lt;/code> is the value type’s zero value. &lt;code>ok&lt;/code> is a boolean that is &lt;code>true&lt;/code> if the key exists in the map, and &lt;code>false&lt;/code> if not.&lt;/p>
+&lt;h2 id="bibliography">Bibliography&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://go.dev/tour/basics/13">https://go.dev/tour/basics/13&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://go.dev/tour/methods/15">https://go.dev/tour/methods/15&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://go.dev/blog/maps">https://go.dev/blog/maps&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Why Do We Need Unit Tests?</title><link>https://crazyoptimist.net/post/2024/why-do-we-need-unit-tests/</link><pubDate>Fri, 15 Mar 2024 15:29:42 -0500</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2024/why-do-we-need-unit-tests/</guid><description>&lt;h2 id="what-is-unit-testing">What is unit testing?&lt;/h2>
 &lt;p>Unit testing is the process where you test the smallest functional unit of code.&lt;/p>
 &lt;p>Software testing helps ensure code quality, and it&amp;rsquo;s an integral part of software development.&lt;/p>
 &lt;p>It&amp;rsquo;s a software development best practice to write software as small, functional units then write a unit test for each code unit.&lt;/p>
@@ -3622,52 +3720,4 @@ sudo wg-quick down wg0
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git reflog show bugfix &lt;span style="color:#928374;font-style:italic"># Shows the history of bugfix pointer&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Happy gitting! :)&lt;/p></description></item><item><title>Podman Basic Notes</title><link>https://crazyoptimist.net/post/2020/podman-basic-notes/</link><pubDate>Sat, 07 Nov 2020 01:36:06 -0600</pubDate><author>hey@crazyoptimist.net (crazyoptimist)</author><guid>https://crazyoptimist.net/post/2020/podman-basic-notes/</guid><description>&lt;h3 id="playing-around-with-podman">Playing around with Podman&lt;/h3>
-&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-0-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1">1&lt;/a>
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#fabd2f">alias&lt;/span> docker&lt;span style="color:#fe8019">=&lt;/span>&lt;span style="color:#b8bb26">&amp;#34;sudo podman &lt;/span>$1&lt;span style="color:#b8bb26">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>The above command works as of this time and podman makes namespaces for every users for every resources, i.e., images, containers and so on.&lt;/p>
-&lt;p>It means, &lt;code>podman images&lt;/code> and &lt;code>sudo podman images&lt;/code> will show different resources.😎&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-4">4&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-1-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-5">5&lt;/a>
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo podman pod create --name my-pod -p 8080:80
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo podman run -d --restart&lt;span style="color:#fe8019">=&lt;/span>always --pod&lt;span style="color:#fe8019">=&lt;/span>my-pod --name my-nginx nginx
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo podman run -d --restart&lt;span style="color:#fe8019">=&lt;/span>always --pod&lt;span style="color:#fe8019">=&lt;/span>my-pod --name my-curl curl
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo podman generate kube my-pod &amp;gt; my-pod.yaml
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo podman play kube ./my-pod.yaml
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>The generated file can not be used as raw. Below is an example of a manually edited version.&lt;/p>
-&lt;script src="https://gist.github.com/dockerlead/6bb435b321bc73589db230c98cca0e4f.js">&lt;/script>
-&lt;h1 id="install-podman-on-centos-8">Install Podman on CentOS 8&lt;/h1>
-&lt;div class="highlight">&lt;div style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-2-1">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1">1&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-2-2">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2">2&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-2-3">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3">3&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-2-4">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4">4&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-2-5">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-5">5&lt;/a>
-&lt;/span>&lt;span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59" id="hl-2-6">&lt;a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-6">6&lt;/a>
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#ebdbb2;background-color:#282828;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo dnf -y update
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo dnf -y module disable container-tools
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo dnf -y install &lt;span style="color:#b8bb26">&amp;#39;dnf-command(copr)&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo dnf -y copr &lt;span style="color:#fabd2f">enable&lt;/span> rhcontainerbot/container-selinux
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo curl -L -o /etc/yum.repos.d/devel:kubic:libcontainers:stable.repo https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/CentOS_8/devel:kubic:libcontainers:stable.repo
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo dnf -y install podman
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;p>Happy containerizing! 😎&lt;/p></description></item></channel></rss>
+&lt;/div>&lt;p>Happy gitting! :)&lt;/p></description></item></channel></rss>
