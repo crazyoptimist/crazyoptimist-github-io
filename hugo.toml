@@ -8,7 +8,7 @@ hasCJKLanguage = false
 paginate = 5
 rssLimit = 20
 disqusShortname = "crazy-optimist"
-googleAnalytics = "G-3VLC0SM1EZ"
+googleAnalytics = "G-5HGQ4TXL0R"
 
 [sitemap]                 # essential
   changefreq = "weekly"
