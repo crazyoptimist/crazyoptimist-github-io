@@ -8,7 +8,7 @@ Deploy your Jenkins instance first.
 
 {{< gist crazyoptimist e8836cee62dc52a05a94cbcbb6783a09 >}}
 
-Let's go for  password login for deployment, noting that it's not the most secure way, but just for simplicity. ;)
+We are going to use password login for automatic deployment, note that it's not the most secure way, but for simplicity for now.
 
 ### CHANGE SSH PORT - FOR DESTINATION SERVER
 
