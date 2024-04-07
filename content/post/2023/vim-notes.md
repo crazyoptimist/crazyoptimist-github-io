@@ -108,5 +108,10 @@ There are other related concepts in Vim, like `window` and `tab`. A window in Vi
 
 Now you've got a correct understanding of buffers in vim, that means you can supercharge your daily coding with Vim. :D
 
+### Common Issues
 
-Happy coding!
+Pasting from the system clipboard generates extra empty lines and indents.
+
+<details>
+This issue happens on Windows. A workaround is `vp` or `Vp`
+</details>
