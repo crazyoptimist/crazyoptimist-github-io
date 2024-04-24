@@ -108,6 +108,55 @@ There are other related concepts in Vim, like `window` and `tab`. A window in Vi
 
 Now you've got a correct understanding of buffers in vim, that means you can supercharge your daily coding with Vim. :D
 
+### Search and Replace Across Multiple Files
+
+Vim has a native feature called "quickfix", which facilitates finding a list of positions in files. You can check it out by typing `:help quickfix`.
+
+You can use Vim's native command to add findings to the quickfix list, or 3rd party extensions to achieve the same.
+
+#### Using "vimgrep" Command
+
+Let's say you want to find all occurrences of `windows` in the current working directory.
+
+`:vimgrep /windows/gj **/*.*`
+
+- `g` is a flag instructing "Add all matches in a line to the quickfix list."
+- `j` is a flag instructing "Do not jump the cursor to the location of first pattern match."
+- `**` is the pattern for all subdirectories
+- `*.*` is the wildcard file name with wildcard extensions
+
+If you want to search in a specific subdirectory:
+
+`:vimgrep /windows/gj contents/**/*.*`
+
+- `contents` is the subdirectory name
+
+As the result of `vimgrep` command, the quickfix list will be filled with all findings.
+
+#### Using Telescope with RipGrep
+
+Very simple, you only need to press <Ctrl + q> after you got findings. It will add all findings to the quickfix list.
+
+#### Nativating the Quickfix List
+
+Here are commands that you can manage the quickfix list.
+
+- :copen - Open the quickfix list window.
+- :ccl or :cclose - Close the quickfix list window.
+- :cnext or :cn - Go to the next item on the list.
+- :cprev or :cp - Go to the previous item on the list.
+- :cfirst - Go to the first item on the list.
+- :clast - Go to the last item on the list.
+- :cc <n> - Go to the nth item.
+
+#### Replace Across Files
+
+Vim has `cfdo` and `cdo` commands that allows you to run commands for each files in the quickfix list.
+
+`:cfdo %s/windows/window/g | update`
+
+Above command will replace all occurrences of `windows` with `window` in the quickfix list and write the buffers.
+
 ### Common Issues
 
 Pasting from the system clipboard generates extra empty lines and indents.
