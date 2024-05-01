@@ -106,11 +106,11 @@ Let's use the user and assume role functionality in GitHub Actions. It's a strai
 
 ```yaml
   - name: Configure AWS credentials
-    uses: aws-actions/configure-aws-credentials@v2
+    uses: aws-actions/configure-aws-credentials@v4
     with:
       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      aws-region: "us-west-2"
+      aws-region: "us-west-2(your region)" 
       role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
       role-duration-seconds: 3600
       role-session-name: DeploySPA
@@ -125,10 +125,10 @@ Adding above step to our Github actions workflow, we will have the necessary per
 
 ```terraform
 terraform {
-  required_version = ">= 1.4.0"
+  required_version = ">= 1.8.0"
   backend "s3" {
-    profile   = "myawsprofile"
-    region    = "us-west-1"
+    profile   = "yourawsprofile"
+    region    = "us-west-2(your region)"
     bucket    = "terraform-state"
     key       = "prod/terraform.tfstate"
 
@@ -138,14 +138,14 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0.1"
+      version = "~> 5.47.0"
     }
   }
 }
 
 provider "aws" {
-  profile     = "myawsprofile"
-  region      = "us-west-1"
+  profile     = "yourawsprofile"
+  region      = "us-west-2(your region)"
 
   assume_role {
     role_arn  = "arn:aws:iam::123456789012:role/Terraform-Role"
@@ -157,6 +157,6 @@ provider "aws" {
 Above Terraform code demonstrates how we can assume role in the backend configuration and provider configuration, respectively. Very straightforward, isn't it?
 
 
-That's it! We have learned how to assume a role in AWS, use it within Github Actions and Terraform.
+That's pretty much! We have learned how to assume a role in AWS, how to use it with Github Actions and Terraform.
 
 Happy coding!
