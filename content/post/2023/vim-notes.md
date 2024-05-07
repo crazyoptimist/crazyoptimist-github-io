@@ -157,6 +157,15 @@ Vim has `cfdo` and `cdo` commands that allows you to run commands for each files
 
 Above command will replace all occurrences of `windows` with `window` in the quickfix list and write the buffers.
 
+#### Code Folding
+
+- :zf - Create a fold with the selected lines
+- :za - Toggle the current fold
+- :zo - Open the current fold
+- :zc - Close the current fold
+
+There're a lot more options you can try. Read the docs for more. `:help fold`
+
 ### Common Issues
 
 Pasting from the system clipboard generates extra empty lines and indents.
