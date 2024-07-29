@@ -6,7 +6,7 @@ categories: ["vim"]
 
 There are several modes in VIM. `NORMAL`, `INSERT`, `VISUAL` are most common ones.
 
-### The Most Used Default Key Bindings
+## The Most Used Default Key Bindings
 
 - `:q`: quit VIM. `:wq`: save the current buffer and quit. `:q!` discard unsaved changes and quit
 - `h`, `j`, `k`, `l`: Movement. Example: `8k` - move 8 lines up
@@ -37,7 +37,7 @@ There are several modes in VIM. `NORMAL`, `INSERT`, `VISUAL` are most common one
 - `:vimgrep`: search current directory, see the help for more info
 - `:help`: open VIM help
 
-### Vim "leader" Key
+## Vim "leader" Key
 
 `<leader>` key is a vim tool that can be used to create personalized shortcuts.
 
@@ -70,7 +70,7 @@ And here's the mapping for it.
 map <leader>l :call ToggleLineNumber()<CR>
 ```
 
-### Vim Buffer
+## Vim Buffer
 
 Buffer is the coolest concept I've learned while I use Vim to be honest.
 
@@ -88,11 +88,11 @@ Now let’s look at what happens when you try to edit multiple files. Let’s is
 vim .vimrc .bashrc
 ```
 
-Now you've opened two buffers, and you can hop from one to another, it's very very similar with tabs in other applications like vscode or chrome.
+Now that you've opened two buffers, you can hop from one to another, it's very very similar to tabs in other applications like VS Code or Chrome.
 
 For example, `:bnext` will lead you to the next buffer, and it cycles through the list of all open buffers.
 
-So adding below two lines to your `.vimrc` file will give you a superpower to use buffer smartly and visually(I assume you're using airline plugin. But there must be similar ways if you are not using airline).
+So adding below two lines to your `.vimrc` file will give you a superpower to use buffer smartly and visually (I assume you're using airline plugin. But there must be similar ways if you are not using airline).
 
 ```vim
 " enable the list of buffers
@@ -102,13 +102,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 ```
 
-You can see all the buffer commands by `:h :buffer`, but only using `:bnext` and `:bd` was cool enough for me personally.
+You can view all the buffer commands by `:h :buffer`, but personally, I found only using `:bnext` and `:bd` was cool enough for my needs.
 
 There are other related concepts in Vim, like `window` and `tab`. A window in Vim is just a way to view a buffer. Whenever you create a new vertical or horizontal split, that is a window. And Tabs? A tab is just a collection of windows according to the docs. However, correct use of buffers may bring a lot of fun on its own.
 
-Now you've got a correct understanding of buffers in vim, that means you can supercharge your daily coding with Vim. :D
+Now that you've got a correct understanding of buffers in Vim, you can supercharge your daily coding with Vim! :D
 
-### Search and Replace Across Multiple Files
+## Search and Replace Across Multiple Files
 
 Vim has a native feature called "quickfix", which facilitates finding a list of positions in files. You can check it out by typing `:help quickfix`.
 
@@ -157,7 +157,7 @@ Vim has `cfdo` and `cdo` commands that allows you to run commands for each files
 
 Above command will replace all occurrences of `windows` with `window` in the quickfix list and write the buffers.
 
-#### Code Folding
+## Code Folding
 
 - :zf - Create a fold with the selected lines
 - :za - Toggle the current fold
@@ -166,7 +166,7 @@ Above command will replace all occurrences of `windows` with `window` in the qui
 
 There're a lot more options you can try. Read the docs for more. `:help fold`
 
-### Common Issues
+## Common Issues
 
 Pasting from the system clipboard generates extra empty lines and indents.
 
