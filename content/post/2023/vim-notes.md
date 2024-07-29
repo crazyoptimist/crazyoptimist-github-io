@@ -159,10 +159,10 @@ Above command will replace all occurrences of `windows` with `window` in the qui
 
 ## Code Folding
 
-- :zf - Create a fold with the selected lines
-- :za - Toggle the current fold
-- :zo - Open the current fold
-- :zc - Close the current fold
+- `zf` - Create a fold with the selected lines
+- `za` - Toggle the current fold
+- `zo` - Open the current fold
+- `zc` - Close the current fold
 
 There're a lot more options you can try. Read the docs for more. `:help fold`
 
