@@ -91,7 +91,10 @@ usermod -a -G docker $USER
 ## Remove build cache
 
 ```bash
-docker buildx prune
+# Check the disk usage of Docker
+docker system df
+# Remove Docker build cache
+docker buildx prune -f
 ```
 
 ## Rule of thumb
