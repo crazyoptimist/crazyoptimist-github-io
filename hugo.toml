@@ -4,11 +4,12 @@ theme = "github.com/xianmin/hugo-theme-jane"
 
 enableRobotsTXT = true
 enableEmoji = true
-hasCJKLanguage = false
-paginate = 5
 rssLimit = 20
 disqusShortname = "crazy-optimist"
 googleAnalytics = "G-5HGQ4TXL0R"
+
+[pagination]
+  pagerSize = 5
 
 [sitemap]                 # essential
   changefreq = "weekly"
@@ -31,13 +32,8 @@ googleAnalytics = "G-5HGQ4TXL0R"
   identifier = "archives"
   pageref = "/post"
 [[menu.main]]
-  name = "Categories"
-  weight = 40
-  identifier = "categories"
-  pageref = "/categories"
-[[menu.main]]
   name = "Source"
-  weight = 50
+  weight = 40
   url = "https://github.com/crazyoptimist/crazyoptimist-github-io"
 
 [params]
@@ -53,8 +49,8 @@ googleAnalytics = "G-5HGQ4TXL0R"
 
   # site info (optional)
   logoTitle = "crazyoptimist"
-  keywords = ["software engineer", "backend developer", "gopher", "rustacean", "blockchain developer"]
-  description = "crazyoptimist's personal website"
+  keywords = ["doer", "software engineer", "software architect", "backend engineer", "gopher", "rustacean"]
+  description = "crazyoptimist's blog"
 
   # paginate of archives, tags and categories
   archive-paginate = 20
@@ -95,15 +91,12 @@ googleAnalytics = "G-5HGQ4TXL0R"
 
   [params.publicCDN]        # load these files from public cdn
     enable = false
-    jquery = '<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>'
-    slideout = '<script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>'
     gitmentJS = '<script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>'
     gitmentCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">'
     photoswipe = '<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.js" integrity="sha256-AC9ChpELidrhGHX23ZU53vmRdz3FhKaN9E28+BbcWBw=" crossorigin="anonymous"></script>'
     photoswipeUI = '<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js" integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin="anonymous"></script>'
     photoswipeCSS = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css" integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin="anonymous">'
     photoswipeSKIN = '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css" integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin="anonymous">'
-
 
 #   [params.utteranc]         # utteranc is a comment system based on GitHub issues. see https://utteranc.es
 #     enable = false
@@ -143,3 +136,10 @@ googleAnalytics = "G-5HGQ4TXL0R"
     noHl = false
     style = 'gruvbox'
     tabWidth = 4
+
+# icons used by Jane, import module
+[module]
+  [[module.imports]]
+    path = 'github.com/hugomods/icons/vendors/mdi'
+  [[module.imports]]
+    path = 'github.com/hugomods/icons/vendors/lucide'
