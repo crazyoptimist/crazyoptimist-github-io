@@ -13,18 +13,12 @@ This gist self-explains how to install pyenv and use it to manage multiple pytho
 ## Manage virtual envs
 
 A virtual env is where dependencies live without polluting the global space of the current python version, preventing dependency version conflicts between different projects on the same machine.  
-Install `virtualenv` package:
-
-```
-pip install virtualenv
-virtualenv --version
-```
 
 It's common that `.gitignore` file excludes virtual env directories named `venv`, `env`, `.venv`, `.env`, `ENV` in most python projects.  
 I prefer to use `venv` for the name of virtual envs. `cd` to the project directory and create a virtual env:
 
 ```
-virtualenv venv
+pyenv exec python -m venv venv
 ```
 
 - `source venv/bin/activate` - activate the virtual env
