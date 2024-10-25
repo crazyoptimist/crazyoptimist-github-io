@@ -1,0 +1,35 @@
+/**========================================================================
+ *                      JANE THEME STYLE SETTINGS
+ *========================================================================**/
+
+/**------------------------------------------------------------------------
+ *                            Theme Color
+ * use picocss theme color, see: https://picocss.com/docs/version-picker .
+ * Values: 'red', 'pink', 'fuchsia', 'purple', 'violet', 'indigo', 'blue', 'azure', 'cyan',
+ * 'jade', 'green', 'lime', 'yellow', 'amber', 'pumpkin', 'orange', 'sand', 'grey', 'zinc', 'slate'
+ *------------------------------------------------------------------------**/
+$jane-theme-color: 'violet';
+
+/**------------------------------------------------------------------------
+ *                            Article Max Width
+ *------------------------------------------------------------------------**/
+$article-max-width: 60em;
+
+/**------------------------------------------------------------------------
+ *                            Font Settings
+ *------------------------------------------------------------------------**/
+
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap");
+// example import from google fonts
+$logo-font-family: 'Playwrite GB S', -apple-system, 'Open Sans', 'Segoe UI', 'Helvetica', Arial, sans-serif;
+
+$title-font-family: -apple-system, 'Open Sans', 'Segoe UI', 'Helvetica', Arial, sans-serif;
+
+$global-font-family: -apple-system,'Open Sans', 'Segoe UI', 'Helvetica', Arial, sans-serif;
+$global-font-size: 18px;
+$global-mobile-font-size: 15px;
+
+/**------------------------------------------------------------------------
+ *                            Other Settings
+ *------------------------------------------------------------------------**/
+$mobile-breakpoint: 768px;
