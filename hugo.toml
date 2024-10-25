@@ -55,7 +55,7 @@ enableEmoji = true
   description = "crazyoptimist's web notes"
 
   # paginate of archives, tags and categories
-  archive-paginate = 20
+  archive-paginate = 10
 
   # paginate style, default use numbered pagination links
   # if true, use original "Previous" and "Next" links.
@@ -105,16 +105,10 @@ enableEmoji = true
 #     repo = "xianmin/comments-for-hugo-theme-jane"    # The repo to store comments
 #     issueTerm = "pathname"
 
-  # google custom search, see https://cse.google.com
-  [params.search.google]
-    enable = true
-    id = "016207405477778770429:5biatnym6mq"
-    title = "Search"
-
   [params.social]
     a-email = "mailto:hey@crazyoptimist.net"
     b-github = "https://github.com/crazyoptimist"
-    c-stack-overflow = "https://stackoverflow.com/users/13894746/crazyoptimist"
+    c-stackoverflow = "https://stackoverflow.com/users/13894746/crazyoptimist"
     s-mastodon = "https://mastodon.social/@crazyoptimist"
 
 # more information https://gohugo.io/getting-started/configuration-markup/#goldmark
