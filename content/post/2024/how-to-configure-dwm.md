@@ -152,11 +152,14 @@ Here're some of the default shortcuts in DWM:
 | MODKEY + P | Open the application launcher (DMenu by default) |
 | MODKEY + J | Focus on the next window |
 | MODKEY + K | Focus on the previous window |
-| MODKEY + SHIFT + C | Close the focused window |
 | MODKEY + ENTER | Move the focused window into the master area, and vice versa (toggle) |
+| MODKEY + SHIFT + C | Close the focused window |
 | MODKEY + SHIFT + Q | Quit DWM |
 | MODKEY + <# of worksapce> | Move to the workspace # |
 | MODKEY + SHIFT + <# of worksapce> | Move the focused window to the workspace # |
+| MODKEY + SHIFT + SPACE | Toggle between tiling mode and floating mode for the focused window |
+| MODKEY + <Mouse Left Button click and drag> | Make the window floating and move |
+| MODKEY + <Mouse Right Button click and drag> | Make the window floating and resize |
 
 ## Configure DWM
 
