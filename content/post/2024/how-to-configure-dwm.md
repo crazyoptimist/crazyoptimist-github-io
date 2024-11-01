@@ -16,7 +16,7 @@ Are there any advantages in using a tiling window manager? For me, the answer is
 
 There are bunch of tiling window managers and dynamic window managers out there like i3, bspwm, dwm, sway, xmonad, qtile, hyprland, just to name a few.
 
-DWM has only a few thousands lines of source code written in C, and you many guess the reason why it's very lightweight. It only eats 200-300 MB of RAM, while a typical floating window manager like GNOME usually consumes more than 1 GB.
+DWM has only a few thousands lines of source code written in C, and you many guess the reason why it's very lightweight. It only consumes 200-300 MB of RAM, while a typical floating window manager like GNOME usually eats more than 1 GB.
 
 Knowing all those good stuff, why not give it a try? TL;DR: Let's dive into it!
 
@@ -140,7 +140,7 @@ After rebooting, you will be able to select DWM in the login screen.
 
 In a tiling window management system, the screen is split into two parts - the master area and the stack area. The master area holds only one window at a time, and the stack area holds all other windows.
 
-By default, DWM is configured to have 9 workspaces, named 1-9.
+By default, DWM is configured to have 9 workspaces, labeled 1-9. (I believe they are referred to as tags, not workspaces. At the time of writing, I am not yet clear on the distinction.)
 
 You can do everything only with keyboard in DWM. To make this happen, there's MODKEY. MODKEY is a keyboard shortcut combination prefix just like the prefix key in tmux. MODKEY in DWM is configurable, and it's configured as ALT by default.
 
