@@ -1,3 +1,13 @@
 .desktop-header {
   height: 74px;
 }
+
+.desktop-navbar {
+  height: 100%;
+  .menu {
+    .menu-item {
+      margin: auto;
+      height: 100%;
+    }
+  }
+}

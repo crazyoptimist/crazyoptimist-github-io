@@ -7,3 +7,6 @@ hugo_stats.json
 # firebase stuff
 .firebase/
 .firebaserc
+
+# asset config
+assets/jsconfig.json
