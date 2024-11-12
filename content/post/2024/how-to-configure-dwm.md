@@ -6,11 +6,11 @@ categories: ["linux"]
 
 ## Introduction
 
-DWM is one of the most lightweight window manager for Linux. DWM stands for Dynamic Window Manager, but it's still focused on tiling window management.
+DWM is one of the most lightweight window managers available for Linux. While the name stands for Dynamic Window Manager, it's primarily focused on tiling window management.
 
-So what is a tiling window manager? A tiling window manager automatically arranges and sizes windows on your screen, typically in a grid-like fashion. You would normally be using a floating window manager in MacOS, Windows, or Linux (XFCE, KDE Plasma, GNOME, etc).
+What is a Tiling Window Manager? A tiling window manager automatically arranges and sizes windows on your screen, typically in a grid-like fashion. This differs from the common floating window managers found in macOS, Windows, and Linux desktop environments like XFCE, KDE Plasma, and GNOME.
 
-A dynamic window manager is capable of managing windows in both fashion.
+A dynamic window manager is capable of managing windows in both tiling and floating fashions.
 
 Are there any advantages in using a tiling window manager? For me, the answer is YES. It brings automatic alignment of windows, keyboard-centric operation, efficient use of screen space, and improved focus and productivity. Asides that, you look very cool if you use a tiling WM, just like when you use NVIM as your IDE. :sunglasses:
 
@@ -18,7 +18,7 @@ There are bunch of tiling window managers and dynamic window managers out there 
 
 DWM has only a few thousands lines of source code written in C, and you many guess the reason why it's very lightweight. It only consumes 200-300 MB of RAM, while a typical floating window manager like GNOME usually eats more than 1 GB.
 
-Knowing all those good stuff, why not give it a try? TL;DR: Let's dive into it!
+Knowing all these good thingies, why not give it a try? TL;DR: Let's dive in!
 
 Before installing and configuring DWM on my machine, I already had Arch Linux with KDE Plasma as my daily driver. Thus, you will likely need to bring some more/different hacks if your prerequisite Linux setup is different from mine.
 
@@ -28,16 +28,19 @@ Before installing and configuring DWM on my machine, I already had Arch Linux wi
 
 I skipped this step because dependencies were already met by my KDE Plasma setup.
 
-On Arch Linux:
-
 ```bash
-sudo pacman -S base-devel libx11 libxft libxinerama freetype2 fontconfig
+# Build dependencies
+sudo pacman -S base-devel libx11 libxft freetype2 fontconfig
 ```
 
-On Debian:
+```bash
+# Xorg
+sudo pacman -S xorg-server xorg-xinit xorg-xrandr xorg-xsetroot
+```
 
 ```bash
-sudo apt install build-essential libx11-dev libxft-dev libxinerama-dev libfreetype6-dev libfontconfig1-dev
+# Utils
+sudo pacman -S git curl wget zip unzip firefox
 ```
 
 ### Pull the source code
@@ -50,12 +53,6 @@ Create a directory where you'll download source codes from suckless.org.
 cd $HOME
 mkdir .suckless
 cd .suckless
-```
-
-I believe you have `git` installed on your machine already, but if not, install it:
-
-```bash
-sudo pacman -S git
 ```
 
 Clone the DWM source repository.
