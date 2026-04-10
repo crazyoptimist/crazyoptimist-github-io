@@ -1,4 +1,5 @@
 baseURL = "https://crazyoptimist.net/"
+locale = 'en-us'
 title = "crazyoptimist"
 theme = "github.com/xianmin/hugo-theme-jane"
 
@@ -52,7 +53,7 @@ enableEmoji = true
   # site info (optional)
   logoTitle = "crazyoptimist"
   keywords = ["doer", "engineer", "gopher", "minimalist"]
-  description = "crazyoptimist's web notes"
+  description = "crazyoptimist's web log"
 
   # paginate of archives, tags and categories
   archive-paginate = 10
